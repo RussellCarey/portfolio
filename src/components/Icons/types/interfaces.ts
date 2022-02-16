@@ -2,18 +2,17 @@ import { IThemeStateProps } from "../../../interfaces/styled";
 
 export interface IIconProps {
   pageName: string;
-  themeState: any;
+  themeState: IThemeStateProps;
   label: string;
-  img: string;
-  windowType: string | null;
   isWeb: string | null;
   aniDelay: number;
-  data: any | null;
+  selectedIcon: string | null;
+  setSelectedIcon: any;
 }
 
 export interface IIconSquareProps {
-  img: any;
-  themeState: any;
+  label: string;
+  themeState: IThemeStateProps;
 }
 
 export interface IIconMenuContainerProps {
@@ -21,4 +20,9 @@ export interface IIconMenuContainerProps {
   left: number | null;
   themeState: IThemeStateProps;
   display: string;
+}
+
+export interface IIconTextProps {
+  themeState: IThemeStateProps;
+  isSelected: boolean;
 }

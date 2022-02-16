@@ -1,3 +1,4 @@
+import "./App.css";
 import ThemeState from "./context/theme/themeState";
 import Home from "./main";
 

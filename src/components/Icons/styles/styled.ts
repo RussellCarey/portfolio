@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { IStyledProps } from "../../../interfaces/styled";
 import { IIconMenuContainerProps } from "../types/interfaces";
+import { IIconTextProps } from "../types/interfaces";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
 // Container for the whole Icon component.
 export const IconContainer = styled(motion.div)`
-  width: 100px;
+  width: 90px;
 
   display: flex;
   flex-direction: column;
@@ -20,10 +21,15 @@ export const IconContainer = styled(motion.div)`
 
 // Text part of the Icon
 export const IconText = styled.p`
-  font-size: ${theme.font.fontsizes.h3};
-  color: ${(props: IStyledProps) => props.themeState.textColor};
   padding: ${theme.spacing.space.small};
+  margin-top: ${theme.spacing.space.small};
+
+  font-size: ${theme.font.fontsizes.h4};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
   border-radius: 5px;
+
+  // If icon has been click selected
+  background-color: ${(props: IIconTextProps) => (props.isSelected ? "rgba(0, 0, 0, .2)" : "transparent")};
 `;
 
 // The Icon part of this Icon component (square)
@@ -68,9 +74,18 @@ export const IconMenuContainer = styled.div<IIconMenuContainerProps>`
 
 // Icon Button
 export const IconButton = styled.div`
-  width: 100%;
-  padding: 20px;
+  width: ${theme.iconSize.default};
+  height: ${theme.iconSize.default};
+  padding: 15px;
+
   border-radius: 15px;
+  box-shadow: 3px 4px 0 ${(props) => props.themeState.borderColor};
+  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: ${(props: IStyledProps) => props.themeState.terminalColor};

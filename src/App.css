@@ -1,5 +1,21 @@
+@import url("http://fonts.cdnfonts.com/css/arial-rounded-mt-bold");
+
+html,
+body {
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  user-select: none;
+  /* cursor: url(images/my-cursor.png), auto; */
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
 }

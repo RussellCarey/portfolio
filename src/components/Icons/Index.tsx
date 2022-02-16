@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect, FunctionComponent } from "react";
+import { useState, useRef, useEffect, FunctionComponent, useContext } from "react";
 import { IconContainer, IconText } from "./styles/styled";
-// import WindowContext from "context/Window/WindowContext";
+
+import WindowContext from "../../context/window/windowContext";
 
 import IconMenu from "./IconMenu";
 import IconSquare from "./IconSquare";
@@ -10,63 +11,65 @@ const IconMain: FunctionComponent<IIconProps> = ({
   pageName,
   themeState,
   label,
-  img,
-  windowType,
   isWeb,
   aniDelay,
-  data,
+  selectedIcon,
+  setSelectedIcon,
 }) => {
-  // const windowContext = useContext(WindowContext);
-  // const { createNewWindow, createNewProjectWindow } = windowContext;
+  const windowContext = useContext(WindowContext);
+  const { createNewWindow, createNewProjectWindow } = windowContext;
+
   const clickPosition = useRef({ x: 0, y: 0 });
   const [showMenu, setShowMenu] = useState(false);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
 
-  // Remove all icons that may have the background hightlight -------- USE STATE
-  const removeItems = (e: any) => {
-    if (e.button === 0) {
-      setTimeout(() => {
-        setShowMenu(false);
-      }, 200);
-    }
-  };
+  useEffect(() => {
+    if (selectedIcon === label) setIsSelected(true);
+    if (selectedIcon !== label) setIsSelected(false);
+  }, [selectedIcon, label]);
 
   // ON one click - change the color of the text background
   const onClickHandler = (e: any) => {
+    if (e.button === 0) {
+      setSelectedIcon(label);
+    }
+
     if (e.button === 2) {
-      clickPosition.current = { x: e.clientX, y: e.clientY };
-      setShowMenu(true);
+      console.log(label);
+      setSelectedIcon(label);
     }
   };
 
   // When double clicking on the icon
   const onDoubleClickHandler = () => {
+    console.log("DOUBLE CLICKED CREATING WINDOWWOW");
     // Function: pgname, label, id, theme, windowtype
     setShowMenu(false);
+
     if (isWeb) {
       window.open(isWeb, "_blank");
       return;
     }
 
-    // Create a new windw
-    // createNewWindow(pageName, label, Math.floor(Math.random() * 100), themeState, windowType, data);
+    //! Create a new windw
 
-    console.log("made new window?");
+    console.log("CREATING WINDOW");
   };
-
-  console.log("SPAWNED AN ICON");
-  console.log(label);
 
   return (
     <IconContainer
       onMouseDown={onClickHandler}
       onDoubleClick={onDoubleClickHandler}
-      className="windowIcon"
       initial={{ opacity: 0, y: -20 }}
       transition={{ delay: aniDelay, duration: 0.5 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <IconSquare themeState={themeState} img={img} />
-      <IconText themeState={themeState}>{label}</IconText>
+      <IconSquare themeState={themeState} label={label} />
+
+      <IconText themeState={themeState} isSelected={isSelected}>
+        {label}
+      </IconText>
+
       <IconMenu
         themeState={themeState}
         top={clickPosition.current ? clickPosition.current.y : null}
