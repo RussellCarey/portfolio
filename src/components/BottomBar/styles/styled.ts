@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IStyledProps } from "../../../interfaces/styled";
+import { IStyledProps } from "../../../interfaces/types";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
@@ -17,7 +17,7 @@ export const BottomBarContainer = styled(motion.div)`
   align-items: center;
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
-  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 `;
 
 export const StartButtonContainer = styled.div`
@@ -29,7 +29,7 @@ export const StartButtonContainer = styled.div`
   align-items: center;
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
-  border-right: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  border-right: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 `;
 
 export const TimeContainer = styled.div`
@@ -62,14 +62,14 @@ export const StartMenuContainer = styled(motion.div)`
 
   border-radius: 15px 15px 0 0;
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
-  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
   border-bottom: none;
 `;
 
 export const StartMenuButton = styled.div`
   width: 100%;
   height: 80px;
-  border-bottom: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  border-bottom: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 
   display: flex;
   align-items: center;

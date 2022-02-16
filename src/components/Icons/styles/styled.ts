@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IStyledProps } from "../../../interfaces/styled";
+import { IStyledProps } from "../../../interfaces/types";
 import { IIconMenuContainerProps } from "../types/interfaces";
 import { IIconTextProps } from "../types/interfaces";
 import { theme } from "../../../theme/Theme";
@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 // Container for the whole Icon component.
 export const IconContainer = styled(motion.div)`
+  position: relative;
   width: 90px;
 
   display: flex;
@@ -48,7 +49,7 @@ export const IconSquare = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 3px 4px 0 ${(props) => props.themeState.borderColor};
+  box-shadow: 3px 4px 0 ${(props: IStyledProps) => props.themeState.borderColor};
 `;
 
 // Menu Container for right clicking the icons.
@@ -59,17 +60,23 @@ export const IconMenuContainer = styled.div<IIconMenuContainerProps>`
 
   width: 150px;
   height: max-content;
+  padding: ${theme.spacing.space.medium};
 
-  top: ${(props: any) => props.top || 0 + "px"};
-  left: ${(props: any) => props.left || 0 + "px"};
+  top: 50px;
+  left: 30px;
 
   flex-direction: column;
 
   border-radius: ${theme.iconSize.borderRadius};
-  background-color: ${(props) => props.themeState.terminalColor};
-  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
+  border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 
-  box-shadow: 3px 4px 0 ${(props) => props.themeState.borderColor};
+  box-shadow: 3px 4px 0 ${(props: IStyledProps) => props.themeState.borderColor};
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
 `;
 
 // Icon Button
@@ -79,8 +86,8 @@ export const IconButton = styled.div`
   padding: 15px;
 
   border-radius: 15px;
-  box-shadow: 3px 4px 0 ${(props) => props.themeState.borderColor};
-  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  box-shadow: 3px 4px 0 ${(props: IStyledProps) => props.themeState.borderColor};
+  border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
 
   display: flex;

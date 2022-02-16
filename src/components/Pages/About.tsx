@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Container = styled.div``;
 
 const AboutPage: FunctionComponent<IAboutPageProps> = ({ themeState, children }) => {
-  return <Container></Container>;
+  return <Container> THIS IS AN ABOUT PAGE</Container>;
 };
 
 export default AboutPage;

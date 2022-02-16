@@ -1,7 +1,8 @@
 import { useState, useEffect, FunctionComponent } from "react";
+import moment from "moment";
+
 import { ITimeProps } from "./types/interfaces";
 import { TimeContainer, BarText } from "./styles/styled";
-import moment from "moment";
 
 const StartTime: FunctionComponent<ITimeProps> = ({ themeState }) => {
   const [currentTime, setCurrentTime] = useState<string>("");
@@ -10,8 +11,8 @@ const StartTime: FunctionComponent<ITimeProps> = ({ themeState }) => {
   // Tick the time.
   const checkTimeTick = () => {
     return setInterval(() => {
-      const time = moment().format("hh:mm:ss");
-      const date = moment().format("DD/MM/yyyy");
+      const time: string = moment().format("hh:mm:ss");
+      const date: string = moment().format("DD/MM/yyyy");
       setCurrentTime(time);
       setCurrentDate(date);
     }, 1000);

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { IStyledProps } from "../../interfaces/styled";
+import { IStyledProps } from "../../interfaces/types";
 import { IDesktopPageProps } from "./types/interfaces";
 
 const Container = styled.div`

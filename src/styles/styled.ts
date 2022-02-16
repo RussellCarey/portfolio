@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { IStyledProps } from "../interfaces/styled";
+import { theme } from "../theme/Theme";
+import { IStyledProps } from "../interfaces/types";
 
 export const AppContainer = styled.div`
   position: relative;
@@ -20,11 +21,13 @@ export const AppContainer = styled.div`
 
   /* Handle */
   *::-webkit-scrollbar-thumb {
-    background: ${(props) => props.themeState.backgroundColor};
+    background: ${(props: IStyledProps) => props.themeState.terminalColor};
+    border-left: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
   }
 
   /* Handle on hover */
   *::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    /* cursor: pointer;
+    filter: brightness(50%); */
   }
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/Theme";
 import { motion } from "framer-motion";
-import { IStyledProps } from "../../../../interfaces/styled";
+import { IStyledProps } from "../../../../interfaces/types";
 
 export const WindowIconContainer = styled(motion.div)`
   width: min-content;

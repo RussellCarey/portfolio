@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
-import { IStyledProps } from "../../../interfaces/styled";
 
 export const Container = styled.div`
   display: flex;

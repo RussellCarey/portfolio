@@ -1,9 +1,9 @@
-import { IThemeStateProps } from "../../../interfaces/styled";
+import { EWindowTypes, IThemeStateProps } from "../../../interfaces/types";
 
 export interface IIconProps {
   pageName: string;
+  windowType: EWindowTypes;
   themeState: IThemeStateProps;
-  label: string;
   isWeb: string | null;
   aniDelay: number;
   selectedIcon: string | null;
@@ -16,8 +16,6 @@ export interface IIconSquareProps {
 }
 
 export interface IIconMenuContainerProps {
-  top: number | null;
-  left: number | null;
   themeState: IThemeStateProps;
   display: string;
 }
@@ -25,4 +23,12 @@ export interface IIconMenuContainerProps {
 export interface IIconTextProps {
   themeState: IThemeStateProps;
   isSelected: boolean;
+}
+
+export interface IIconMenuProps {
+  top: number | null;
+  left: number | null;
+  display: any;
+  themeState: any;
+  onClickHandler: any;
 }

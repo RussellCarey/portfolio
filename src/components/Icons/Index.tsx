@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, FunctionComponent, useContext } from "react";
+import React, { useState, useRef, useEffect, FunctionComponent, useContext } from "react";
 import { IconContainer, IconText } from "./styles/styled";
 
 import WindowContext from "../../context/window/windowContext";
@@ -9,51 +9,49 @@ import { IIconProps } from "./types/interfaces";
 
 const IconMain: FunctionComponent<IIconProps> = ({
   pageName,
+  windowType,
   themeState,
-  label,
   isWeb,
   aniDelay,
   selectedIcon,
   setSelectedIcon,
 }) => {
   const windowContext = useContext(WindowContext);
-  const { createNewWindow, createNewProjectWindow } = windowContext;
+  const { createNewWindow } = windowContext;
 
-  const clickPosition = useRef({ x: 0, y: 0 });
-  const [showMenu, setShowMenu] = useState(false);
+  const clickPosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   useEffect(() => {
-    if (selectedIcon === label) setIsSelected(true);
-    if (selectedIcon !== label) setIsSelected(false);
-  }, [selectedIcon, label]);
+    if (selectedIcon === pageName) setIsSelected(true);
+    if (selectedIcon !== pageName) setIsSelected(false);
+    if (selectedIcon !== pageName) setShowMenu(false);
+  }, [selectedIcon, pageName]);
 
   // ON one click - change the color of the text background
-  const onClickHandler = (e: any) => {
+  const onClickHandler = (e: React.MouseEvent) => {
     if (e.button === 0) {
-      setSelectedIcon(label);
+      setSelectedIcon(pageName);
     }
 
     if (e.button === 2) {
-      console.log(label);
-      setSelectedIcon(label);
+      setSelectedIcon(pageName);
+      setShowMenu(true);
+      clickPosition.current = { x: e.pageX, y: e.pageY };
     }
   };
 
   // When double clicking on the icon
   const onDoubleClickHandler = () => {
-    console.log("DOUBLE CLICKED CREATING WINDOWWOW");
-    // Function: pgname, label, id, theme, windowtype
     setShowMenu(false);
 
     if (isWeb) {
-      window.open(isWeb, "_blank");
-      return;
+      return window.open(isWeb, "_blank");
     }
 
-    //! Create a new windw
-
-    console.log("CREATING WINDOW");
+    //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
+    createNewWindow(pageName, windowType, null, false);
   };
 
   return (
@@ -64,16 +62,16 @@ const IconMain: FunctionComponent<IIconProps> = ({
       transition={{ delay: aniDelay, duration: 0.5 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <IconSquare themeState={themeState} label={label} />
+      <IconSquare themeState={themeState} label={pageName} />
 
       <IconText themeState={themeState} isSelected={isSelected}>
-        {label}
+        {pageName}
       </IconText>
 
       <IconMenu
         themeState={themeState}
-        top={clickPosition.current ? clickPosition.current.y : null}
-        left={clickPosition.current ? clickPosition.current.x : null}
+        top={clickPosition.current ? clickPosition.current.y + 100 : null}
+        left={clickPosition.current ? clickPosition.current.x + 200 : null}
         display={showMenu === true ? "flex" : "none"}
         onClickHandler={onDoubleClickHandler}
       />

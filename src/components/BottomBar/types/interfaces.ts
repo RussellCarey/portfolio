@@ -1,4 +1,4 @@
-import { IThemeStateProps } from "../../../interfaces/styled";
+import { IThemeStateProps } from "../../../interfaces/types";
 
 export interface IStartButtonProps {
   themeState: IThemeStateProps;

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { WindowContainer } from "./styles/styled";
+import { EWindowTypes } from "../../interfaces/types";
 
 import CornerButton from "./CornerButton";
 import Sidebar from "./Sidebar";
@@ -8,9 +9,9 @@ import WindowTopbar from "./Topbar";
 
 // import Project from "../pages/Project";
 import AboutPage from "../Pages/About";
-// import HowtoPage from "../pages/Howto";
-// import ProjectTemplate from "../pages/Project.Template";
-// import Contact from "../pages/Contact";
+import HowtoPage from "../Pages/Howto";
+// import ProjectTemplate from "../Pages/Project.Template";
+import Contact from "../Pages/Contact";
 
 //! START
 export default function Window({ pageName, themeState, id, windowType, data, isProject, windowList }) {
@@ -25,6 +26,7 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
   const isResizing = useRef(false);
   const [isOnMoving, setisOnMoving] = useState(false);
   const isMoving = useRef(false);
+
   const movingPoint = useRef([]);
   const dragStartPoint = useRef({});
 
@@ -36,6 +38,33 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
       window.removeEventListener("mouseup", mouseUp);
     };
   }, []);
+
+  //? Window event listener
+  const resizeTheWindow = (e) => {
+    if (isResizing.current === true) {
+      setDimensions({
+        width: dragStartPoint.current.w + (e.clientX - dragStartPoint.current.x),
+        height: dragStartPoint.current.h + (e.clientY - dragStartPoint.current.y),
+      });
+    }
+
+    if (isMoving.current === true) {
+      setPosition({
+        left: e.clientX - movingPoint.current[0],
+        top: e.clientY - movingPoint.current[1],
+      });
+    }
+  };
+
+  //? On any mouse up reset all
+  const onReset = () => {
+    isResizing.current = false;
+    isMoving.current = false;
+    movingPoint.current = null;
+    dragStartPoint.current = null;
+    setIsOnResize(null);
+    setisOnMoving(null);
+  };
 
   const getMousePositionInDiv = (e) => {
     // Important: currentTarget for parent but target for div -- This is why the math was off -- wrong div..
@@ -87,33 +116,6 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
     }
   };
 
-  //? Window event listener
-  const resizeTheWindow = (e) => {
-    if (isResizing.current === true) {
-      setDimensions({
-        width: dragStartPoint.current.w + (e.clientX - dragStartPoint.current.x),
-        height: dragStartPoint.current.h + (e.clientY - dragStartPoint.current.y),
-      });
-    }
-
-    if (isMoving.current === true) {
-      setPosition({
-        left: e.clientX - movingPoint.current[0],
-        top: e.clientY - movingPoint.current[1],
-      });
-    }
-  };
-
-  //? On any mouse up reset all
-  const onReset = () => {
-    isResizing.current = false;
-    isMoving.current = false;
-    movingPoint.current = null;
-    dragStartPoint.current = null;
-    setIsOnResize(null);
-    setisOnMoving(null);
-  };
-
   return (
     <WindowContainer
       onMouseMove={checkMousePosition}
@@ -129,17 +131,18 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
       <CornerButton themeState={themeState} onReset={onReset} id={id} />
 
       {/* Load the sidebar if needed or not..*/}
-      {windowType === "sidebar" ? <Sidebar themeState={themeState}></Sidebar> : null}
+      {windowType === EWindowTypes.sidebar ? <Sidebar themeState={themeState}></Sidebar> : null}
 
       <WindowMain themeState={themeState}>
         <WindowTopbar themeState={themeState} />
         {/* Main window pages */}
         {/* {pageName && pageName === "Projects" ? <Project themeState={themeState} data={data}></Project> : null} */}
-        {pageName && pageName === "about" ? <AboutPage themeState={themeState}></AboutPage> : null}
-        {/* {pageName && pageName === "Howto" ? <HowtoPage themeState={themeState}></HowtoPage> : null}
-        {pageName && pageName === "Contact" ? <Contact themeState={themeState}></Contact> : null}
+        {pageName === "about" ? <AboutPage themeState={themeState}></AboutPage> : null}
+        {pageName === "guide" ? <HowtoPage themeState={themeState}></HowtoPage> : null}
+        {pageName === "contact" ? <Contact themeState={themeState}></Contact> : null}
+
         {/* Project subpages */}
-        {/* {isProject ? <ProjectTemplate themeState={themeState} data={data}></ProjectTemplate> : null} */} */
+        {/* { {isProject ? <ProjectTemplate themeState={themeState} data={data}></ProjectTemplate> : null} }  */}
       </WindowMain>
     </WindowContainer>
   );
