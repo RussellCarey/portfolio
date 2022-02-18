@@ -9,6 +9,8 @@ import { IIconProps } from "./types/interfaces";
 
 const IconMain: FunctionComponent<IIconProps> = ({
   pageName,
+  text,
+  data,
   windowType,
   themeState,
   isWeb,
@@ -51,7 +53,7 @@ const IconMain: FunctionComponent<IIconProps> = ({
     }
 
     //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
-    createNewWindow(pageName, windowType, null, false);
+    createNewWindow(pageName, windowType, data, false);
   };
 
   return (
@@ -65,7 +67,7 @@ const IconMain: FunctionComponent<IIconProps> = ({
       <IconSquare themeState={themeState} label={pageName} />
 
       <IconText themeState={themeState} isSelected={isSelected}>
-        {pageName}
+        {text}
       </IconText>
 
       <IconMenu

@@ -15,28 +15,24 @@ export const darkThemeDefault = {
 };
 
 export const KobayashiColors = {
-  purple: {
-    main: "#EEA1E5",
-    light: "#F6F0EF",
-  },
-  lime: {
-    main: "#B2D053",
-    light: "#F4F5E6",
+  pink: {
+    background: "#EEA1E5",
+    terminal: "#F6F0EF",
   },
   blue: {
-    main: "#6895C5",
-    light: "#E6F1F3",
+    background: "#6895C5",
+    terminal: "#E6F1F3",
   },
-  darkpurple: {
-    main: "#8D93C3",
-    light: "#E6F1F3",
+  purple: {
+    background: "#8D93C3",
+    terminal: "#E6F1F3",
   },
   turquoise: {
-    main: "#6BCEBE",
-    light: "#D1DFD4",
+    background: "#6BCEBE",
+    terminal: "#D1DFD4",
   },
   peach: {
-    main: "#FBB79C",
-    light: "#ECE5DC",
+    background: "#FBB79C",
+    terminal: "#ECE5DC",
   },
 };

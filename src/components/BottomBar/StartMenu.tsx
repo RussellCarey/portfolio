@@ -1,19 +1,46 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext, useState, useEffect } from "react";
 import { StartMenuButton, StartMenuContainer } from "./styles/styled";
 import { IStartMenuProps } from "./types/interfaces";
 
-const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState }) => {
+import ThemeContext from "../../context/theme/themeContext";
+
+const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightClick, setCanRightClick }) => {
+  const { themeChangeMap } = useContext(ThemeContext);
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  const selectAndChangeRandomColor = () => {
+    //! Dark theme is not great nor the back groind colors.
+    themeChangeMap.pink();
+  };
+
+  const toggleDarkMode = () => {
+    isDark ? themeChangeMap.dark() : themeChangeMap.light();
+    setIsDark(!isDark);
+  };
+
+  const rightClickToggle = () => {
+    // if (canRightClick) {
+    //   console.log("Displable right click");
+    //   document.removeEventListener("contextmenu", (e) => e.preventDefault());
+    // }
+    // if (!canRightClick) {
+    //   console.log("enabled right lcik");
+    //   document.addEventListener("contextmenu", (e) => e.preventDefault());
+    // }
+    // setCanRightClick(!canRightClick);
+  };
+
   return (
-    <StartMenuContainer
-      themeState={themeState}
-      initial={{ y: 450 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, delay: 0.1 }}
-    >
-      <StartMenuButton themeState={themeState}>random colors</StartMenuButton>
-      <StartMenuButton themeState={themeState}>toggle dark mode</StartMenuButton>
-      <StartMenuButton themeState={themeState}>allow right click</StartMenuButton>
-      <StartMenuButton themeState={themeState}>play random game? :)</StartMenuButton>
+    <StartMenuContainer themeState={themeState}>
+      <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
+        change color
+      </StartMenuButton>
+      <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
+        toggle dark mode
+      </StartMenuButton>
+      <StartMenuButton onClick={rightClickToggle} themeState={themeState}>
+        {canRightClick ? "disabled right click" : "enable right click"}
+      </StartMenuButton>
     </StartMenuContainer>
   );
 };

@@ -2,6 +2,8 @@ import { EWindowTypes, IThemeStateProps } from "../../../interfaces/types";
 
 export interface IIconProps {
   pageName: string;
+  text: string;
+  data: any | null;
   windowType: EWindowTypes;
   themeState: IThemeStateProps;
   isWeb: string | null;

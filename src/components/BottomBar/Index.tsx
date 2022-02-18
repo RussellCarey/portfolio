@@ -3,11 +3,12 @@ import ThemeContext from "../../context/theme/themeContext";
 import { BottomBarContainer } from "./styles/styled";
 import StartButton from "./StartButton";
 import StartTime from "./StartTime";
+import StartMenu from "./StartMenu";
 
 export default function BottomBar() {
   const [showStartMenu, setShowStartMenu] = useState<boolean>(false);
-  const themeContext = useContext(ThemeContext);
-  const { theme } = themeContext;
+  const [canRightClick, setCanRightClick] = useState<boolean>(false);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <BottomBarContainer
@@ -18,6 +19,10 @@ export default function BottomBar() {
     >
       <StartButton themeState={theme} setShowStartMenu={setShowStartMenu} showStartMenu={showStartMenu} />
       <StartTime themeState={theme} />
+
+      {showStartMenu ? (
+        <StartMenu themeState={theme} canRightClick={canRightClick} setCanRightClick={setCanRightClick} />
+      ) : null}
     </BottomBarContainer>
   );
 }

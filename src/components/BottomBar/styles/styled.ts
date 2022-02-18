@@ -4,8 +4,8 @@ import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
 export const BottomBarContainer = styled(motion.div)`
-  z-index: 1100;
-  position: fixed;
+  z-index: 100;
+  position: relative;
   bottom: 0;
   left: 0;
 
@@ -20,7 +20,10 @@ export const BottomBarContainer = styled(motion.div)`
   border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 `;
 
+// Start Button
 export const StartButtonContainer = styled.div`
+  position: relative;
+  z-index: 100;
   width: 150px;
   height: 100%;
 
@@ -30,6 +33,11 @@ export const StartButtonContainer = styled.div`
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border-right: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.95);
+  }
 `;
 
 export const TimeContainer = styled.div`
@@ -51,10 +59,10 @@ export const BarText = styled.p`
   font-size: ${theme.font.fontsizes.h5};
 `;
 
-export const StartMenuContainer = styled(motion.div)`
-  z-index: 1000;
+// Start menu
+export const StartMenuContainer = styled.div`
   position: absolute;
-  bottom: 80px;
+  bottom: 75px;
   left: 1px;
 
   width: 300px;
@@ -64,11 +72,15 @@ export const StartMenuContainer = styled(motion.div)`
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
   border-bottom: none;
+
+  z-index: 50;
 `;
 
+// The buttons INSIDE the start menu.
 export const StartMenuButton = styled.div`
   width: 100%;
   height: 80px;
+  border-radius: 15px 15px 0 0;
   border-bottom: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 
   display: flex;
@@ -77,4 +89,10 @@ export const StartMenuButton = styled.div`
 
   font-size: ${theme.font.fontsizes.h5};
   color: ${(props: IStyledProps) => props.themeState.textColor};
+  background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.95);
+  }
 `;

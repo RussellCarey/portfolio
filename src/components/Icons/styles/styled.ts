@@ -14,7 +14,7 @@ export const IconContainer = styled(motion.div)`
   flex-direction: column;
   align-items: center;
 
-  padding: ${theme.spacing.space.small};
+  padding: ${theme.spacing.space.xsmall};
   margin: ${theme.spacing.space.small};
 
   border-radius: 15px;
@@ -25,7 +25,7 @@ export const IconText = styled.p`
   padding: ${theme.spacing.space.small};
   margin-top: ${theme.spacing.space.small};
 
-  font-size: ${theme.font.fontsizes.h4};
+  font-size: ${theme.font.fontsizes.h5};
   color: ${(props: IStyledProps) => props.themeState.textColor};
   border-radius: 5px;
 

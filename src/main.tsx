@@ -25,7 +25,9 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.about}
-          windowType={EWindowTypes.noSidebar}
+          data={null}
+          text={EPageNames.about}
+          windowType={EWindowTypes.sidebar}
           aniDelay={0.1}
           isWeb={null}
           selectedIcon={selectedIcon}
@@ -35,8 +37,10 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.projects}
-          windowType={EWindowTypes.noSidebar}
-          aniDelay={0.1}
+          data={null}
+          text={EPageNames.projects}
+          windowType={EWindowTypes.sidebar}
+          aniDelay={0.3}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -45,8 +49,10 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.blog}
+          data={null}
+          text={EPageNames.blog}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.1}
+          aniDelay={0.5}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -55,8 +61,10 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.contact}
+          data={null}
+          text={EPageNames.contact}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.1}
+          aniDelay={0.6}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -65,8 +73,10 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.twitter}
+          data={null}
+          text={EPageNames.twitter}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.1}
+          aniDelay={0.7}
           isWeb={"https://www.twitter.com/russellcareyy"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -75,8 +85,10 @@ export default function Home() {
         <Icon
           themeState={theme}
           pageName={EPageNames.github}
+          data={null}
+          text={EPageNames.github}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.1}
+          aniDelay={0.8}
           isWeb={"https://www.github.com/russellcarey"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -91,8 +103,7 @@ export default function Home() {
                   themeState={theme}
                   id={w.id}
                   windowType={w.windowType}
-                  data={null}
-                  isProject={false}
+                  data={w.data}
                   windowList={windowState.windows}
                 />
               );

@@ -12,6 +12,7 @@ export interface IThemeStateProps {
 
 export interface IWindowObject {
   id: number;
+  data: any;
   label: string;
   pageName: string;
   windowType: string;
@@ -29,6 +30,7 @@ export enum EPageNames {
   twitter = "twitter",
   blog = "blog",
   about = "about",
+  project = "project",
   projects = "projects",
   contact = "contact",
 }

@@ -75,7 +75,7 @@ export const WindowContextContainer = styled.div`
 `;
 
 export const SideBarContainer = styled.div`
-  width: 200px;
+  width: 100px;
   min-width: 200px;
   height: 100%;
 

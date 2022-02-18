@@ -7,16 +7,18 @@ import Sidebar from "./Sidebar";
 import WindowMain from "./Main";
 import WindowTopbar from "./Topbar";
 
-// import Project from "../pages/Project";
 import AboutPage from "../Pages/About";
 import HowtoPage from "../Pages/Howto";
-// import ProjectTemplate from "../Pages/Project.Template";
+import ProjectPage from "../Pages/Project/Index";
+import ProjectsPage from "../Pages/ProjectsFolder";
 import Contact from "../Pages/Contact";
 
 //! START
-export default function Window({ pageName, themeState, id, windowType, data, isProject, windowList }) {
+export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
+  console.log(`Data IS SET INSIDE THE PAGE ${pageName} with id of ${id}`);
   const [dimensions, setDimensions] = useState({});
 
+  // DEfault window position.
   const [position, setPosition] = useState({
     top: 10 * windowList.length,
     left: 40 * windowList.length,
@@ -27,7 +29,7 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
   const [isOnMoving, setisOnMoving] = useState(false);
   const isMoving = useRef(false);
 
-  const movingPoint = useRef([]);
+  const movingPoint = useRef({});
   const dragStartPoint = useRef({});
 
   useEffect(() => {
@@ -50,8 +52,8 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
 
     if (isMoving.current === true) {
       setPosition({
-        left: e.clientX - movingPoint.current[0],
-        top: e.clientY - movingPoint.current[1],
+        left: e.clientX - movingPoint.current.x,
+        top: e.clientY - movingPoint.current.y,
       });
     }
   };
@@ -62,8 +64,8 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
     isMoving.current = false;
     movingPoint.current = null;
     dragStartPoint.current = null;
-    setIsOnResize(null);
-    setisOnMoving(null);
+    setIsOnResize(false);
+    setisOnMoving(false);
   };
 
   const getMousePositionInDiv = (e) => {
@@ -77,7 +79,9 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
   //? Checks the mouse position inside the div
   const checkMousePosition = (e) => {
     const mousePos = getMousePositionInDiv(e);
+
     if (
+      e.button &&
       mousePos.mouseX < mousePos.rect.width &&
       mousePos.mouseX > mousePos.rect.width - 100 &&
       mousePos.mouseY < mousePos.rect.height &&
@@ -112,7 +116,7 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
 
     if (isOnMoving) {
       isMoving.current = true;
-      movingPoint.current = [mousePos.mouseX, mousePos.mouseY];
+      movingPoint.current = { x: mousePos.mouseX, y: mousePos.mouseY };
     }
   };
 
@@ -140,7 +144,8 @@ export default function Window({ pageName, themeState, id, windowType, data, isP
         {pageName === "about" ? <AboutPage themeState={themeState}></AboutPage> : null}
         {pageName === "guide" ? <HowtoPage themeState={themeState}></HowtoPage> : null}
         {pageName === "contact" ? <Contact themeState={themeState}></Contact> : null}
-
+        {pageName === "project" ? <ProjectPage themeState={themeState} data={data}></ProjectPage> : null}
+        {pageName === "projects" ? <ProjectsPage themeState={themeState}></ProjectsPage> : null}
         {/* Project subpages */}
         {/* { {isProject ? <ProjectTemplate themeState={themeState} data={data}></ProjectTemplate> : null} }  */}
       </WindowMain>

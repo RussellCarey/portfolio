@@ -9,6 +9,8 @@ export const AppContainer = styled.div`
   position: relative;
   overflow: hidden;
 
+  background-color: ${(props: IStyledProps) => props.themeState.backgroundColor};
+
   /* width */
   *::-webkit-scrollbar {
     width: 30px;

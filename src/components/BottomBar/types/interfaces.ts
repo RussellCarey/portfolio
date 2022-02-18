@@ -12,4 +12,6 @@ export interface ITimeProps {
 
 export interface IStartMenuProps {
   themeState: IThemeStateProps;
+  setCanRightClick: Function;
+  canRightClick: boolean;
 }

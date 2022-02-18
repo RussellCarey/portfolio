@@ -3,23 +3,21 @@ import styled from "styled-components";
 import { IStyledProps } from "../../interfaces/types";
 import { IDesktopPageProps } from "./types/interfaces";
 
-const Container = styled.div`
+const DesktopContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 80px);
   padding: 10px;
 
   display: flex;
   align-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-
-  background-color: ${(props: IStyledProps) => props.themeState.backgroundColor};
 `;
 
 const Desktop: FunctionComponent<IDesktopPageProps> = ({ themeState, children }) => {
   // Select and unselect the color of all icon
 
-  return <Container themeState={themeState}>{children}</Container>;
+  return <DesktopContainer>{children}</DesktopContainer>;
 };
 
 export default Desktop;
