@@ -12,11 +12,10 @@ import ProjectPage from "../Pages/Project/Index";
 import ProjectsPage from "../Pages/ProjectsFolder";
 import Contact from "../Pages/Contact";
 
-//! START
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const [dimensions, setDimensions] = useState({});
 
-  // DEfault window position.
+  //! DEfault window position. CHANGE THIS
   const [position, setPosition] = useState({
     top: !isMobile ? 10 * windowList.length : 10,
     left: !isMobile ? 40 * windowList.length : 10,
@@ -140,19 +139,14 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       transition={{ duration: 0.2, delay: 0.1 }}
     >
       <CornerButton themeState={themeState} onReset={onReset} id={id} />
-
+      {/* {windowType === EWindowTypes.sidebar ? <Sidebar themeState={themeState} /> : null} */}
       <WindowTopbar themeState={themeState} />
-
       <WindowMain themeState={themeState}>
-        {/* Main window pages */}
-        {/* {pageName && pageName === "Projects" ? <Project themeState={themeState} data={data}></Project> : null} */}
         {pageName === "about" ? <AboutPage themeState={themeState} /> : null}
         {pageName === "guide" ? <HowtoPage themeState={themeState} /> : null}
         {pageName === "contact" ? <Contact themeState={themeState} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
-        {/* Project subpages */}
-        {/* { {isProject ? <ProjectTemplate themeState={themeState} data={data}></ProjectTemplate> : null} }  */}
       </WindowMain>
     </WindowContainer>
   );

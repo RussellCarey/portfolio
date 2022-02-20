@@ -9,9 +9,8 @@ export const WindowContainer = styled(motion.div)`
   flex-direction: column;
   position: absolute;
 
-  top: ${(props: any) => (!props.isMobile ? (props.position.top ? props.position.top + "px" : "100px") : 5)};
-
-  left: ${(props: any) => (!props.isMobile ? (props.position.left ? props.position.left + "px" : "100px") : 5)};
+  top: ${(props: any) => props.position.top + "px"};
+  left: ${(props: any) => props.position.left + "px"};
 
   width: ${(props: any) =>
     !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "90%"};
@@ -26,8 +25,10 @@ export const WindowContainer = styled(motion.div)`
 
   z-index: ${(props: any) => (props.windowList.length > 0 ? props.windowList.length * 10 + 100 : 100)};
 
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
+  @media (max-width: 1000px) {
+    box-shadow: none;
+    width: calc(100vw - 20px);
+  }
 `;
 
 export const MainWindowContainer = styled.div`
@@ -100,7 +101,7 @@ export const TopBarContainer = styled.div`
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border-bottom: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
 
-  border-radius: 0 15px 0 0;
+  border-radius: 15px 15px 0 0;
 
   display: flex;
   justify-content: center;

@@ -8,20 +8,17 @@ import ThemeState from "../../../../context/theme/themeState";
 // Texts
 export const PaleText = styled.p`
   flex: 1;
-  font-size: ${theme.font.fontsizes.text};
   color: #84847e;
+  text-align: left;
 `;
 
 export const Text = styled.p`
   flex: 2;
-  font-size: ${theme.font.fontsizes.text};
   color: ${theme.colors.text.primary};
-  text-align: right;
 `;
 
 export const DescriptionText = styled.p`
   flex: 2;
-  font-size: ${theme.font.fontsizes.text};
   color: ${theme.colors.text.primary};
   margin-bottom: ${theme.spacing.space.medium};
 `;
@@ -46,20 +43,10 @@ export const ImageSideContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-`;
 
-// Caroousel
-export const StripContainer = styled.div`
-  width: 100%;
-  max-height: 150px;
-  flex: 1;
-
-  display: flex;
-  flex-wrap: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 ${theme.spacing.space.large};
+  @media (max-width: 1000px) {
+    height: 300px;
+  }
 `;
 
 // Top image section
@@ -97,6 +84,9 @@ export const TextSideContainer = styled.div`
 
   padding: ${theme.spacing.space.medium};
 
+  font-size: ${(props: IStyledWithDimensionsProps) =>
+    props.dimensions.width < 900 ? theme.font.fontsizes.xSmall : theme.font.fontsizes.text};
+
   display: flex;
   flex-direction: column;
 
@@ -113,10 +103,19 @@ export const TitleContainer = styled.div`
   height: max-content;
 
   padding: ${theme.spacing.space.small};
+  text-align: right;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   border-bottom: solid 1px black;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 `;
 
 // Text descritpion section
@@ -124,6 +123,12 @@ export const DescriptionContainer = styled.div`
   width: 100%;
   padding: ${theme.spacing.space.small};
   display: flex;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 `;
 
 export const MainTitleContainer = styled.div`

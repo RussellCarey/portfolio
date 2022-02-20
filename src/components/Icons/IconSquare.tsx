@@ -21,7 +21,7 @@ const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ label, themeState
       {label === EPageNames.about ? <About /> : null}
       {label === EPageNames.projects ? <Projects /> : null}
       {label === EPageNames.contact ? <Contact /> : null}
-      {label === EPageNames.linkedin ? <Contact /> : null}
+      {label === EPageNames.linkedin ? <Linkedin /> : null}
     </IconSquare>
   );
 };

@@ -97,9 +97,9 @@ export default function Home() {
 
         <Icon
           themeState={theme}
-          pageName={"linkedin"}
+          pageName={EPageNames.linkedin}
           data={null}
-          text={"linkedin"}
+          text={EPageNames.linkedin}
           windowType={EWindowTypes.noSidebar}
           aniDelay={0.8}
           isWeb={"https://www.linkedin.com/in/russell-carey-b199bb19a/"}
