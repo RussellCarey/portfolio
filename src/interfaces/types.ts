@@ -9,6 +9,7 @@ export interface IStyledWithDimensionsProps extends IStyledProps {
   };
 }
 
+//
 export interface IThemeStateProps {
   backgroundColor: string;
   terminalColor: string;
