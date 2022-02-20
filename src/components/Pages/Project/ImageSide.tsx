@@ -7,7 +7,7 @@ const ImageSide: FunctionComponent<IImageSideProps> = ({ data, themeState, dimen
   // const [selectedMedia, setSelectedMedia] = useState<number>(0);
 
   return (
-    <ImageSideContainer themeState={themeState} dimensions={dimensions}>
+    <ImageSideContainer>
       <MainArea data={data} themeState={themeState} dimensions={dimensions} />
     </ImageSideContainer>
   );

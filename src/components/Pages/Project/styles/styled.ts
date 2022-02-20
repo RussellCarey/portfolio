@@ -10,6 +10,8 @@ export const PaleText = styled.p`
   flex: 1;
   color: #84847e;
   text-align: left;
+
+  margin-bottom: ${theme.spacing.space.small};
 `;
 
 export const Text = styled.p`
@@ -36,10 +38,6 @@ export const ProjectContainer = styled.div`
 export const ImageSideContainer = styled.div`
   width: 100%;
   height: 100%;
-
-
-  border-right: solid 5px ${(props: IStyledWithDimensionsProps) =>
-    props.dimensions.width < 800 ? "none" : props.themeState.borderColor}
 
   display: flex;
   flex-direction: column;
@@ -95,6 +93,9 @@ export const TextSideContainer = styled.div`
 
   border-top: solid 5px
     ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 800 ? props.themeState.borderColor : "none")};
+
+  border-left: solid 5px
+    ${(props: IStyledWithDimensionsProps) => (props.dimensions.width > 800 ? props.themeState.borderColor : "none")};
 `;
 
 //
@@ -103,19 +104,14 @@ export const TitleContainer = styled.div`
   height: max-content;
 
   padding: ${theme.spacing.space.small};
-  text-align: right;
+  text-align: left;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   border-bottom: solid 1px black;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
 `;
 
 // Text descritpion section
@@ -123,12 +119,9 @@ export const DescriptionContainer = styled.div`
   width: 100%;
   padding: ${theme.spacing.space.small};
   display: flex;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 `;
 
 export const MainTitleContainer = styled.div`
