@@ -2,14 +2,19 @@ import styled from "styled-components";
 import { theme } from "../theme/Theme";
 import { IStyledProps } from "../interfaces/types";
 
+export interface IStyledWithMobile extends IStyledProps {
+  isMobile: boolean;
+  mobileHeight: number;
+}
+
 export const AppContainer = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: ${(props: IStyledWithMobile) => (!props.isMobile ? "100vh" : props.mobileHeight + "px")};
   position: relative;
   overflow: hidden;
 
-  background-color: ${(props: IStyledProps) => props.themeState.backgroundColor};
+  background-color: ${(props: IStyledWithMobile) => props.themeState.backgroundColor};
 
   /* width */
   *::-webkit-scrollbar {
@@ -18,12 +23,12 @@ export const AppContainer = styled.div`
 
   /* Track */
   *::-webkit-scrollbar-track {
-    background: ${(props: IStyledProps) => props.themeState.borderColor};
+    background: ${(props: IStyledWithMobile) => props.themeState.borderColor};
   }
 
   /* Handle */
   *::-webkit-scrollbar-thumb {
-    background: ${(props: IStyledProps) => props.themeState.terminalColor};
+    background: ${(props: IStyledWithMobile) => props.themeState.terminalColor};
     border-left: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
   }
 

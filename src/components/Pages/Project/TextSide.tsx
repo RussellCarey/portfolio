@@ -6,23 +6,12 @@ import SubTitle from "./Subtitle";
 import Description from "./Description";
 import { FunctionComponent } from "react";
 
-const TextSideContainer = styled.div`
-  width: 100%;
-  height: 100%;
+import { TextSideContainer } from "./styles/styled";
+import { ITextSideProps } from "./types/types";
 
-  padding: ${theme.spacing.space.small};
-
-  display: flex;
-  flex-direction: column;
-`;
-
-interface ITextSideProps {
-  data: any;
-}
-
-const TextSide: FunctionComponent<ITextSideProps> = ({ data }) => {
+const TextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, themeState }) => {
   return (
-    <TextSideContainer>
+    <TextSideContainer dimensions={dimensions} themeState={themeState}>
       <Title text={data.data.project_name[0].text} />
       <SubTitle leftText={"created with"} rightText={data.data.createdwith[0].text} />
       <SubTitle leftText={"more"} rightText={data.data.more[0].text} />

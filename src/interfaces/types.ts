@@ -2,6 +2,13 @@ export interface IStyledProps {
   themeState: IThemeStateProps;
 }
 
+export interface IStyledWithDimensionsProps extends IStyledProps {
+  dimensions: {
+    width: number;
+    height: number;
+  };
+}
+
 export interface IThemeStateProps {
   backgroundColor: string;
   terminalColor: string;
@@ -33,4 +40,5 @@ export enum EPageNames {
   project = "project",
   projects = "projects",
   contact = "contact",
+  linkedin = "linkedin",
 }

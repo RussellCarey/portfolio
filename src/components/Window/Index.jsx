@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { WindowContainer } from "./styles/styled";
-import { EWindowTypes } from "../../interfaces/types";
+import { isMobile } from "react-device-detect";
 
 import CornerButton from "./CornerButton";
-import Sidebar from "./Sidebar";
 import WindowMain from "./Main";
 import WindowTopbar from "./Topbar";
 
@@ -15,13 +14,12 @@ import Contact from "../Pages/Contact";
 
 //! START
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
-  console.log(`Data IS SET INSIDE THE PAGE ${pageName} with id of ${id}`);
   const [dimensions, setDimensions] = useState({});
 
   // DEfault window position.
   const [position, setPosition] = useState({
-    top: 10 * windowList.length,
-    left: 40 * windowList.length,
+    top: !isMobile ? 10 * windowList.length : 10,
+    left: !isMobile ? 40 * windowList.length : 10,
   });
 
   const [isOnResize, setIsOnResize] = useState(false);
@@ -29,17 +27,24 @@ export default function Window({ pageName, themeState, id, windowType, data, win
   const [isOnMoving, setisOnMoving] = useState(false);
   const isMoving = useRef(false);
 
+  const container = useRef();
   const movingPoint = useRef({});
   const dragStartPoint = useRef({});
 
   useEffect(() => {
+    // Add event listeners for detecting mouse interaction
     const moveListen = window.addEventListener("mousemove", resizeTheWindow);
     const mouseUp = window.addEventListener("mouseup", onReset);
+
+    // Get window size on startup
+    setDimensions({ width: container.current.clientWidth, height: container.current.clientHeight });
+
+    //Cleanup
     return () => {
       window.removeEventListener("mousemove", moveListen);
       window.removeEventListener("mouseup", mouseUp);
     };
-  }, []);
+  }, [container]);
 
   //? Window event listener
   const resizeTheWindow = (e) => {
@@ -81,11 +86,11 @@ export default function Window({ pageName, themeState, id, windowType, data, win
     const mousePos = getMousePositionInDiv(e);
 
     if (
-      e.button &&
       mousePos.mouseX < mousePos.rect.width &&
       mousePos.mouseX > mousePos.rect.width - 100 &&
       mousePos.mouseY < mousePos.rect.height &&
-      mousePos.mouseY > mousePos.rect.height - 70
+      mousePos.mouseY > mousePos.rect.height - 70 &&
+      !isMobile
     ) {
       setIsOnResize(true);
     } else {
@@ -103,7 +108,7 @@ export default function Window({ pageName, themeState, id, windowType, data, win
   const setStartingPoint = (e) => {
     const mousePos = getMousePositionInDiv(e);
 
-    if (isOnResize) {
+    if (isOnResize && !isMobile) {
       dragStartPoint.current = {
         x: e.clientX,
         y: e.clientY,
@@ -128,24 +133,24 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       dimensions={dimensions}
       position={position}
       windowList={windowList}
+      isMobile={isMobile}
       id={id}
+      ref={container}
       animate={{ scale: [1, 1.01, 1.01, 1.01, 1] }}
       transition={{ duration: 0.2, delay: 0.1 }}
     >
       <CornerButton themeState={themeState} onReset={onReset} id={id} />
 
-      {/* Load the sidebar if needed or not..*/}
-      {windowType === EWindowTypes.sidebar ? <Sidebar themeState={themeState}></Sidebar> : null}
+      <WindowTopbar themeState={themeState} />
 
       <WindowMain themeState={themeState}>
-        <WindowTopbar themeState={themeState} />
         {/* Main window pages */}
         {/* {pageName && pageName === "Projects" ? <Project themeState={themeState} data={data}></Project> : null} */}
-        {pageName === "about" ? <AboutPage themeState={themeState}></AboutPage> : null}
-        {pageName === "guide" ? <HowtoPage themeState={themeState}></HowtoPage> : null}
-        {pageName === "contact" ? <Contact themeState={themeState}></Contact> : null}
-        {pageName === "project" ? <ProjectPage themeState={themeState} data={data}></ProjectPage> : null}
-        {pageName === "projects" ? <ProjectsPage themeState={themeState}></ProjectsPage> : null}
+        {pageName === "about" ? <AboutPage themeState={themeState} /> : null}
+        {pageName === "guide" ? <HowtoPage themeState={themeState} /> : null}
+        {pageName === "contact" ? <Contact themeState={themeState} /> : null}
+        {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
+        {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
         {/* Project subpages */}
         {/* { {isProject ? <ProjectTemplate themeState={themeState} data={data}></ProjectTemplate> : null} }  */}
       </WindowMain>

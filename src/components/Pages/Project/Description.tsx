@@ -1,39 +1,17 @@
-import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
-
-import Title from "./Title";
-import SubTitle from "./Subtitle";
 import { FunctionComponent } from "react";
+import { PaleText, Text, DescriptionText, DescriptionContainer } from "./styles/styled";
+import { IDescriptionProps } from "./types/types";
 
-const DescriptionContainer = styled.div`
-  width: 100%;
-
-  padding: ${theme.spacing.space.small};
-
-  display: flex;
-`;
-
-const PaleText = styled.p`
-  flex: 1;
-  font-size: ${theme.font.fontsizes.text};
-  color: #84847e;
-`;
-
-const Text = styled.p`
-  flex: 2;
-  font-size: ${theme.font.fontsizes.text};
-  color: ${theme.colors.text.primary};
-`;
-
-interface IDescriptionProps {
-  data: any;
-}
-
+//! This double text thing is weird. WOrking but not good check it out later.
 const Description: FunctionComponent<IDescriptionProps> = ({ data }) => {
   return (
     <DescriptionContainer>
       <PaleText>description</PaleText>
-      <Text>{data.data.description[0].text}</Text>
+      <DescriptionText>
+        {data.data.description.map((p: any) => {
+          return <DescriptionText>{p.text}</DescriptionText>;
+        })}
+      </DescriptionText>
     </DescriptionContainer>
   );
 };

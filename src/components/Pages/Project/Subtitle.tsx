@@ -1,33 +1,8 @@
 import { FunctionComponent } from "react";
-import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
 
-const TitleContainer = styled.div`
-  width: 100%;
-  height: max-content;
-
-  padding: ${theme.spacing.space.small};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: solid 1px black;
-`;
-
-const PaleText = styled.p`
-  font-size: ${theme.font.fontsizes.text};
-  color: #84847e;
-`;
-
-const Text = styled.p`
-  font-size: ${theme.font.fontsizes.text};
-  color: ${theme.colors.text.primary};
-  text-align: right;
-`;
-
-interface ISubTitleProps {
-  leftText: string;
-  rightText: string;
-}
+import { PaleText, Text } from "./styles/styled";
+import { ISubTitleProps } from "./types/types";
+import { TitleContainer } from "./styles/styled";
 
 const SubTitle: FunctionComponent<ISubTitleProps> = ({ leftText, rightText }) => {
   return (

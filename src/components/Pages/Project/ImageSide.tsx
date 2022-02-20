@@ -1,26 +1,16 @@
-import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
-
-import Title from "./Title";
-import SubTitle from "./Subtitle";
 import { FunctionComponent } from "react";
+import MainArea from "./MediaArea";
+import { ImageSideContainer } from "./styles/styled";
+import { IImageSideProps } from "./types/types";
 
-const ImageSideContainer = styled.div`
-  width: 100%;
-  height: 100%;
+const ImageSide: FunctionComponent<IImageSideProps> = ({ data, themeState, dimensions }) => {
+  // const [selectedMedia, setSelectedMedia] = useState<number>(0);
 
-  padding: ${theme.spacing.space.small};
-
-  display: flex;
-  flex-direction: column;
-`;
-
-interface IImageSideProps {
-  data: any;
-}
-
-const ImageSide: FunctionComponent<IImageSideProps> = ({ data }) => {
-  return <ImageSideContainer></ImageSideContainer>;
+  return (
+    <ImageSideContainer themeState={themeState} dimensions={dimensions}>
+      <MainArea data={data} themeState={themeState} dimensions={dimensions} />
+    </ImageSideContainer>
+  );
 };
 
 export default ImageSide;

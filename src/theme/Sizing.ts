@@ -5,4 +5,5 @@ export const sizing = {
 export const iconSize = {
   borderRadius: "15px",
   default: "80px",
+  small: "50px",
 };

@@ -3,19 +3,21 @@ import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
 import { IStyledProps } from "../../../interfaces/types";
-import { IWindowContainerPos } from "../types/interfaces";
 
-export const WindowContainer = styled(motion.div).attrs((props: IWindowContainerPos) => ({
-  style: {
-    top: props.position.top ? props.position.top + "px" : "100px",
-    left: props.position.left ? props.position.left + "px" : "100px",
-    width: props.dimensions.width ? props.dimensions.width + "px" : "80vw",
-    height: props.dimensions.height ? props.dimensions.height + "px" : "83vh",
-  },
-}))`
+export const WindowContainer = styled(motion.div)`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: absolute;
+
+  top: ${(props: any) => (!props.isMobile ? (props.position.top ? props.position.top + "px" : "100px") : 5)};
+
+  left: ${(props: any) => (!props.isMobile ? (props.position.left ? props.position.left + "px" : "100px") : 5)};
+
+  width: ${(props: any) =>
+    !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "90%"};
+
+  height: ${(props: any) =>
+    !props.isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "94%"};
 
   border-radius: ${theme.iconSize.borderRadius};
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
@@ -24,7 +26,8 @@ export const WindowContainer = styled(motion.div).attrs((props: IWindowContainer
 
   z-index: ${(props: any) => (props.windowList.length > 0 ? props.windowList.length * 10 + 100 : 100)};
 
-  overflow: hidden;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 `;
 
 export const MainWindowContainer = styled.div`
@@ -92,8 +95,7 @@ export const SideBarContainer = styled.div`
 
 export const TopBarContainer = styled.div`
   width: 100%;
-  height: 50px;
-  min-height: 100px;
+  height: 70px;
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border-bottom: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};

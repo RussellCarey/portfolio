@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, FunctionComponent, useContext } from "react";
 import { IconContainer, IconText } from "./styles/styled";
-
 import WindowContext from "../../context/window/windowContext";
 
 import IconMenu from "./IconMenu";

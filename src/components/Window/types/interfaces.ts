@@ -1,4 +1,5 @@
 export interface IWindowContainerPos {
+  isMobile: boolean;
   position: {
     top: number;
     left: number;

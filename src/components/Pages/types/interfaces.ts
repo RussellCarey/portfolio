@@ -10,7 +10,13 @@ export interface IContactPageProps {
 export interface IProjectsPageProps {
   themeState: any;
   data: any;
+  dimensions: IDimensionsProps;
 }
 export interface IDesktopPageProps {
   themeState: any;
 }
+
+export type IDimensionsProps = {
+  width: number;
+  height: number;
+};

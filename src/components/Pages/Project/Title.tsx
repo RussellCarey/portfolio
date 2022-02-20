@@ -1,41 +1,29 @@
 import { FunctionComponent } from "react";
 import { ReactComponent as Git } from "../../../svg/github.svg";
+import { ReactComponent as Globe } from "../../../svg/globe.svg";
 import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
 
-const TitleContainer = styled.div`
-  width: 100%;
-  height: max-content;
-
-  padding: ${theme.spacing.space.small};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: ${theme.spacing.space.medium};
-`;
-
-const TitleText = styled.h5`
-  font-size: ${theme.font.fontsizes.h5};
-  color: ${theme.colors.text.primary};
-`;
+import { ITitleProps } from "./types/types";
+import { MainTitleContainer } from "./styles/styled";
+import { TitleText } from "./styles/styled";
 
 const GithubLogo = styled(Git)`
   width: 30px;
   color: black;
 `;
 
-interface ITitleProps {
-  text: string;
-}
+const GlobeLogo = styled(Globe)`
+  width: 30px;
+  color: black;
+`;
 
 //! Animated the logo to show it can be clicked..
 const Title: FunctionComponent<ITitleProps> = ({ text }) => {
   return (
-    <TitleContainer>
+    <MainTitleContainer>
       <TitleText>{text}</TitleText>
       <GithubLogo />
-    </TitleContainer>
+    </MainTitleContainer>
   );
 };
 

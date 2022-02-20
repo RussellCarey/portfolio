@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContainer } from "./styles/styled";
+import { isMobile } from "react-device-detect";
 
 import ThemeContext from "./context/theme/themeContext";
 import WindowContext from "./context/window/windowContext";
@@ -15,12 +16,12 @@ import Window from "./components/Window/Index";
 
 export default function Home() {
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
-
+  const viewport = window.visualViewport;
   const { theme } = useContext(ThemeContext);
   const { windowState } = useContext(WindowContext);
 
   return (
-    <AppContainer themeState={theme}>
+    <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
       <Desktop themeState={theme}>
         <Icon
           themeState={theme}
@@ -63,7 +64,7 @@ export default function Home() {
           pageName={EPageNames.contact}
           data={null}
           text={EPageNames.contact}
-          windowType={EWindowTypes.noSidebar}
+          windowType={EWindowTypes.sidebar}
           aniDelay={0.6}
           isWeb={null}
           selectedIcon={selectedIcon}
@@ -90,6 +91,18 @@ export default function Home() {
           windowType={EWindowTypes.noSidebar}
           aniDelay={0.8}
           isWeb={"https://www.github.com/russellcarey"}
+          selectedIcon={selectedIcon}
+          setSelectedIcon={setSelectedIcon}
+        />
+
+        <Icon
+          themeState={theme}
+          pageName={"linkedin"}
+          data={null}
+          text={"linkedin"}
+          windowType={EWindowTypes.noSidebar}
+          aniDelay={0.8}
+          isWeb={"https://www.linkedin.com/in/russell-carey-b199bb19a/"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
         />
