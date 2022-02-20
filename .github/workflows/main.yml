@@ -17,17 +17,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - run: npm i
-        working-directory: /
+        working-directory: client
 
       - run: npm run build
-        working-directory: /
+        working-directory: client
         env:
           CI: false
 
       # - run: pm2 delete portfolio-client
 
       - run: pm2 start npm --name "portfolio-client" -- run serve --spa
-        working-directory: /
+        working-directory: client
 
       - run: |
           pm2 stop portfolio-client
