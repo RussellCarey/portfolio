@@ -19,11 +19,12 @@ jobs:
       - run: npm i
 
       - run: npm run build
+        env:
+          CI: false
 
-      - run: pm2 delete portfolio-client
+      # - run: pm2 delete portfolio-client
 
       - run: pm2 start npm --name "portfolio-client" -- run serve --spa
-        working-directory: ./
 
       - run: |
           pm2 stop portfolio-client
