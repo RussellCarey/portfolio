@@ -1,8 +1,8 @@
 import prismicClient from "../../../utils/prismic";
 
-export const getAllProjects = async () => {
+export const getDocumentsByTag = async (tag: string) => {
   try {
-    const prismicDocs = await prismicClient.getAllByTag("projects");
+    const prismicDocs = await prismicClient.getAllByTag(tag);
     console.log(prismicDocs);
     return prismicDocs;
   } catch (error: any) {

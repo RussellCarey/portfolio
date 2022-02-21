@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import { WindowContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
 
@@ -6,11 +6,11 @@ import CornerButton from "./CornerButton";
 import WindowMain from "./Main";
 import WindowTopbar from "./Topbar";
 
-import AboutPage from "../Pages/About";
-import HowtoPage from "../Pages/Howto";
+import AboutPage from "../Pages/About/Index";
+import BlogPage from "../Pages/Blog/Index";
 import ProjectPage from "../Pages/Project/Index";
-import ProjectsPage from "../Pages/ProjectsFolder";
-import Contact from "../Pages/Contact";
+import ProjectsPage from "../Pages/Projects/ProjectsFolder";
+import Contact from "../Pages/Contact/Contact";
 
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const [dimensions, setDimensions] = useState({});
@@ -142,8 +142,8 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       {/* {windowType === EWindowTypes.sidebar ? <Sidebar themeState={themeState} /> : null} */}
       <WindowTopbar themeState={themeState} />
       <WindowMain themeState={themeState}>
-        {pageName === "about" ? <AboutPage themeState={themeState} /> : null}
-        {pageName === "guide" ? <HowtoPage themeState={themeState} /> : null}
+        {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}
+        {pageName === "blog" ? <BlogPage themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "contact" ? <Contact themeState={themeState} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}

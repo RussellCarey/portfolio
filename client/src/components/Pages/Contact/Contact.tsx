@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { Container, Form, TextArea, Button } from "./styles/contact.styles";
-import { IContactPageProps } from "./types/interfaces";
+import { Container, Form, TextArea, Button } from "./styles/styled";
+import { IContactPageProps } from "./types/types";
 
 const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState }) => {
   return (

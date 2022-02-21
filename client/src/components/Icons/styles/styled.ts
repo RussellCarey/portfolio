@@ -35,10 +35,14 @@ export const IconSquare = styled.div`
   justify-content: center;
   align-items: center;
 
+  transition: all 0.2s;
+
   &:hover {
     background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
     cursor: pointer;
-    filter: brightness(90%);
+    filter: brightness(95%);
+    transform: scale(101.5%);
+    box-shadow: 4px 5px 0 ${(props) => props.themeState.borderColor};
   }
 `;
 

@@ -11,8 +11,8 @@ import { EPageNames } from "./interfaces/types";
 
 import Icon from "./components/Icons/Index";
 import BottomBar from "./components/BottomBar/Index";
-import Desktop from "./components/Pages/Desktop";
 import Window from "./components/Window/Index";
+import { DesktopContainer } from "./components/Pages/styles/styled";
 
 export default function Home() {
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
-      <Desktop themeState={theme}>
+      <DesktopContainer>
         <Icon
           themeState={theme}
           pageName={EPageNames.about}
@@ -122,7 +122,7 @@ export default function Home() {
               );
             })
           : null}
-      </Desktop>
+      </DesktopContainer>
       <BottomBar />
     </AppContainer>
   );

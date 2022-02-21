@@ -13,7 +13,7 @@ export const WindowContainer = styled(motion.div)`
   left: ${(props: any) => props.position.left + "px"};
 
   width: ${(props: any) =>
-    !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "90%"};
+    !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "90%"};
 
   height: ${(props: any) =>
     !props.isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "94%"};

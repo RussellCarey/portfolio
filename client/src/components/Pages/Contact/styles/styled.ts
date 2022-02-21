@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
-import { IStyledProps } from "../../../interfaces/types";
+import { theme } from "../../../../theme/Theme";
+import { IStyledProps } from "../../../../interfaces/types";
 
 export const Container = styled.div`
   padding: ${theme.spacing.space.large};
