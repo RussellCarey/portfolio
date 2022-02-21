@@ -6,7 +6,7 @@ import { MediaAreaContainer } from "./styles/styled";
 const MediaArea: FunctionComponent<IMediaAreaProps> = ({ data, themeState, dimensions }) => {
   return (
     <MediaAreaContainer dimensions={dimensions} themeState={themeState}>
-      <YoutubeEmbed id={data.data.youtube} themeState={themeState} />
+      <YoutubeEmbed id={data.data.youtube} themeState={themeState} dimensions={dimensions} />
     </MediaAreaContainer>
   );
 };

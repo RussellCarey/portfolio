@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client";
-import * as prismicHelpers from "@prismicio/helpers";
+// import * as prismicHelpers from "@prismicio/helpers";
 
 const endpoint = prismic.getEndpoint("mooblyportfolio");
 const accessToken =

@@ -11,7 +11,7 @@ export const PaleText = styled.p`
   color: #84847e;
   text-align: left;
 
-  margin-bottom: ${theme.spacing.space.small};
+  margin-bottom: ${theme.spacing.space.xsmall};
 `;
 
 export const Text = styled.p`
@@ -54,15 +54,14 @@ export const MediaAreaContainer = styled.div`
 
   display: flex;
   justify-content: center;
-  align-items: center;
 
   padding: ${(props: IStyledWithDimensionsProps) =>
-    props.dimensions.width < 800 ? theme.spacing.space.small : theme.spacing.space.large};
+    props.dimensions.width < 800 ? theme.spacing.space.medium : theme.spacing.space.large};
 `;
 
 export const VideoContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 800 ? "100%" : "80%")};
 
   border: solid 5px ${(props: IYoutubeStyleProps) => props.themeState.borderColor};
   border-radius: 15px;
@@ -80,10 +79,12 @@ export const TextSideContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  padding: ${theme.spacing.space.medium};
+  padding: ${(props: IStyledWithDimensionsProps) =>
+    props.dimensions.width < 800 ? theme.spacing.space.small : theme.spacing.space.medium};
 
-  font-size: ${(props: IStyledWithDimensionsProps) =>
-    props.dimensions.width < 900 ? theme.font.fontsizes.xSmall : theme.font.fontsizes.text};
+  // Controls all text besides the title.
+  /* font-size: ${(props: IStyledWithDimensionsProps) =>
+    props.dimensions.width < 900 ? theme.font.fontsizes.xSmall : theme.font.fontsizes.text}; */
 
   display: flex;
   flex-direction: column;

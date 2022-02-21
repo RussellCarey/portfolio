@@ -35,8 +35,10 @@ export interface ITitleProps {
 export interface IYoutubeEmbed {
   id: string;
   themeState: IThemeStateProps;
+  dimensions: { width: number; height: number };
 }
 
 export interface IYoutubeStyleProps extends IStyledProps {
   hovered: any;
+  dimensions: { width: number; height: number };
 }

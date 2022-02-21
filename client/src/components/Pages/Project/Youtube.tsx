@@ -3,11 +3,11 @@ import { FunctionComponent, useState } from "react";
 import { IYoutubeEmbed } from "./types/types";
 import { VideoContainer, IFrameContainer } from "./styles/styled";
 
-const YoutubeEmbed: FunctionComponent<IYoutubeEmbed> = ({ id, themeState }) => {
+const YoutubeEmbed: FunctionComponent<IYoutubeEmbed> = ({ id, themeState, dimensions }) => {
   const [hovered, setHovered] = useState<boolean>(false);
 
   return (
-    <VideoContainer themeState={themeState} hovered={hovered}>
+    <VideoContainer themeState={themeState} hovered={hovered} dimensions={dimensions}>
       <IFrameContainer
         src={`https://www.youtube.com/embed/${id}`}
         frameBorder="0"
