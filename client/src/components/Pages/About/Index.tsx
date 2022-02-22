@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { getDocumentsByTag } from "../services/projectServices";
+import { getDocumentsByTag } from "../Projects/services/projectServices";
 import ThemeContext from "../../../context/theme/themeContext";
 import { FunctionComponent } from "react";
 import { IAboutPageProps } from "./types/types";

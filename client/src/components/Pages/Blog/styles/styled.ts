@@ -3,8 +3,8 @@ import { theme } from "../../../../theme/Theme";
 import { IStyledProps } from "../../../../interfaces/types";
 
 export const BlogPostContainer = styled.div`
-  width: 250px;
-  height: 300px;
+  width: 300px;
+  height: max-content;
 
   display: flex;
   flex-direction: column;
@@ -26,15 +26,26 @@ export const BlogPostContainer = styled.div`
   }
 `;
 
+interface IBlogImageProps {
+  image: string;
+}
+
 export const BlogPostImage = styled.div`
   width: 100%;
-  height: 100%;
+  height: max-content;
+
+  background-image: url(${(props: IBlogImageProps) => props.image});
+  border-radius: 15px 15px 0 0;
+  background-size: cover;
+  filter: grayscale(100%);
 `;
 
 export const BlogPostData = styled.div`
   width: 100%;
-  height: 150px;
+  height: max-content;
   border-top: solid 5px black;
+
+  padding: ${theme.spacing.space.small};
 `;
 
 export const SideBar = styled.div`

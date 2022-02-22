@@ -1,9 +1,6 @@
 // https://type-scale.com/
 export const font = {
   fontsizes: {
-    xxLarge: "5.96rem",
-    xLarge: "4.768rem",
-    large: "3.815rem",
     h1: "3.052rem",
     h2: "2.441rem",
     h3: "1.953rem",
@@ -11,25 +8,17 @@ export const font = {
     h5: "1.25rem",
     text: "1rem",
     xSmall: "0.8rem",
-    xxSmall: "0.64rem",
   },
   lineheights: {
-    xxLarge: "",
-    xLarge: "",
-    large: "",
-    h1: "",
-    h2: "",
-    h3: "",
-    h4: "",
-    h5: "",
-    text: "",
+    h1: "3.052rem",
+    h2: "2.441rem",
+    h3: "1.953rem",
+    h4: "1.563rem",
+    h5: "1.25rem",
+    text: "1rem",
     xSmall: "0.8rem",
-    xxSmall: "0.64rem",
   },
   letterspacing: {
-    xxLarge: "",
-    xLarge: "",
-    large: "",
     h1: "",
     h2: "",
     h3: "",
@@ -37,6 +26,5 @@ export const font = {
     h5: "",
     text: "",
     xSmall: "",
-    xxSmall: "",
   },
 };

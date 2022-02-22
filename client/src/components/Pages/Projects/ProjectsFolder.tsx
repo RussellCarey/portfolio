@@ -3,9 +3,10 @@ import { Container } from "./styles/styled";
 import { IProjectsPageProps } from "../types/types";
 import ThemeContext from "../../../context/theme/themeContext";
 
-import { getDocumentsByTag } from "../services/projectServices";
+import { getDocumentsByTag } from "./services/projectServices";
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
+import Loading from "../Loading";
 
 const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ themeState, data }) => {
   const [selectedIcon, setSelectedIcon] = useState<string>("");
@@ -27,8 +28,9 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ themeState, data 
 
   return (
     <Container>
+      {isLoading ? <Loading /> : null}
       {/* {isLoading} ------- SHOW LOADING ANIMATION ETC.. */}
-      {projects && projects.length > 0
+      {projects
         ? projects.map((p: any) => {
             return (
               <Icon

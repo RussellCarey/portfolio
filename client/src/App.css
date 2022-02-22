@@ -25,3 +25,7 @@ textarea,
 button {
   font-family: inherit;
 }
+
+p {
+  font-size: 1rem;
+}

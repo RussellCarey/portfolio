@@ -1,4 +1,4 @@
-import prismicClient from "../../../utils/prismic";
+import prismicClient from "../../../../utils/prismic";
 
 export const getDocumentsByTag = async (tag: string) => {
   try {
