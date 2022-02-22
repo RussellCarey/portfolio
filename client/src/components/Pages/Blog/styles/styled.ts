@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/Theme";
 import { IStyledProps } from "../../../../interfaces/types";
+import { IStyledWithDimensionsProps } from "../../../../interfaces/types";
 
 export const BlogPostContainer = styled.div`
   width: 300px;
@@ -61,6 +62,7 @@ export const PageContainer = styled.div`
   height: 100%;
 
   display: flex;
+  justify-content: ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 800 ? "center" : "none")};
 `;
 
 export const BlogPostsContainer = styled.div`

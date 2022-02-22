@@ -1,14 +1,18 @@
-import { useContext, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import ThemeContext from "../../../context/theme/themeContext";
-import { PageContainer, BlogPostsContainer } from "./styles/styled";
+import { PageContainer } from "./styles/styled";
 
 import BlogPost from "./BlogPost";
-import BlogSidebar from "./BlogSideBar";
 
 import { fetchBlogPosts } from "./services/fetchServices";
 import Loading from "../Loading";
+import ThemeState from "../../../context/theme/themeState";
 
-const BlogPage = () => {
+interface IBlogPageProps {
+  dimensions: { width: number; height: number };
+}
+
+const BlogPage: FunctionComponent<IBlogPageProps> = ({ dimensions }) => {
   const { theme } = useContext(ThemeContext);
   const [blogPosts, setBlogPosts] = useState<Array<any>>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -29,7 +33,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <PageContainer>
+    <PageContainer dimensions={dimensions} themeState={theme}>
       {isLoading ? <Loading /> : null}
       {blogPosts
         ? blogPosts.map((post) => {
