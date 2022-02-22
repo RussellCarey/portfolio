@@ -22,6 +22,7 @@ export default function Home() {
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
+      <p>CURRENTLY UNDER CONSTRUCTION - SHOULD BE FINISHED SOON! CHECK BACK LATER :)</p>
       <DesktopContainer>
         <Icon
           themeState={theme}
@@ -41,7 +42,7 @@ export default function Home() {
           data={null}
           text={EPageNames.projects}
           windowType={EWindowTypes.sidebar}
-          aniDelay={0.3}
+          aniDelay={0.4}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -53,7 +54,7 @@ export default function Home() {
           data={null}
           text={EPageNames.blog}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.5}
+          aniDelay={0.7}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -65,7 +66,7 @@ export default function Home() {
           data={null}
           text={EPageNames.contact}
           windowType={EWindowTypes.sidebar}
-          aniDelay={0.6}
+          aniDelay={0.9}
           isWeb={null}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -77,7 +78,7 @@ export default function Home() {
           data={null}
           text={EPageNames.twitter}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.7}
+          aniDelay={1.1}
           isWeb={"https://www.twitter.com/russellcareyy"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -89,7 +90,7 @@ export default function Home() {
           data={null}
           text={EPageNames.github}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.8}
+          aniDelay={1.2}
           isWeb={"https://www.github.com/russellcarey"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}
@@ -101,7 +102,7 @@ export default function Home() {
           data={null}
           text={EPageNames.linkedin}
           windowType={EWindowTypes.noSidebar}
-          aniDelay={0.8}
+          aniDelay={1.3}
           isWeb={"https://www.linkedin.com/in/russell-carey-b199bb19a/"}
           selectedIcon={selectedIcon}
           setSelectedIcon={setSelectedIcon}

@@ -59,5 +59,5 @@ export const BlogPostsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  border-left: solid 5px black;
+  border-left: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
 `;

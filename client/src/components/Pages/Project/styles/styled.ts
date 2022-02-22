@@ -30,6 +30,8 @@ export const ProjectContainer = styled.div`
   display: flex;
   overflow: hidden;
 
+  height: 100%;
+
   // Media
   flex-direction: ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 800 ? "column" : "row")};
 `;
