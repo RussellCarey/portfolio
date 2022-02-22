@@ -22,7 +22,9 @@ export default function Home() {
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
-      <p>CURRENTLY UNDER CONSTRUCTION - SHOULD BE FINISHED SOON! CHECK BACK LATER :)</p>
+      <p style={{ position: "absolute", top: 10, right: 10 }}>
+        CURRENTLY UNDER CONSTRUCTION - SHOULD BE FINISHED SOON! CHECK BACK LATER :)
+      </p>
       <DesktopContainer>
         <Icon
           themeState={theme}
