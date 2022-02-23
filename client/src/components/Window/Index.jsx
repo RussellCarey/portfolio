@@ -6,11 +6,11 @@ import CornerButton from "./CornerButton";
 import WindowMain from "./Main";
 import WindowTopbar from "./Topbar";
 
-import AboutPage from "../Pages/About/Index";
-import BlogPage from "../Pages/Blog/Index";
-import ProjectPage from "../Pages/Project/Index";
-import ProjectsPage from "../Pages/Projects/ProjectsFolder";
-import Contact from "../Pages/Contact/Contact";
+import AboutPage from "../InnerPages/About/Index";
+import BlogPage from "../InnerPages/Blog/Index";
+import ProjectPage from "../InnerPages/Project/Index";
+import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
+import Contact from "../InnerPages/Contact/Contact";
 
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const [dimensions, setDimensions] = useState({});

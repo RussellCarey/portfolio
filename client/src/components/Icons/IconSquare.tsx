@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { isMobile } from "react-device-detect";
+
 import { ReactComponent as Git } from "../../svg/github.svg";
 import { ReactComponent as Twitter } from "../../svg/twitter.svg";
 import { ReactComponent as Blog } from "../../svg/comment-regular.svg";
