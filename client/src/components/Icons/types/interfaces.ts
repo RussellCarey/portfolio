@@ -10,11 +10,14 @@ export interface IIconProps {
   aniDelay: number;
   selectedIcon: string | null;
   setSelectedIcon: any;
+  isProject: boolean;
 }
 
 export interface IIconSquareProps {
   label: string;
   themeState: IThemeStateProps;
+  isProject: boolean;
+  name: string;
 }
 
 export interface IIconMenuContainerProps {

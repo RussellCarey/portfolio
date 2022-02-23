@@ -12,8 +12,8 @@ import { IIconSquareProps } from "./types/interfaces";
 import { EPageNames } from "../../interfaces/types";
 import { IconSquare } from "./styles/styled";
 
-const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ label, themeState }) => {
-  return (
+const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, themeState, isProject }) => {
+  return !isProject ? (
     <IconSquare themeState={themeState}>
       {label === EPageNames.github ? <Git /> : null}
       {label === EPageNames.twitter ? <Twitter /> : null}
@@ -22,6 +22,10 @@ const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ label, themeState
       {label === EPageNames.projects ? <Projects /> : null}
       {label === EPageNames.contact ? <Contact /> : null}
       {label === EPageNames.linkedin ? <Linkedin /> : null}
+    </IconSquare>
+  ) : (
+    <IconSquare themeState={themeState}>
+      <h1>{name.slice(0, 1).toUpperCase()}</h1>
     </IconSquare>
   );
 };

@@ -16,6 +16,7 @@ const IconMain: FunctionComponent<IIconProps> = ({
   aniDelay,
   selectedIcon,
   setSelectedIcon,
+  isProject,
 }) => {
   const windowContext = useContext(WindowContext);
   const { createNewWindow } = windowContext;
@@ -63,7 +64,7 @@ const IconMain: FunctionComponent<IIconProps> = ({
       transition={{ delay: aniDelay, duration: 0.5 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <IconSquare themeState={themeState} label={pageName} />
+      <IconSquare themeState={themeState} label={pageName} name={text} isProject={isProject} />
 
       <IconText themeState={themeState} isSelected={isSelected}>
         {text}

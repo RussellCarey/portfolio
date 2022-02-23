@@ -34,6 +34,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ themeState, data 
         ? projects.map((p: any) => {
             return (
               <Icon
+                isProject={true}
                 data={p}
                 themeState={theme}
                 text={p.data.project_name[0].text}
