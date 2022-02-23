@@ -42,7 +42,7 @@ const LoginAbout: FunctionComponent<ILoginAboutProps> = ({ setIsLoggedIn }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoggedIn(true);
-    }, 8000);
+    }, 9000);
   }, []);
 
   return (
