@@ -41,6 +41,7 @@ export default function Home() {
               windowType={EWindowTypes.sidebar}
               aniDelay={0.1}
               isWeb={null}
+              isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
             />
@@ -53,6 +54,7 @@ export default function Home() {
               windowType={EWindowTypes.sidebar}
               aniDelay={0.4}
               isWeb={null}
+              isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
             />
@@ -65,6 +67,7 @@ export default function Home() {
               windowType={EWindowTypes.noSidebar}
               aniDelay={0.7}
               isWeb={null}
+              isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
             />
@@ -77,6 +80,7 @@ export default function Home() {
               windowType={EWindowTypes.sidebar}
               aniDelay={0.9}
               isWeb={null}
+              isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
             />
@@ -88,6 +92,7 @@ export default function Home() {
               text={EPageNames.twitter}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.1}
+              isProject={false}
               isWeb={"https://www.twitter.com/russellcareyy"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
@@ -100,6 +105,7 @@ export default function Home() {
               text={EPageNames.github}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.2}
+              isProject={false}
               isWeb={"https://www.github.com/russellcarey"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
@@ -112,6 +118,7 @@ export default function Home() {
               text={EPageNames.linkedin}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.3}
+              isProject={false}
               isWeb={"https://www.linkedin.com/in/russell-carey-b199bb19a/"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
