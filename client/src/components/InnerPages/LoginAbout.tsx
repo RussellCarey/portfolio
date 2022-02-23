@@ -60,7 +60,7 @@ const LoginAbout: FunctionComponent<ILoginAboutProps> = ({ setIsLoggedIn }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoggedIn(true);
-    }, 5000);
+    }, 8000);
   }, []);
 
   return (
@@ -70,7 +70,9 @@ const LoginAbout: FunctionComponent<ILoginAboutProps> = ({ setIsLoggedIn }) => {
           Now loading the account of Russell Carey. <br></br> <br></br>A passionate coding obsessed English-man
           currently living in Japan. <br></br> <br></br>
           Russell creates interesting, creative and out of the box full stack projects from design to completetion that
-          stretch ability and imagination.
+          stretch ability and imagination. <br></br> <br></br>
+          Note: Windows in this app are moveable by dragging the top of the window. They are also resizeable from the
+          bottom right!
         </p>
       </MessageContainer>
     </PageContainer>

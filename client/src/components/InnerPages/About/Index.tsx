@@ -6,6 +6,7 @@ import { IAboutPageProps } from "./types/types";
 import { ProjectContainer } from "../Project/styles/styled";
 import ImageSide from "../Project/ImageSide";
 import AboutTextSide from "./AboutTextSide";
+import Loading from "../Loading";
 
 const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimensions }) => {
   const { theme } = useContext(ThemeContext);
@@ -22,7 +23,9 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimension
     loadAboutData();
   }, []);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <ProjectContainer dimensions={dimensions} themeState={themeState}>
       {!isLoading ? <ImageSide data={aboutData} themeState={theme} dimensions={dimensions} /> : null}
       {!isLoading ? <AboutTextSide data={aboutData} dimensions={dimensions} themeState={themeState} /> : null}

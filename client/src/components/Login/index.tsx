@@ -48,12 +48,12 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
       });
     }
 
-    if (startDelay > 1) setIsLoading(false);
+    if (startDelay > 1000) setIsLoading(false);
   };
 
   useEffect(() => {
-    populateFieldTyping(nameRef, setNameState, "Russell Carey", 0);
-    populateFieldTyping(passwordRef, setPasswordState, "**********", 2000);
+    populateFieldTyping(nameRef, setNameState, "Russell Carey", 1000);
+    populateFieldTyping(passwordRef, setPasswordState, "**********", 3000);
   }, []);
 
   return !clickedLogin ? (
