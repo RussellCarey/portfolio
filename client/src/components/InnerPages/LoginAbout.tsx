@@ -30,24 +30,6 @@ export const MessageContainer = styled(MainDivStyle)`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: ${theme.spacing.space.large};
-
-  @keyframes bouceBouce {
-    0% {
-      transform: scale(100%);
-    }
-    50% {
-      transform: scale(102%);
-    }
-    99% {
-      transform: scale(100%);
-    }
-  }
-
-  animation-name: bouceBouce;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
 `;
 
 interface ILoginAboutProps {
