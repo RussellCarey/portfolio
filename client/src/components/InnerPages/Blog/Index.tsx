@@ -6,7 +6,6 @@ import BlogPost from "./BlogPost";
 
 import { fetchBlogPosts } from "./services/fetchServices";
 import Loading from "../Loading";
-import ThemeState from "../../../context/theme/themeState";
 
 interface IBlogPageProps {
   dimensions: { width: number; height: number };

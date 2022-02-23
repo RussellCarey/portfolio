@@ -83,6 +83,8 @@ export const LoginButton = styled(MainDivStyle)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-top: ${theme.spacing.space.medium};
 `;
 
 export const AnimatedLogin = styled(LoginButton)`

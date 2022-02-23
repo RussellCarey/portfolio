@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
 import ThemeContext from "../../context/theme/themeContext";
+import LoginAbout from "../InnerPages/LoginAbout";
 import {
   PageContainer,
   UserIconContainer,
@@ -11,7 +12,6 @@ import {
   AnimatedLogin,
 } from "./styles/styled";
 import { delayTime } from "./utils/typing";
-import Loading from "../InnerPages/Loading";
 
 interface ILoginPage {
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +19,8 @@ interface ILoginPage {
 
 const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
   const { theme } = useContext(ThemeContext);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [clickedLogin, setClickedLogin] = useState<boolean>(false);
   const [nameState, setNameState] = useState<string>("");
   const [passwordState, setPasswordState] = useState<string>("");
   const nameRef = useRef<string>("");
@@ -31,48 +32,54 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     text: string,
     startDelay: number
   ) => {
-    await delayTime(startDelay);
+    await delayTime(startDelay, () => {});
     // Set blinking? For the text line?
 
     // set type speed to a state (random?)
 
     const textArray = text.split("");
-    // Remember forEach is not async. Use for of..
+
     for (const letter of textArray) {
-      const typingDelayTime = Math.random() * 300;
-      await delayTime(typingDelayTime);
-      ref.current = ref.current + letter;
-      setState(ref.current);
+      const typingDelayTime = Math.random() * 200;
+
+      await delayTime(typingDelayTime, () => {
+        ref.current = ref.current + letter;
+        setState(ref.current);
+      });
     }
+
+    if (startDelay > 1) setIsLoading(false);
   };
 
   useEffect(() => {
     populateFieldTyping(nameRef, setNameState, "Russell Carey", 0);
-    populateFieldTyping(passwordRef, setPasswordState, "*****************", 3000);
+    populateFieldTyping(passwordRef, setPasswordState, "**********", 2000);
   }, []);
 
-  return (
+  return !clickedLogin ? (
     <PageContainer>
-      {!isLoading ? (
-        <>
-          <UserIconContainer themeState={theme}>
-            <UserIcon />
-          </UserIconContainer>
-          <FakeInputField themeState={theme}>
-            <InputField themeState={theme} type="text" value={nameState} />
-          </FakeInputField>
-          <FakeInputField themeState={theme}>
-            <InputField themeState={theme} type="text" value={passwordState} />
-            <HelpBox themeState={theme}>?</HelpBox>
-          </FakeInputField>
-          <AnimatedLogin themeState={theme} onClick={() => setIsLoggedIn(true)}>
+      <>
+        <UserIconContainer themeState={theme}>
+          <UserIcon />
+        </UserIconContainer>
+        <FakeInputField themeState={theme}>
+          <InputField themeState={theme} type="text" value={nameState} />
+        </FakeInputField>
+        <FakeInputField themeState={theme}>
+          <InputField themeState={theme} type="text" value={passwordState} />
+          <HelpBox themeState={theme}>?</HelpBox>
+        </FakeInputField>
+        {isLoading ? (
+          <LoginButton themeState={theme}>loading</LoginButton>
+        ) : (
+          <AnimatedLogin themeState={theme} onClick={() => setClickedLogin(true)}>
             login
           </AnimatedLogin>
-        </>
-      ) : (
-        <Loading />
-      )}
+        )}
+      </>
     </PageContainer>
+  ) : (
+    <LoginAbout setIsLoggedIn={setIsLoggedIn} />
   );
 };
 
