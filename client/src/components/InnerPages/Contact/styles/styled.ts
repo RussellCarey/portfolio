@@ -3,14 +3,70 @@ import { theme } from "../../../../theme/Theme";
 import { IStyledProps } from "../../../../interfaces/types";
 
 export const Container = styled.div`
-  padding: ${theme.spacing.space.large};
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
 
   overflow-y: auto;
 
-  font-size: ${theme.font.fontsizes.h4};
+  font-size: ${theme.font.fontsizes.text};
   color: ${(props: IStyledProps) => props.themeState.textColor};
+`;
 
-  color: ${(props) => props.themeState.textColor};
+export const EmailSideBar = styled.div`
+  width: 300px;
+  height: 100%;
+
+  border-right: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
+
+  display: flex;
+  flex-direction: column;
+  padding: ${theme.spacing.space.small};
+`;
+
+export const EmailInbox = styled(EmailSideBar)`
+  width: 400px;
+
+  display: flex;
+  align-items: center;
+`;
+
+export const EmailContainer = styled(EmailSideBar)`
+  width: 100%;
+`;
+
+export const EmailInput = styled.input`
+  width: 100%;
+  height: 50px;
+  padding: ${theme.spacing.space.small};
+
+  font-size: ${theme.font.fontsizes.text};
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px rgba(69, 69, 69, 0.3) !important;
+  outline: none;
+`;
+
+export const EmailTextBox = styled.textarea`
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: ${theme.spacing.space.small};
+
+  font-size: ${theme.font.fontsizes.text};
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px rgba(69, 69, 69, 0.3) !important;
+  outline: none;
+`;
+
+export const EmailButton = styled.button`
+  width: ${theme.spacing.space.xxlarge};
+  padding: ${theme.spacing.space.small};
+
+  margin: ${theme.spacing.space.medium};
+  background-color: transparent;
+  border-radius: 15px;
+  border: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
+  box-shadow: 5px 5px 0 ${(props: IStyledProps) => props.themeState.shadowColor};
 `;

@@ -144,7 +144,7 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       <WindowMain themeState={themeState}>
         {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "blog" ? <BlogPage themeState={themeState} dimensions={dimensions} /> : null}
-        {pageName === "contact" ? <Contact themeState={themeState} /> : null}
+        {pageName === "contact" ? <Contact themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
       </WindowMain>
