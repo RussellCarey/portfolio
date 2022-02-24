@@ -29,9 +29,6 @@ export default function Home() {
         <LoginPage setIsLoggedIn={setIsLoggedIn} />
       ) : (
         <>
-          <p style={{ position: "absolute", top: 10, right: 10 }}>
-            CURRENTLY UNDER CONSTRUCTION - SHOULD BE FINISHED SOON! CHECK BACK LATER :)
-          </p>
           <DesktopContainer>
             <Icon
               themeState={theme}

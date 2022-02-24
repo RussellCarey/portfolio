@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useState } from "react";
 import {
   Container,
-  EmailSideBar,
   EmailInbox,
   EmailContainer,
   EmailInput,
   EmailTextBox,
   EmailButton,
+  ButtonContainer,
 } from "./styles/styled";
 import { IContactPageProps } from "./types/types";
 
@@ -28,9 +28,6 @@ const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensi
     <Container themeState={themeState}>
       {dimensions.width > 500 ? (
         <>
-          <EmailSideBar themeState={themeState}>
-            Inbox <br></br> Junk <br></br> Sent <br></br> deleted
-          </EmailSideBar>
           <EmailInbox themeState={themeState}>No new emails :(</EmailInbox>
         </>
       ) : null}
@@ -39,7 +36,7 @@ const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensi
         <EmailInput
           id="from"
           value={userMessage.from}
-          placeholder={"From: "}
+          placeholder={"Please enter your email.. "}
           onChange={onChangeText}
           autoFocus={true}
         />
@@ -50,7 +47,9 @@ const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensi
           placeholder={"Type your message here.."}
           onChange={onChangeText}
         />
-        <EmailButton themeState={themeState}>send</EmailButton>
+        <ButtonContainer>
+          <EmailButton themeState={themeState}>send</EmailButton>
+        </ButtonContainer>
       </EmailContainer>
     </Container>
   );

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../theme/Theme";
 import { IStyledProps } from "../../interfaces/types";
 import ThemeContext from "../../context/theme/themeContext";
+import Loading from "./Loading";
 
 export const MainDivStyle = styled.div`
   border-radius: 15px;
@@ -47,6 +48,7 @@ const LoginAbout: FunctionComponent<ILoginAboutProps> = ({ setIsLoggedIn }) => {
 
   return (
     <PageContainer>
+      <Loading />
       <MessageContainer themeState={theme}>
         <p style={{ textAlign: "center" }}>
           Now loading the account of Russell Carey. <br></br> <br></br>A passionate coding obsessed English-man
