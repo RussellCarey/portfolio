@@ -12,7 +12,7 @@ export const MainDivStyle = styled.div`
 
 export const PageContainer = styled.main`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   justify-content: center;

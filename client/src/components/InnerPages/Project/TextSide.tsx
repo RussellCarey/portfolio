@@ -1,6 +1,3 @@
-import styled from "styled-components";
-import { theme } from "../../../theme/Theme";
-
 import Title from "./Title";
 import SubTitle from "./Subtitle";
 import Description from "./Description";
@@ -12,7 +9,7 @@ import { ITextSideProps } from "./types/types";
 const TextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, themeState }) => {
   return (
     <TextSideContainer dimensions={dimensions} themeState={themeState}>
-      <Title text={data.data.project_name[0].text} />
+      <Title text={data.data.project_name[0].text} github={data.data.github.url} website={data.data.online.url} />
       <SubTitle leftText={"created with"} rightText={data.data.createdwith[0].text} />
       <SubTitle leftText={"more"} rightText={data.data.more[0].text} />
       <SubTitle leftText={"other"} rightText={data.data.other[0].text} />

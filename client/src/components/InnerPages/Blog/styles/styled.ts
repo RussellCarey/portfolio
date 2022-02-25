@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../../theme/Theme";
 import { IStyledProps } from "../../../../interfaces/types";
 import { IStyledWithDimensionsProps } from "../../../../interfaces/types";
+import { IBlogImageProps } from "../types/interfaces";
 
 export const BlogPostContainer = styled.div`
   width: 300px;
@@ -19,6 +20,7 @@ export const BlogPostContainer = styled.div`
   margin: ${theme.spacing.space.medium};
 
   transition: all 0.3s;
+  filter: grayscale(100%);
 
   &:hover {
     transform: scale(101.5%);
@@ -27,10 +29,6 @@ export const BlogPostContainer = styled.div`
   }
 `;
 
-interface IBlogImageProps {
-  image: string;
-}
-
 export const BlogPostImage = styled.div`
   width: 100%;
   height: max-content;
@@ -38,7 +36,6 @@ export const BlogPostImage = styled.div`
   background-image: url(${(props: IBlogImageProps) => props.image});
   border-radius: 15px 15px 0 0;
   background-size: cover;
-  filter: grayscale(100%);
 `;
 
 export const BlogPostData = styled.div`

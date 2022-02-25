@@ -30,6 +30,8 @@ export interface ITextSideProps {
 
 export interface ITitleProps {
   text: string;
+  github: string | null;
+  website: string | null;
 }
 
 export interface IYoutubeEmbed {

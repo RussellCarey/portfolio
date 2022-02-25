@@ -1,16 +1,18 @@
 import { SET_ACTIVE_WINDOW, CREATE_NEW_WINDOW, DESTROY_ACTIVE_WINDOW, MINIMIZE_ACTIVE_WINDOW } from "./types";
 import { v4 as uuidv4 } from "uuid";
 
-import React, { useReducer, useContext } from "react";
+import { useReducer } from "react";
 import WindowReducer from "./windowReducer";
 import WindowContext from "./windowContext";
 
 import { IWindowObject } from "./types";
+import { IWindowPropsState } from "./types";
 
-const WindowState = (props: any) => {
+const WindowState = (props: IWindowPropsState) => {
   const initialState = {
     currentWindowID: null,
     windows: [],
+    topZIndex: 500,
   };
 
   const [windowState, dispatch] = useReducer(WindowReducer, initialState);

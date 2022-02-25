@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
-import { PaleText, Text, DescriptionText, DescriptionContainer } from "./styles/styled";
+import { PaleText, Text, DescriptionText } from "../styles/styled";
+import { DescriptionContainer } from "./styles/styled";
 import { IDescriptionProps } from "./types/types";
 
 //! This double text thing is weird. WOrking but not good check it out later.

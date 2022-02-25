@@ -4,7 +4,7 @@ import { theme } from "../../theme/Theme";
 import { IStyledProps } from "../../interfaces/types";
 import ThemeContext from "../../context/theme/themeContext";
 import Loading from "./Loading";
-import { Text } from "./Project/styles/styled";
+import { Text } from "./styles/styled";
 
 export const MainDivStyle = styled.div`
   border-radius: 15px;
@@ -15,12 +15,16 @@ export const MainDivStyle = styled.div`
 
 export const PageContainer = styled.main`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 500px) {
+    padding: 0 ${theme.spacing.space.large};
+  }
 `;
 
 export const MessageContainer = styled(MainDivStyle)`
@@ -32,6 +36,11 @@ export const MessageContainer = styled(MainDivStyle)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: ${theme.spacing.space.medium};
+  }
 `;
 
 interface ILoginAboutProps {

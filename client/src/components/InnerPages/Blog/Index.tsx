@@ -18,7 +18,6 @@ const BlogPage: FunctionComponent<IBlogPageProps> = ({ dimensions }) => {
 
   const fetchLast30BlogPosts = async () => {
     const posts = await fetchBlogPosts();
-    console.log(posts);
     setBlogPosts(posts);
     setIsLoading(false);
   };

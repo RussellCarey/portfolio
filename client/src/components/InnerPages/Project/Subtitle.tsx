@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-import { PaleText, Text } from "./styles/styled";
+import { PaleText, Text } from "../styles/styled";
 import { ISubTitleProps } from "./types/types";
 import { TitleContainer } from "./styles/styled";
 

@@ -1,29 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/Theme";
-import { IStyledProps } from "../../../../interfaces/types";
 import { IYoutubeStyleProps } from "../types/types";
 import { IStyledWithDimensionsProps } from "../../../../interfaces/types";
-import ThemeState from "../../../../context/theme/themeState";
-
-// Texts
-export const PaleText = styled.p`
-  flex: 1;
-  color: #84847e;
-  text-align: left;
-
-  margin-bottom: ${theme.spacing.space.xsmall};
-`;
-
-export const Text = styled.p`
-  flex: 2;
-  color: ${theme.colors.text.primary};
-`;
-
-export const DescriptionText = styled.p`
-  flex: 2;
-  color: ${theme.colors.text.primary};
-  margin-bottom: ${theme.spacing.space.medium};
-`;
 
 //Main Container for the page
 export const ProjectContainer = styled.div`
@@ -101,7 +79,6 @@ export const TextSideContainer = styled.div`
     ${(props: IStyledWithDimensionsProps) => (props.dimensions.width > 800 ? props.themeState.borderColor : "none")};
 `;
 
-//
 export const TitleContainer = styled.div`
   width: 100%;
   height: max-content;
@@ -142,4 +119,9 @@ export const MainTitleContainer = styled.div`
 export const TitleText = styled.h5`
   font-size: ${theme.font.fontsizes.h5};
   color: ${theme.colors.text.primary};
+`;
+
+export const LogoContainer = styled.div`
+  width: max-content;
+  display: flex;
 `;

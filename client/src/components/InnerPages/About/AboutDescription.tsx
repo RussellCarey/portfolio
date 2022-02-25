@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
-import { PaleText, DescriptionText, DescriptionContainer } from "../Project/styles/styled";
+import { PaleText, DescriptionText } from "../styles/styled";
+import { DescriptionContainer } from "../Project/styles/styled";
 import { IDescriptionProps } from "../Project/types/types";
 
-//! This double text thing is weird. WOrking but not good check it out later.
 const AboutDescription: FunctionComponent<IDescriptionProps> = ({ data }) => {
   return (
     <DescriptionContainer>

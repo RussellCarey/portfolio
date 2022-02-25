@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { AppContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
 
@@ -17,6 +17,7 @@ import Window from "./components/Window/Index";
 import { DesktopContainer } from "./components/InnerPages/styles/styled";
 
 export default function Home() {
+  const container = useRef<HTMLDivElement>();
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
   const viewport = window.visualViewport;
