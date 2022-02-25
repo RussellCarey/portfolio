@@ -53,6 +53,7 @@ export const InputField = styled.input`
   width: 100%;
   height: 100%;
 
+  font-size: ${theme.font.fontsizes.text};
   border: none;
   outline: none;
 

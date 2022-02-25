@@ -1,7 +1,0 @@
-I installed HUSKY and ZOD.
-
-ZOD is a front end TS validation tool to check stuff.. is a certain way or return an error.....
-HUSKY can be used to check tests before running or building something.
-
-DPIC
-XGcgC5rMApGAKvLWAg2tULzS

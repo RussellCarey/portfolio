@@ -85,7 +85,6 @@ export const SideBarContainer = styled.div`
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border-right: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
-
   border-radius: 15px 0 0 15px;
 
   display: flex;
@@ -100,7 +99,6 @@ export const TopBarContainer = styled.div`
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border-bottom: ${theme.sizing.borderThickness} solid ${(props: IStyledProps) => props.themeState.borderColor};
-
   border-radius: 15px 15px 0 0;
 
   display: flex;

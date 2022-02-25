@@ -4,6 +4,7 @@ import { theme } from "../../theme/Theme";
 import { IStyledProps } from "../../interfaces/types";
 import ThemeContext from "../../context/theme/themeContext";
 import Loading from "./Loading";
+import { Text } from "./Project/styles/styled";
 
 export const MainDivStyle = styled.div`
   border-radius: 15px;
@@ -26,7 +27,7 @@ export const MessageContainer = styled(MainDivStyle)`
   width: 50%;
   height: max-content;
   border-radius: 15px;
-  padding: ${theme.spacing.space.medium};
+  padding: ${theme.spacing.space.large};
 
   display: flex;
   align-items: center;
@@ -50,14 +51,14 @@ const LoginAbout: FunctionComponent<ILoginAboutProps> = ({ setIsLoggedIn }) => {
     <PageContainer>
       <Loading />
       <MessageContainer themeState={theme}>
-        <p style={{ textAlign: "center" }}>
+        <Text style={{ textAlign: "center" }}>
           Now loading the account of Russell Carey. <br></br> <br></br>A passionate coding obsessed English-man
           currently living in Japan. <br></br> <br></br>
           Russell creates interesting, creative and out of the box full stack projects from design to completetion that
           stretch ability and imagination. <br></br> <br></br>
           Note: Windows in this app are moveable by dragging the top of the window. They are also resizeable from the
           bottom right!
-        </p>
+        </Text>
       </MessageContainer>
     </PageContainer>
   );
