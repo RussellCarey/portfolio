@@ -123,5 +123,6 @@ export const TitleText = styled.h5`
 
 export const LogoContainer = styled.div`
   width: max-content;
+  height: min-content;
   display: flex;
 `;
