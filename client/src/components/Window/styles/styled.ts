@@ -37,7 +37,7 @@ export const MainWindowContainer = styled.div`
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
 
-  border-radius: 0 15px 15px 0;
+  border-radius: 0px 0px 0px 15px;
 
   display: flex;
   flex-direction: column;

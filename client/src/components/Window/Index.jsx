@@ -91,15 +91,19 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       mousePos.mouseY > mousePos.rect.height - 70 &&
       !isMobile
     ) {
+      document.body.style.cursor = "nesw-resize";
       setIsOnResize(true);
     } else {
       setIsOnResize(false);
+      document.body.style.cursor = "initial";
     }
 
     if (mousePos.mouseY > 0 && mousePos.mouseY < 100 && mousePos.mouseX > 0) {
+      document.body.style.cursor = "move";
       setisOnMoving(true);
     } else {
       setisOnMoving(false);
+      document.body.style.cursor = "initial";
     }
   };
 

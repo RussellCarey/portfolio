@@ -16,6 +16,7 @@ export const ProjectContainer = styled.div`
 
 // Left side of page
 export const ImageSideContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
 
@@ -29,6 +30,7 @@ export const ImageSideContainer = styled.div`
 
 // Top image section
 export const MediaAreaContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
 

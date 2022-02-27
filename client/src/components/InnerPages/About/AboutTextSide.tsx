@@ -9,7 +9,6 @@ const AboutTextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, th
   return (
     <TextSideContainer dimensions={dimensions} themeState={themeState}>
       <AboutTitle text={data.data.project_name[0].text} github={null} website={null} />
-      <SubTitle leftText={"some basics"} rightText={data.data.createdwith[0].text} />
       <SubTitle leftText={"i'm working with"} rightText={data.data.more[0].text} />
       <SubTitle leftText={"currently learning"} rightText={data.data.other[0].text} />
       <AboutDescription data={data} />
