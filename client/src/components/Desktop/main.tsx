@@ -1,20 +1,20 @@
-import { useContext, useState, useRef, useEffect } from "react";
-import { AppContainer } from "../../../styles/styled";
+import { useContext, useState } from "react";
+import { AppContainer } from "../../styles/styled";
 import { isMobile } from "react-device-detect";
 
-import ThemeContext from "../../../context/theme/themeContext";
-import WindowContext from "../../../context/window/windowContext";
+import ThemeContext from "../../context/theme/themeContext";
+import WindowContext from "../../context/window/windowContext";
 
-import { IWindowObject } from "../../../interfaces/types";
-import { EWindowTypes } from "../../../interfaces/types";
-import { EPageNames } from "../../../interfaces/types";
+import { IWindowObject } from "../../interfaces/types";
+import { EWindowTypes } from "../../interfaces/types";
+import { EPageNames } from "../../interfaces/types";
 
-import LoginPage from "../../Login";
+import LoginPage from "../Login";
 
-import Icon from "../../Icons/Index";
-import BottomBar from "../../BottomBar/Index";
-import Window from "../../Window/Index";
-import { DesktopContainer } from "../styles/styled";
+import Icon from "../Icons/Index";
+import BottomBar from "../BottomBar/Index";
+import Window from "../Window/Index";
+import { DesktopContainer } from "../InnerPages/styles/styled";
 
 export default function Home() {
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);

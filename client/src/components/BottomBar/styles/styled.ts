@@ -61,6 +61,7 @@ export const BarText = styled.p`
 
 // Start menu
 export const StartMenuContainer = styled.div`
+  z-index: 100000;
   position: absolute;
   bottom: 75px;
   left: 1px;

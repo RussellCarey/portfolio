@@ -20,19 +20,6 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
     setIsDark(!isDark);
   };
 
-  // Enable / disabled right clicking on the wepage (default)
-  // const rightClickToggle = () => {
-  //   if (canRightClick) {
-  //     console.log("Displable right click");
-  //     document.removeEventListener("contextmenu", (e) => e.preventDefault());
-  //   }
-  //   if (!canRightClick) {
-  //     console.log("enabled right lcik");
-  //     document.addEventListener("contextmenu", (e) => e.preventDefault());
-  //   }
-  //   setCanRightClick(!canRightClick);
-  // };
-
   return (
     <StartMenuContainer themeState={themeState}>
       <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
@@ -41,9 +28,6 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
       <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
         toggle dark mode
       </StartMenuButton>
-      {/* <StartMenuButton themeState={themeState}>
-        {canRightClick ? "disabled right click" : "enable right click"}
-      </StartMenuButton> */}
     </StartMenuContainer>
   );
 };
