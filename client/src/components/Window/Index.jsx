@@ -116,7 +116,7 @@ export default function Window({ pageName, themeState, id, windowType, data, win
     if (isMoving || isResizing) changeWindowS(e);
   };
 
-  //? MOUSEUP listener
+  //? MOUSEUP reset
   const onReset = () => {
     setIsResizing(false);
     setIsMoving(false);

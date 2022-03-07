@@ -40,6 +40,9 @@ const ThemeState = (props: IPropsState) => {
       ...theme,
       backgroundColor: KobayashiColors.pink.background,
       terminalColor: KobayashiColors.pink.terminal,
+      borderColor: "#30302C",
+      textColor: "#1C1C1C",
+      shadowColor: "#30302C",
     };
 
     dispatch({ type: SET_PINK_THEME, payload: KobayashiColors });
@@ -53,6 +56,9 @@ const ThemeState = (props: IPropsState) => {
       ...theme,
       backgroundColor: KobayashiColors.peach.background,
       terminalColor: KobayashiColors.peach.terminal,
+      borderColor: "#30302C",
+      textColor: "#1C1C1C",
+      shadowColor: "#30302C",
     };
 
     dispatch({ type: SET_PEACH_THEME, payload: KobayashiColors });
@@ -66,6 +72,9 @@ const ThemeState = (props: IPropsState) => {
       ...theme,
       backgroundColor: KobayashiColors.turquoise.background,
       terminalColor: KobayashiColors.turquoise.terminal,
+      borderColor: "#30302C",
+      textColor: "#1C1C1C",
+      shadowColor: "#30302C",
     };
 
     dispatch({ type: SET_TURQUOISE_THEME, payload: KobayashiColors });
@@ -79,6 +88,9 @@ const ThemeState = (props: IPropsState) => {
       ...theme,
       backgroundColor: KobayashiColors.purple.background,
       terminalColor: KobayashiColors.purple.terminal,
+      borderColor: "#30302C",
+      textColor: "#1C1C1C",
+      shadowColor: "#30302C",
     };
 
     dispatch({ type: SET_PURPLE_THEME, payload: KobayashiColors });
@@ -92,6 +104,9 @@ const ThemeState = (props: IPropsState) => {
       ...theme,
       backgroundColor: KobayashiColors.blue.background,
       terminalColor: KobayashiColors.blue.terminal,
+      borderColor: "#30302C",
+      textColor: "#1C1C1C",
+      shadowColor: "#30302C",
     };
 
     dispatch({ type: SET_BLUE_THEME, payload: KobayashiColors });
@@ -101,8 +116,6 @@ const ThemeState = (props: IPropsState) => {
   };
 
   const themeChangeMap = {
-    light: setLightTheme,
-    dark: setDarkTheme,
     blue: setBlueColor,
     peach: setPeachColor,
     turquoise: setTurquoiseColor,
@@ -115,6 +128,8 @@ const ThemeState = (props: IPropsState) => {
       value={{
         theme,
         themeChangeMap,
+        setDarkTheme,
+        setLightTheme,
       }}
     >
       {props.children}
