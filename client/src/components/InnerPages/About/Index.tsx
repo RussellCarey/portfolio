@@ -6,7 +6,7 @@ import { IAboutPageProps } from "./types/types";
 import { ProjectContainer } from "../Project/styles/styled";
 import ImageSide from "../Project/ImageSide";
 import AboutTextSide from "./AboutTextSide";
-import Loading from "../Loading";
+import Loading from "../Desktop/Spinner";
 
 const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimensions }) => {
   const { theme } = useContext(ThemeContext);

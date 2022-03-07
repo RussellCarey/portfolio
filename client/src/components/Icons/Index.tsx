@@ -37,20 +37,19 @@ const IconMain: FunctionComponent<IIconProps> = ({
       setSelectedIcon(pageName);
     }
 
-    if (e.button === 2) {
-      setSelectedIcon(pageName);
-      setShowMenu(true);
-      clickPosition.current = { x: e.pageX, y: e.pageY };
-    }
+    // Remove ability to show open menu on right click of icon for now..
+    // if (e.button === 2) {
+    //   setSelectedIcon(pageName);
+    //   setShowMenu(true);
+    //   clickPosition.current = { x: e.pageX, y: e.pageY };
+    // }
   };
 
   // When double clicking on the icon
   const onDoubleClickHandler = () => {
     setShowMenu(false);
 
-    if (isWeb) {
-      return window.open(isWeb, "_blank");
-    }
+    if (isWeb) return window.open(isWeb, "_blank");
 
     //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
     createNewWindow(pageName, windowType, data, false);

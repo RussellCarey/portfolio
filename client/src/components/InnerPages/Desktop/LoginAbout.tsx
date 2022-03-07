@@ -1,10 +1,10 @@
 import { FunctionComponent, useContext, useEffect } from "react";
 import styled from "styled-components";
-import { theme } from "../../theme/Theme";
-import { IStyledProps } from "../../interfaces/types";
-import ThemeContext from "../../context/theme/themeContext";
-import Loading from "./Loading";
-import { Text } from "./styles/styled";
+import { theme } from "../../../theme/Theme";
+import { IStyledProps } from "../../../interfaces/types";
+import ThemeContext from "../../../context/theme/themeContext";
+import Loading from "./Spinner";
+import { Text } from "../styles/styled";
 
 export const MainDivStyle = styled.div`
   border-radius: 15px;

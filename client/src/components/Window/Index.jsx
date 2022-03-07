@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { WindowContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
 
+// Util functions
+import { getMousePositionInDiv, isInsideTopBar, isInsideResize } from "./utils/utilFunctions";
+
 import CornerButton from "./CornerButton";
 import WindowMain from "./Main";
 import WindowTopbar from "./Topbar";
@@ -15,90 +18,26 @@ import Contact from "../InnerPages/Contact/Contact";
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const [dimensions, setDimensions] = useState({});
 
-  //! DEfault window position. CHANGE THIS
-  const [position, setPosition] = useState({
-    top: !isMobile ? 10 * windowList.length : 10,
-    left: !isMobile ? 40 * windowList.length : 10,
-  });
-
-  const [isOnResize, setIsOnResize] = useState(false);
-  const isResizing = useRef(false);
-  const [isOnMoving, setisOnMoving] = useState(false);
-  const isMoving = useRef(false);
+  const defaultTop = !isMobile ? 10 * windowList.length : 10;
+  const defaultLeft = !isMobile ? 40 * windowList.length : 10;
+  const [position, setPosition] = useState({ top: defaultTop, left: defaultLeft });
 
   const container = useRef();
-  const movingPoint = useRef({});
-  const dragStartPoint = useRef({});
+  const [isOnResize, setIsOnResize] = useState(false);
+  const [isResizing, setIsResizing] = useState(false);
+  const [isOnMoving, setisOnMoving] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
+  const [movingPoint, setMovingPoint] = useState();
+  const [dragStartPoint, setStartDragPoint] = useState();
 
   useEffect(() => {
-    // Add event listeners for detecting mouse interaction
-    const moveListen = window.addEventListener("mousemove", resizeTheWindow);
-    const mouseUp = window.addEventListener("mouseup", onReset);
-
-    // Get window size on startup
+    // Get window size on startup - this is for resizing
     setDimensions({ width: container.current.clientWidth, height: container.current.clientHeight });
-
-    //Cleanup
-    return () => {
-      window.removeEventListener("mousemove", moveListen);
-      window.removeEventListener("mouseup", mouseUp);
-    };
   }, [container]);
 
-  //? Window event listener
-  const resizeTheWindow = (e) => {
-    if (isResizing.current === true) {
-      setDimensions({
-        width: dragStartPoint.current.w + (e.clientX - dragStartPoint.current.x),
-        height: dragStartPoint.current.h + (e.clientY - dragStartPoint.current.y),
-      });
-    }
-
-    if (isMoving.current === true) {
-      setPosition({
-        left: e.clientX - movingPoint.current.x,
-        top: e.clientY - movingPoint.current.y,
-      });
-    }
-  };
-
-  //? On any mouse up reset all
-  const onReset = () => {
-    isResizing.current = false;
-    isMoving.current = false;
-    movingPoint.current = null;
-    dragStartPoint.current = null;
-    setIsOnResize(false);
-    setisOnMoving(false);
-  };
-
-  const getMousePositionInDiv = (e) => {
-    // Important: currentTarget for parent but target for div -- This is why the math was off -- wrong div..
-    const rect = e.currentTarget.getBoundingClientRect();
-    const mouseY = e.clientY - rect.top;
-    const mouseX = e.clientX - rect.left;
-    return { mouseX, mouseY, rect };
-  };
-
-  //? Checks the mouse position inside the div
-  const checkMousePosition = (e) => {
-    const mousePos = getMousePositionInDiv(e);
-
-    if (
-      mousePos.mouseX < mousePos.rect.width &&
-      mousePos.mouseX > mousePos.rect.width - 100 &&
-      mousePos.mouseY < mousePos.rect.height &&
-      mousePos.mouseY > mousePos.rect.height - 70 &&
-      !isMobile
-    ) {
-      document.body.style.cursor = "nesw-resize";
-      setIsOnResize(true);
-    } else {
-      setIsOnResize(false);
-      document.body.style.cursor = "initial";
-    }
-
-    if (mousePos.mouseY > 0 && mousePos.mouseY < 100 && mousePos.mouseX > 0) {
+  // Check if mouse is in the movement zone
+  const checkMouseInMove = (mousePos) => {
+    if (isInsideTopBar(mousePos)) {
       document.body.style.cursor = "move";
       setisOnMoving(true);
     } else {
@@ -107,31 +46,92 @@ export default function Window({ pageName, themeState, id, windowType, data, win
     }
   };
 
-  //? On click, set depending on location setwhat needs to be set
-  const setStartingPoint = (e) => {
-    const mousePos = getMousePositionInDiv(e);
+  // Check if mouse is in the resize zone.
+  const checkMouseInResize = (mousePos) => {
+    if (isInsideResize(mousePos)) {
+      document.body.style.cursor = "move";
+      setIsOnResize(true);
+    } else {
+      setIsOnResize(false);
+      document.body.style.cursor = "initial";
+    }
+  };
 
+  // When clicked on and in position to resize
+  const setDragPointAndStartDrag = (e, mousePos) => {
     if (isOnResize && !isMobile) {
-      dragStartPoint.current = {
+      setStartDragPoint({
         x: e.clientX,
         y: e.clientY,
         w: mousePos.rect.width,
         h: mousePos.rect.height,
-      };
+      });
 
-      isResizing.current = true;
+      setIsResizing(true);
     }
+  };
+
+  // When clicked on and in position..
+  const setStartingPoint = (e) => {
+    const mousePos = getMousePositionInDiv(e);
+    setDragPointAndStartDrag(e, mousePos);
 
     if (isOnMoving) {
-      isMoving.current = true;
-      movingPoint.current = { x: mousePos.mouseX, y: mousePos.mouseY };
+      setIsMoving(true);
+      setMovingPoint({ x: mousePos.mouseX, y: mousePos.mouseY });
     }
+  };
+
+  // Update position when resizing
+  const resizingProcess = (e) => {
+    if (isResizing) {
+      setDimensions({
+        width: dragStartPoint.w + (e.clientX - dragStartPoint.x),
+        height: dragStartPoint.h + (e.clientY - dragStartPoint.y),
+      });
+    }
+  };
+
+  // Update position whilst moving
+  const movingProcess = (e) => {
+    if (isMoving) {
+      setPosition({
+        left: e.clientX - movingPoint.x,
+        top: e.clientY - movingPoint.y,
+      });
+    }
+  };
+
+  //? MOUSEMOVE listener
+  const changeWindowS = (e) => {
+    resizingProcess(e);
+    movingProcess(e);
+  };
+
+  //? Checks the mouse position inside the div
+  const changeWindowSizeOrPos = (e) => {
+    const mousePos = getMousePositionInDiv(e);
+    checkMouseInMove(mousePos);
+    checkMouseInResize(mousePos);
+    if (isMoving || isResizing) changeWindowS(e);
+  };
+
+  //? MOUSEUP listener
+  const onReset = () => {
+    setIsResizing(false);
+    setIsMoving(false);
+    setIsOnResize(false);
+    setisOnMoving(false);
+    setMovingPoint(null);
+    setStartDragPoint(null);
   };
 
   return (
     <WindowContainer
-      onMouseMove={checkMousePosition}
+      onMouseMove={changeWindowSizeOrPos}
       onMouseDown={setStartingPoint}
+      onMouseUp={onReset}
+      onMouseLeave={onReset}
       themeState={themeState}
       dimensions={dimensions}
       position={position}
@@ -143,7 +143,6 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       transition={{ duration: 0.2, delay: 0.1 }}
     >
       <CornerButton themeState={themeState} onReset={onReset} id={id} />
-      {/* {windowType === EWindowTypes.sidebar ? <Sidebar themeState={themeState} /> : null} */}
       <WindowTopbar themeState={themeState} />
       <WindowMain themeState={themeState}>
         {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}

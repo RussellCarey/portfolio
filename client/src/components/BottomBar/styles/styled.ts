@@ -66,7 +66,7 @@ export const StartMenuContainer = styled.div`
   left: 1px;
 
   width: 300px;
-  height: 400px;
+  height: max-content;
 
   border-radius: 15px 15px 0 0;
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};

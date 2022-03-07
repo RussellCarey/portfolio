@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useState, useEffect } from "react";
+import { FunctionComponent, useContext, useState } from "react";
 import { StartMenuButton, StartMenuContainer } from "./styles/styled";
 import { IStartMenuProps } from "./types/interfaces";
 
@@ -9,8 +9,7 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
   const [isDark, setIsDark] = useState<boolean>(false);
 
   const selectAndChangeRandomColor = () => {
-    //! Dark theme is not great nor the back groind colors.
-    themeChangeMap.pink();
+    //
   };
 
   const toggleDarkMode = () => {
@@ -18,17 +17,18 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
     setIsDark(!isDark);
   };
 
-  const rightClickToggle = () => {
-    // if (canRightClick) {
-    //   console.log("Displable right click");
-    //   document.removeEventListener("contextmenu", (e) => e.preventDefault());
-    // }
-    // if (!canRightClick) {
-    //   console.log("enabled right lcik");
-    //   document.addEventListener("contextmenu", (e) => e.preventDefault());
-    // }
-    // setCanRightClick(!canRightClick);
-  };
+  // Enable / disabled right clicking on the wepage (default)
+  // const rightClickToggle = () => {
+  //   if (canRightClick) {
+  //     console.log("Displable right click");
+  //     document.removeEventListener("contextmenu", (e) => e.preventDefault());
+  //   }
+  //   if (!canRightClick) {
+  //     console.log("enabled right lcik");
+  //     document.addEventListener("contextmenu", (e) => e.preventDefault());
+  //   }
+  //   setCanRightClick(!canRightClick);
+  // };
 
   return (
     <StartMenuContainer themeState={themeState}>
@@ -38,9 +38,9 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
       <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
         toggle dark mode
       </StartMenuButton>
-      <StartMenuButton onClick={rightClickToggle} themeState={themeState}>
+      {/* <StartMenuButton themeState={themeState}>
         {canRightClick ? "disabled right click" : "enable right click"}
-      </StartMenuButton>
+      </StartMenuButton> */}
     </StartMenuContainer>
   );
 };

@@ -5,7 +5,7 @@ import { PageContainer } from "./styles/styled";
 import BlogPost from "./BlogPost";
 
 import { fetchBlogPosts } from "./services/fetchServices";
-import Loading from "../Loading";
+import Loading from "../Desktop/Spinner";
 
 interface IBlogPageProps {
   dimensions: { width: number; height: number };

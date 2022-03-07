@@ -5,7 +5,7 @@ import StartButton from "./StartButton";
 import StartTime from "./StartTime";
 import StartMenu from "./StartMenu";
 
-import useWindowDimensions from "../../hooks/useCheckWindowSize";
+// import useWindowDimensions from "../../hooks/useCheckWindowSize";
 
 export default function BottomBar() {
   const [showStartMenu, setShowStartMenu] = useState<boolean>(false);

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ThemeContext from "../../../context/theme/themeContext";
 import { FunctionComponent } from "react";
-import { IProjectsPageProps } from "../types/types";
+import { IProjectsPageProps } from "../Projects/types/types";
 import { ProjectContainer } from "./styles/styled";
 import TextSide from "./TextSide";
 import ImageSide from "./ImageSide";

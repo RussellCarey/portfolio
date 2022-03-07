@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as Spinner } from "../../svg/spinner.svg";
-import { theme } from "../../theme/Theme";
+import { ReactComponent as Spinner } from "../../../svg/spinner.svg";
+import { theme } from "../../../theme/Theme";
 
 const SpinnerBGContainer = styled.div`
   position: absolute;

@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect, useState, useContext } from "react";
 import { Container } from "./styles/styled";
-import { IProjectsPageProps } from "../types/types";
+import { IProjectsPageProps } from "./types/types";
 import ThemeContext from "../../../context/theme/themeContext";
 
 import { getDocumentsByTag } from "./services/projectServices";
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
-import Loading from "../Loading";
+import Loading from "../Desktop/Spinner";
 
 const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ themeState, data }) => {
   const [selectedIcon, setSelectedIcon] = useState<string>("");

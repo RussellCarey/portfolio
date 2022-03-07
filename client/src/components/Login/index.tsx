@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
 import ThemeContext from "../../context/theme/themeContext";
-import LoginAbout from "../InnerPages/LoginAbout";
+import LoginAbout from "../InnerPages/Desktop/LoginAbout";
 import {
   PageContainer,
   UserIconContainer,
@@ -33,10 +33,6 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     startDelay: number
   ) => {
     await delayTime(startDelay, () => {});
-    // Set blinking? For the text line?
-
-    // set type speed to a state (random?)
-
     const textArray = text.split("");
 
     for (const letter of textArray) {
@@ -62,13 +58,16 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
         <UserIconContainer themeState={theme}>
           <UserIcon />
         </UserIconContainer>
+
         <FakeInputField themeState={theme}>
           <InputField themeState={theme} type="text" value={nameState} />
         </FakeInputField>
+
         <FakeInputField themeState={theme}>
           <InputField themeState={theme} type="text" value={passwordState} />
           <HelpBox themeState={theme}>?</HelpBox>
         </FakeInputField>
+
         {isLoading ? (
           <LoginButton themeState={theme}>loading</LoginButton>
         ) : (
