@@ -10,7 +10,7 @@ const AboutTextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, th
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (container.current) container.current!.focus();
+    if (container.current) container.current!.click();
   }, [container]);
 
   return (
