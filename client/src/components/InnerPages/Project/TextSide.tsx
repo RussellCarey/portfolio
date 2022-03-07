@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Title from "./Title";
 import SubTitle from "./Subtitle";
 import Description from "./Description";
@@ -7,8 +8,14 @@ import { TextSideContainer } from "./styles/styled";
 import { ITextSideProps } from "./types/types";
 
 const TextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, themeState }) => {
+  const container = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (container.current) container.current!.focus();
+  }, [container]);
+
   return (
-    <TextSideContainer dimensions={dimensions} themeState={themeState}>
+    <TextSideContainer ref={container} dimensions={dimensions} themeState={themeState}>
       <Title text={data.data.project_name[0].text} github={data.data.github.url} website={data.data.online.url} />
       <SubTitle leftText={"created with"} rightText={data.data.createdwith[0].text} />
       <SubTitle leftText={"more"} rightText={data.data.more[0].text} />
