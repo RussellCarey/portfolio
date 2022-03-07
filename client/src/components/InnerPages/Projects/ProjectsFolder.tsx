@@ -6,7 +6,7 @@ import ThemeContext from "../../../context/theme/themeContext";
 import { getDocumentsByTag } from "./services/projectServices";
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
-import Loading from "../Desktop/Spinner";
+import Loading from "../../Desktop/Spinner";
 
 const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ themeState, data }) => {
   const [selectedIcon, setSelectedIcon] = useState<string>("");

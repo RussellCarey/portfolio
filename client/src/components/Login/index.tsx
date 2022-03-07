@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
 import ThemeContext from "../../context/theme/themeContext";
-import LoginAbout from "../InnerPages/Desktop/LoginAbout";
+import LoginAbout from "../Desktop/LoginAbout";
 import {
   PageContainer,
   UserIconContainer,
