@@ -4,31 +4,26 @@ import { motion } from "framer-motion";
 
 import { IStyledProps } from "../../../interfaces/types";
 
-export const WindowContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
+// Used element.attrs as when you put it inside style it doesnt computer each instance.
+// Was getting slow on moving too much.
+export const WindowContainer = styled.div.attrs((props: IStyledProps) => ({
+  style: {
+    display: "flex",
+    flexDirection: "column",
+    position: "absolute",
 
+    borderRadius: theme.iconSize.borderRadius,
+    backgroundColor: props.themeState.terminalColor,
+    border: `${theme.sizing.borderThickness} solid ${props.themeState.borderColor}`,
+    boxShadow: `20px 20px 0 ${props.themeState.borderColor}`,
+  },
+}))`
   top: ${(props: any) => props.position.top + "px"};
   left: ${(props: any) => props.position.left + "px"};
-
   width: ${(props: any) =>
     !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "90%"};
-
   height: ${(props: any) =>
     !props.isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "94%"};
-
-  border-radius: ${theme.iconSize.borderRadius};
-  background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
-  border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
-  box-shadow: 20px 20px 0 ${(props) => props.themeState.borderColor};
-
-  z-index: ${(props: any) => (props.windowList.length > 0 ? props.windowList.length * 10 + 100 : 100)};
-
-  @media (max-width: 1000px) {
-    box-shadow: none;
-    width: calc(100vw - 20px);
-  }
 `;
 
 export const MainWindow = styled.div`

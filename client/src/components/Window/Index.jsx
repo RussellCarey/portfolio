@@ -56,8 +56,9 @@ export default function Window({ pageName, themeState, id, windowType, data, win
     }
   };
 
-  // When clicked on and in position to resize
-  const setDragPointAndStartDrag = (e, mousePos) => {
+  // When clicked on and in position..
+  const setStartingPoint = (e) => {
+    const mousePos = getMousePositionInDiv(e);
     if (isOnResize && !isMobile) {
       setStartDragPoint({
         x: e.clientX,
@@ -68,12 +69,6 @@ export default function Window({ pageName, themeState, id, windowType, data, win
 
       setIsResizing(true);
     }
-  };
-
-  // When clicked on and in position..
-  const setStartingPoint = (e) => {
-    const mousePos = getMousePositionInDiv(e);
-    setDragPointAndStartDrag(e, mousePos);
 
     if (isOnMoving) {
       setIsMoving(true);

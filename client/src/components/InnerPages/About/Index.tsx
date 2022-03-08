@@ -18,10 +18,10 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimension
   const loadAboutData = async () => {
     try {
       const aboutDocument = await prismicClient.getAllByTag("about");
-      setAboutData(aboutDocument);
+      setAboutData(aboutDocument[0]);
       setIsLoading(false);
     } catch (error: any) {
-      console.log(error.response);
+      console.log(error);
     }
   };
 
@@ -33,8 +33,12 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimension
     <Loading />
   ) : (
     <ProjectContainer dimensions={dimensions} themeState={themeState}>
-      {!isLoading ? <ImageSide data={aboutData} themeState={theme} dimensions={dimensions} /> : null}
-      {!isLoading ? <AboutTextSide data={aboutData} dimensions={dimensions} themeState={themeState} /> : null}
+      {!isLoading && aboutData ? (
+        <>
+          <ImageSide data={aboutData} themeState={theme} dimensions={dimensions} />
+          <AboutTextSide data={aboutData} dimensions={dimensions} themeState={themeState} />
+        </>
+      ) : null}
     </ProjectContainer>
   );
 };
