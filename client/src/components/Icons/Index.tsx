@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FunctionComponent, useContext } from "react";
+import { isMobile } from "react-device-detect";
 
 import { IconContainer, IconText } from "./styles/styled";
 import IconSquare from "./IconSquare";
@@ -31,6 +32,14 @@ const IconMain: FunctionComponent<IIconProps> = ({
   const onClickHandler = (e: React.MouseEvent) => {
     if (e.button === 0) {
       setSelectedIcon(pageName);
+    }
+
+    // Mobile icons usually open on one click no double.
+    if (isMobile) {
+      if (isWeb) return window.open(isWeb, "_blank");
+
+      //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
+      createNewWindow(pageName, windowType, data, false);
     }
   };
 

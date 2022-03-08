@@ -2,8 +2,10 @@
 
 html,
 body {
+  overflow: hidden;
   font-family: "Arial Rounded MT Bold", sans-serif;
   user-select: none;
+  overscroll-behavior: none;
 }
 
 * {

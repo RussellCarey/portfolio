@@ -126,7 +126,6 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       dimensions={dimensions}
       position={position}
       windowList={windowList}
-      isMobile={isMobile}
       id={id}
       ref={container}
       animate={{ scale: [1, 1.01, 1.01, 1.01, 1] }}

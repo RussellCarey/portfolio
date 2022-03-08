@@ -5,6 +5,14 @@ import { IIconTextProps } from "../types/interfaces";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
+import { ReactComponent as Git } from "../../../svg/github.svg";
+import { ReactComponent as Twitter } from "../../../svg/twitter.svg";
+import { ReactComponent as Blog } from "../../../svg/comment-regular.svg";
+import { ReactComponent as About } from "../../../svg/user-regular.svg";
+import { ReactComponent as Projects } from "../../../svg/code-solid.svg";
+import { ReactComponent as Contact } from "../../../svg/envelope-regular.svg";
+import { ReactComponent as Linkedin } from "../../../svg/linkedin.svg";
+
 // Container for the whole Icon component.
 export const IconContainer = styled(motion.div)`
   position: relative;
@@ -84,4 +92,34 @@ export const IconMenuContainer = styled.div<IIconMenuContainerProps>`
     cursor: pointer;
     filter: brightness(0.9);
   }
+`;
+
+// SVG temp solution
+export const GitSVG = styled(Git)`
+  width: 110%;
+  height: 110%;
+`;
+export const TwitterSVG = styled(Twitter)`
+  width: 110%;
+  height: 110%;
+`;
+export const BlogSVG = styled(Blog)`
+  width: 110%;
+  height: 110%;
+`;
+export const AboutSVG = styled(About)`
+  width: 110%;
+  height: 110%;
+`;
+export const ProjectsSVG = styled(Projects)`
+  width: 110%;
+  height: 110%;
+`;
+export const ContactSVG = styled(Contact)`
+  width: 110%;
+  height: 110%;
+`;
+export const LinkedinSVG = styled(Linkedin)`
+  width: 110%;
+  height: 110%;
 `;

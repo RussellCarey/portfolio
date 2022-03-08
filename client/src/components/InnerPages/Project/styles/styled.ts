@@ -24,7 +24,7 @@ export const ImageSideContainer = styled.div`
   flex-direction: column;
 
   @media (max-width: 1000px) {
-    height: 300px;
+    height: 200px;
   }
 `;
 
@@ -107,14 +107,16 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const MainTitleContainer = styled.div`
+  overscroll-behavior: none;
   width: 100%;
-  height: max-content;
+  height: 1px;
 
   padding: ${theme.spacing.space.small};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  margin-top: ${theme.spacing.space.medium};
   margin-bottom: ${theme.spacing.space.medium};
 `;
 

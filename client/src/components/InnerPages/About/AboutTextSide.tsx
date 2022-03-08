@@ -5,6 +5,7 @@ import AboutDescription from "./AboutDescription";
 import { FunctionComponent } from "react";
 import { TextSideContainer } from "../Project/styles/styled";
 import { ITextSideProps } from "../Project/types/types";
+import { isMobile } from "react-device-detect";
 
 const AboutTextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, themeState }) => {
   const container = useRef<HTMLDivElement>(null);

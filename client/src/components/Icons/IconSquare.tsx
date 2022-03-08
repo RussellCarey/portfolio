@@ -1,27 +1,28 @@
 import { FunctionComponent } from "react";
 
-import { ReactComponent as Git } from "../../svg/github.svg";
-import { ReactComponent as Twitter } from "../../svg/twitter.svg";
-import { ReactComponent as Blog } from "../../svg/comment-regular.svg";
-import { ReactComponent as About } from "../../svg/user-regular.svg";
-import { ReactComponent as Projects } from "../../svg/code-solid.svg";
-import { ReactComponent as Contact } from "../../svg/envelope-regular.svg";
-import { ReactComponent as Linkedin } from "../../svg/linkedin.svg";
-
 import { IIconSquareProps } from "./types/interfaces";
 import { EPageNames } from "../../interfaces/types";
-import { IconSquare } from "./styles/styled";
+import {
+  IconSquare,
+  GitSVG,
+  TwitterSVG,
+  BlogSVG,
+  AboutSVG,
+  ProjectsSVG,
+  ContactSVG,
+  LinkedinSVG,
+} from "./styles/styled";
 
 const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, themeState, isProject }) => {
   return !isProject ? (
     <IconSquare themeState={themeState}>
-      {label === EPageNames.github ? <Git /> : null}
-      {label === EPageNames.twitter ? <Twitter /> : null}
-      {label === EPageNames.blog ? <Blog /> : null}
-      {label === EPageNames.about ? <About /> : null}
-      {label === EPageNames.projects ? <Projects /> : null}
-      {label === EPageNames.contact ? <Contact /> : null}
-      {label === EPageNames.linkedin ? <Linkedin /> : null}
+      {label === EPageNames.github ? <GitSVG /> : null}
+      {label === EPageNames.twitter ? <TwitterSVG /> : null}
+      {label === EPageNames.blog ? <BlogSVG /> : null}
+      {label === EPageNames.about ? <AboutSVG /> : null}
+      {label === EPageNames.projects ? <ProjectsSVG /> : null}
+      {label === EPageNames.contact ? <ContactSVG /> : null}
+      {label === EPageNames.linkedin ? <LinkedinSVG /> : null}
     </IconSquare>
   ) : (
     <IconSquare themeState={themeState}>

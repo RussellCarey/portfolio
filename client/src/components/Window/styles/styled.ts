@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
-
 import { IStyledProps } from "../../../interfaces/types";
 
 // Used element.attrs as when you put it inside style it doesnt computer each instance.
 // Was getting slow on moving too much.
-export const WindowContainer = styled.div.attrs((props: IStyledProps) => ({
+export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) => ({
   style: {
     display: "flex",
     flexDirection: "column",
@@ -15,15 +15,16 @@ export const WindowContainer = styled.div.attrs((props: IStyledProps) => ({
     borderRadius: theme.iconSize.borderRadius,
     backgroundColor: props.themeState.terminalColor,
     border: `${theme.sizing.borderThickness} solid ${props.themeState.borderColor}`,
-    boxShadow: `20px 20px 0 ${props.themeState.borderColor}`,
+    boxShadow: isMobile ? `5px 5px 0 ${props.themeState.borderColor}` : `20px 20px 0 ${props.themeState.borderColor}`,
   },
 }))`
-  top: ${(props: any) => props.position.top + "px"};
-  left: ${(props: any) => props.position.left + "px"};
+  z-index: ${(props: any) => (props.windowList.length > 0 ? props.windowList.length * 10 + 100 : 100)};
+  top: ${(props: any) => (isMobile ? "5px" : props.position.top + "px")};
+  left: ${(props: any) => (isMobile ? "5px" : props.position.left + "px")};
   width: ${(props: any) =>
-    !props.isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "90%"};
+    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "calc(100% - 15px)"};
   height: ${(props: any) =>
-    !props.isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "94%"};
+    !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 15px)"};
 `;
 
 export const MainWindow = styled.div`
