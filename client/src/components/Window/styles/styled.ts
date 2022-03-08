@@ -31,7 +31,7 @@ export const WindowContainer = styled(motion.div)`
   }
 `;
 
-export const MainWindowContainer = styled.div`
+export const MainWindow = styled.div`
   width: 100%;
   height: 100%;
 
@@ -44,7 +44,7 @@ export const MainWindowContainer = styled.div`
   overflow-y: auto;
 `;
 
-export const CornerButtonContainer = styled.div`
+export const CornerButton = styled.div`
   width: 34px;
   height: 34px;
 
@@ -78,7 +78,7 @@ export const WindowContextContainer = styled.div`
   flex-direction: column;
 `;
 
-export const SideBarContainer = styled.div`
+export const SideBar = styled.div`
   width: 100px;
   min-width: 200px;
   height: 100%;
@@ -93,7 +93,7 @@ export const SideBarContainer = styled.div`
   align-items: center;
 `;
 
-export const TopBarContainer = styled.div`
+export const TopBar = styled.div`
   width: 100%;
   height: 70px;
 

@@ -85,5 +85,3 @@ export const IconMenuContainer = styled.div<IIconMenuContainerProps>`
     filter: brightness(0.9);
   }
 `;
-
-export const SVG = styled.svg``;

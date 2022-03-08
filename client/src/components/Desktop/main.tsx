@@ -9,12 +9,11 @@ import { IWindowObject } from "../../interfaces/types";
 import { EWindowTypes } from "../../interfaces/types";
 import { EPageNames } from "../../interfaces/types";
 
-import LoginPage from "../Login";
-
+import { DesktopContainer } from "../InnerPages/styles/styled";
 import Icon from "../Icons/Index";
 import BottomBar from "../BottomBar/Index";
 import Window from "../Window/Index";
-import { DesktopContainer } from "../InnerPages/styles/styled";
+import LoginPage from "../Login";
 
 export default function Home() {
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -31,9 +30,7 @@ export default function Home() {
         <>
           <DesktopContainer>
             <Icon
-              themeState={theme}
               pageName={EPageNames.about}
-              data={null}
               text={EPageNames.about}
               windowType={EWindowTypes.sidebar}
               aniDelay={0.1}
@@ -41,12 +38,11 @@ export default function Home() {
               isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.projects}
-              data={null}
               text={EPageNames.projects}
               windowType={EWindowTypes.sidebar}
               aniDelay={0.4}
@@ -54,12 +50,11 @@ export default function Home() {
               isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.blog}
-              data={null}
               text={EPageNames.blog}
               windowType={EWindowTypes.noSidebar}
               aniDelay={0.7}
@@ -67,12 +62,11 @@ export default function Home() {
               isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.contact}
-              data={null}
               text={EPageNames.contact}
               windowType={EWindowTypes.sidebar}
               aniDelay={0.9}
@@ -80,12 +74,11 @@ export default function Home() {
               isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.twitter}
-              data={null}
               text={EPageNames.twitter}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.1}
@@ -93,12 +86,11 @@ export default function Home() {
               isWeb={"https://www.twitter.com/russellcareyy"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.github}
-              data={null}
               text={EPageNames.github}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.2}
@@ -106,12 +98,11 @@ export default function Home() {
               isWeb={"https://www.github.com/russellcarey"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             <Icon
-              themeState={theme}
               pageName={EPageNames.linkedin}
-              data={null}
               text={EPageNames.linkedin}
               windowType={EWindowTypes.noSidebar}
               aniDelay={1.3}
@@ -119,6 +110,7 @@ export default function Home() {
               isWeb={"https://www.linkedin.com/in/russell-carey-b199bb19a/"}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
+              data={null}
             />
 
             {windowState.windows && windowState.windows.length > 0

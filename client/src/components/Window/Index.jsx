@@ -1,13 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import { WindowContainer } from "./styles/styled";
+import { useState, useEffect, useRef, useContext } from "react";
 import { isMobile } from "react-device-detect";
+import WindowContext from "../../context/window/windowContext";
 
 // Util functions
 import { getMousePositionInDiv, isInsideTopBar, isInsideResize } from "./utils/utilFunctions";
 
-import CornerButton from "./CornerButton";
-import WindowMain from "./Main";
-import WindowTopbar from "./Topbar";
+import { TopBar, MainWindow, CornerButton, WindowContainer } from "./styles/styled";
 
 import AboutPage from "../InnerPages/About/Index";
 import BlogPage from "../InnerPages/Blog/Index";
@@ -16,8 +14,9 @@ import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
 import Contact from "../InnerPages/Contact/Contact";
 
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
-  const [dimensions, setDimensions] = useState({});
+  const { deleteActiveWindow } = useContext(WindowContext);
 
+  const [dimensions, setDimensions] = useState({});
   const defaultTop = !isMobile ? 10 * windowList.length : 10;
   const defaultLeft = !isMobile ? 40 * windowList.length : 10;
   const [position, setPosition] = useState({ top: defaultTop, left: defaultLeft });
@@ -102,18 +101,14 @@ export default function Window({ pageName, themeState, id, windowType, data, win
     }
   };
 
-  //? MOUSEMOVE listener
-  const changeWindowS = (e) => {
-    resizingProcess(e);
-    movingProcess(e);
-  };
-
   //? Checks the mouse position inside the div
   const changeWindowSizeOrPos = (e) => {
     const mousePos = getMousePositionInDiv(e);
     checkMouseInMove(mousePos);
     checkMouseInResize(mousePos);
-    if (isMoving || isResizing) changeWindowS(e);
+
+    if (isMoving) movingProcess(e);
+    if (isResizing) resizingProcess(e);
   };
 
   //? MOUSEUP reset
@@ -142,15 +137,15 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       animate={{ scale: [1, 1.01, 1.01, 1.01, 1] }}
       transition={{ duration: 0.2, delay: 0.1 }}
     >
-      <CornerButton themeState={themeState} onReset={onReset} id={id} />
-      <WindowTopbar themeState={themeState} />
-      <WindowMain themeState={themeState}>
+      <CornerButton themeState={themeState} onClick={() => deleteActiveWindow(id)} />
+      <TopBar themeState={themeState} />
+      <MainWindow themeState={themeState}>
         {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "blog" ? <BlogPage themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "contact" ? <Contact themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
-      </WindowMain>
+      </MainWindow>
     </WindowContainer>
   );
 }

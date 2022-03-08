@@ -1,24 +1,25 @@
-import React, { useState, useRef, useEffect, FunctionComponent, useContext } from "react";
-import { IconContainer, IconText } from "./styles/styled";
-import WindowContext from "../../context/window/windowContext";
+import React, { useState, useEffect, FunctionComponent, useContext } from "react";
 
+import { IconContainer, IconText } from "./styles/styled";
 import IconSquare from "./IconSquare";
 import { IIconProps } from "./types/interfaces";
+
+import ThemeContext from "../../context/theme/themeContext";
+import WindowContext from "../../context/window/windowContext";
 
 const IconMain: FunctionComponent<IIconProps> = ({
   pageName,
   text,
   data,
   windowType,
-  themeState,
   isWeb,
   aniDelay,
   selectedIcon,
   setSelectedIcon,
   isProject,
 }) => {
-  const windowContext = useContext(WindowContext);
-  const { createNewWindow } = windowContext;
+  const { createNewWindow } = useContext(WindowContext);
+  const { theme } = useContext(ThemeContext);
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   useEffect(() => {
@@ -49,9 +50,9 @@ const IconMain: FunctionComponent<IIconProps> = ({
       transition={{ delay: aniDelay, duration: 0.5 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <IconSquare themeState={themeState} label={pageName} name={text} isProject={isProject} />
+      <IconSquare themeState={theme} label={pageName} name={text} isProject={isProject} />
 
-      <IconText themeState={themeState} isSelected={isSelected}>
+      <IconText themeState={theme} isSelected={isSelected}>
         {text}
       </IconText>
     </IconContainer>
