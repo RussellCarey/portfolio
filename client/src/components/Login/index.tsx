@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
 import ThemeContext from "../../context/theme/themeContext";
-import LoginAbout from "../Desktop/LoginAbout";
 import {
   PageContainer,
   UserIconContainer,
@@ -52,7 +51,7 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     populateFieldTyping(passwordRef, setPasswordState, "**********", 3000);
   }, []);
 
-  return !clickedLogin ? (
+  return (
     <PageContainer>
       <>
         <UserIconContainer themeState={theme}>
@@ -71,14 +70,12 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
         {isLoading ? (
           <LoginButton themeState={theme}>loading</LoginButton>
         ) : (
-          <AnimatedLogin themeState={theme} onClick={() => setClickedLogin(true)}>
+          <AnimatedLogin themeState={theme} onClick={() => setIsLoggedIn(true)}>
             login
           </AnimatedLogin>
         )}
       </>
     </PageContainer>
-  ) : (
-    <LoginAbout setIsLoggedIn={setIsLoggedIn} />
   );
 };
 
