@@ -51,7 +51,7 @@ export const EmailTextBox = styled.textarea`
   width: 100%;
   height: 100%;
   resize: none;
-  padding: ${theme.spacing.space.small};
+  padding: ${theme.spacing.space.small} 0;
 
   font-size: ${theme.font.fontsizes.text};
   background-color: transparent;

@@ -5,7 +5,7 @@ import { IProjectsPageProps } from "./types/types";
 
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
-import Loading from "../../Desktop/Spinner";
+import Loading from "../../Spinners/Spinner";
 
 const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
   const [selectedIcon, setSelectedIcon] = useState<string>("");
