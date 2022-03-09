@@ -16,23 +16,23 @@ export const darkThemeDefault = {
 
 export const KobayashiColors = {
   pink: {
-    background: "#EEA1E5",
+    background: "#F49390",
     terminal: "#F6F0EF",
   },
   blue: {
-    background: "#6895C5",
+    background: "#05B2DC",
     terminal: "#E6F1F3",
   },
   purple: {
-    background: "#8D93C3",
-    terminal: "#E6F1F3",
+    background: "#7D5BA6",
+    terminal: "#DCD5E6",
   },
   turquoise: {
-    background: "#6BCEBE",
+    background: "#519E8A",
     terminal: "#D1DFD4",
   },
   peach: {
-    background: "#FBB79C",
+    background: "#F55D3E",
     terminal: "#ECE5DC",
   },
 };

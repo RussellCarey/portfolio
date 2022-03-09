@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { IStyledProps } from "../../../interfaces/types";
-import { IIconMenuContainerProps } from "../types/interfaces";
-import { IIconTextProps } from "../types/interfaces";
+import { IIconMenuContainerProps, IIconTextProps } from "../types/interfaces";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 
@@ -94,32 +93,44 @@ export const IconMenuContainer = styled.div<IIconMenuContainerProps>`
   }
 `;
 
+export const IconLetterLogo = styled.h2`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
+  font-size: ${theme.font.fontsizes.h2};
+`;
+
 // SVG temp solution
 export const GitSVG = styled(Git)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
 export const TwitterSVG = styled(Twitter)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
 export const BlogSVG = styled(Blog)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
 export const AboutSVG = styled(About)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
 export const ProjectsSVG = styled(Projects)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
 export const ContactSVG = styled(Contact)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;
-export const LinkedinSVG = styled(Linkedin)`
+export const LinkedInSVG = styled(Linkedin)`
+  fill: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;
 `;

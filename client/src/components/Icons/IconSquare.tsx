@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-
+import { IconLetterLogo } from "./styles/styled";
 import { IIconSquareProps } from "./types/interfaces";
 import { EPageNames } from "../../interfaces/types";
 import {
@@ -10,23 +10,23 @@ import {
   AboutSVG,
   ProjectsSVG,
   ContactSVG,
-  LinkedinSVG,
+  LinkedInSVG,
 } from "./styles/styled";
 
 const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, themeState, isProject }) => {
   return !isProject ? (
     <IconSquare themeState={themeState}>
-      {label === EPageNames.github ? <GitSVG /> : null}
-      {label === EPageNames.twitter ? <TwitterSVG /> : null}
-      {label === EPageNames.blog ? <BlogSVG /> : null}
-      {label === EPageNames.about ? <AboutSVG /> : null}
-      {label === EPageNames.projects ? <ProjectsSVG /> : null}
-      {label === EPageNames.contact ? <ContactSVG /> : null}
-      {label === EPageNames.linkedin ? <LinkedinSVG /> : null}
+      {label === EPageNames.github ? <GitSVG themeState={themeState} /> : null}
+      {label === EPageNames.twitter ? <TwitterSVG themeState={themeState} /> : null}
+      {label === EPageNames.blog ? <BlogSVG themeState={themeState} /> : null}
+      {label === EPageNames.about ? <AboutSVG themeState={themeState} /> : null}
+      {label === EPageNames.projects ? <ProjectsSVG themeState={themeState} /> : null}
+      {label === EPageNames.contact ? <ContactSVG themeState={themeState} /> : null}
+      {label === EPageNames.linkedin ? <LinkedInSVG themeState={themeState} /> : null}
     </IconSquare>
   ) : (
     <IconSquare themeState={themeState}>
-      <h1>{name.slice(0, 1).toUpperCase()}</h1>
+      <IconLetterLogo themeState={themeState}>{name.slice(0, 1).toUpperCase()}</IconLetterLogo>
     </IconSquare>
   );
 };
