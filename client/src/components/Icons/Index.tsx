@@ -30,23 +30,20 @@ const IconMain: FunctionComponent<IIconProps> = ({
 
   // ON one click - change the color of the text background
   const onClickHandler = (e: React.MouseEvent) => {
+    // On Click highlight the text to show its been clicked once.
     if (e.button === 0) {
       setSelectedIcon(pageName);
     }
 
     // Mobile icons usually open on one click no double.
     if (isMobile) {
-      if (isWeb) return window.open(isWeb, "_blank");
-
-      //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
-      createNewWindow(pageName, windowType, data, false);
+      openNewWindowOrSite();
     }
   };
 
   // When double clicking on the icon
-  const onDoubleClickHandler = () => {
+  const openNewWindowOrSite = () => {
     if (isWeb) return window.open(isWeb, "_blank");
-
     //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
     createNewWindow(pageName, windowType, data, false);
   };
@@ -54,7 +51,7 @@ const IconMain: FunctionComponent<IIconProps> = ({
   return (
     <IconContainer
       onMouseDown={onClickHandler}
-      onDoubleClick={onDoubleClickHandler}
+      onDoubleClick={openNewWindowOrSite}
       initial={{ opacity: 0, y: -20 }}
       transition={{ delay: aniDelay, duration: 0.5 }}
       animate={{ opacity: 1, y: 0 }}
