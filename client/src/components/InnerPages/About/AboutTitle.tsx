@@ -5,10 +5,10 @@ import { MainTitleContainer } from "../Project/styles/styled";
 import { TitleText } from "../Project/styles/styled";
 
 //! Animated the logo to show it can be clicked..
-const AboutTitle: FunctionComponent<ITitleProps> = ({ text }) => {
+const AboutTitle: FunctionComponent<ITitleProps> = ({ text, themeState }) => {
   return (
     <MainTitleContainer>
-      <TitleText>{text}</TitleText>
+      <TitleText themeState={themeState}>{text}</TitleText>
     </MainTitleContainer>
   );
 };

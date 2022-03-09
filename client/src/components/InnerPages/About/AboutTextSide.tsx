@@ -5,7 +5,6 @@ import AboutDescription from "./AboutDescription";
 import { FunctionComponent } from "react";
 import { TextSideContainer } from "../Project/styles/styled";
 import { ITextSideProps } from "../Project/types/types";
-import { isMobile } from "react-device-detect";
 
 const AboutTextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, themeState }) => {
   const container = useRef<HTMLDivElement>(null);
@@ -16,10 +15,10 @@ const AboutTextSide: FunctionComponent<ITextSideProps> = ({ data, dimensions, th
 
   return (
     <TextSideContainer ref={container} dimensions={dimensions} themeState={themeState}>
-      <AboutTitle text={data.data.project_name[0].text} github={null} website={null} />
-      <SubTitle leftText={"i'm working with"} rightText={data.data.more[0].text} />
-      <SubTitle leftText={"currently learning"} rightText={data.data.other[0].text} />
-      <AboutDescription data={data} />
+      <AboutTitle themeState={themeState} text={data.data.project_name[0].text} github={null} website={null} />
+      <SubTitle themeState={themeState} leftText={"i'm working with"} rightText={data.data.more[0].text} />
+      <SubTitle themeState={themeState} leftText={"currently learning"} rightText={data.data.other[0].text} />
+      <AboutDescription themeState={themeState} data={data} />
     </TextSideContainer>
   );
 };

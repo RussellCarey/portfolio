@@ -1,16 +1,16 @@
 import { FunctionComponent } from "react";
-import { PaleText, Text, DescriptionText } from "../styles/styled";
+import { PaleText, DescriptionText } from "../styles/styled";
 import { DescriptionContainer } from "./styles/styled";
 import { IDescriptionProps } from "./types/types";
 
 //! This double text thing is weird. WOrking but not good check it out later.
-const Description: FunctionComponent<IDescriptionProps> = ({ data }) => {
+const Description: FunctionComponent<IDescriptionProps> = ({ data, themeState }) => {
   return (
     <DescriptionContainer>
       <PaleText>description</PaleText>
-      <DescriptionText>
+      <DescriptionText themeState={themeState}>
         {data.data.description.map((p: any) => {
-          return <DescriptionText>{p.text}</DescriptionText>;
+          return <DescriptionText themeState={themeState}>{p.text}</DescriptionText>;
         })}
       </DescriptionText>
     </DescriptionContainer>

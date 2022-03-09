@@ -10,7 +10,7 @@ import ImageSide from "../Project/ImageSide";
 import AboutTextSide from "./AboutTextSide";
 import Loading from "../../Spinners/Spinner";
 
-const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimensions }) => {
+const ProjectPage: FunctionComponent<IAboutPageProps> = ({ dimensions }) => {
   const { theme } = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [aboutData, setAboutData] = useState<any | null>(null);
@@ -32,11 +32,11 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ themeState, dimension
   return isLoading ? (
     <Loading />
   ) : (
-    <ProjectContainer dimensions={dimensions} themeState={themeState}>
+    <ProjectContainer dimensions={dimensions} themeState={theme}>
       {!isLoading && aboutData ? (
         <>
           <ImageSide data={aboutData} themeState={theme} dimensions={dimensions} />
-          <AboutTextSide data={aboutData} dimensions={dimensions} themeState={themeState} />
+          <AboutTextSide data={aboutData} dimensions={dimensions} themeState={theme} />
         </>
       ) : null}
     </ProjectContainer>

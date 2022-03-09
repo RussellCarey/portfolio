@@ -7,32 +7,32 @@ export const lightThemeDefault = {
 };
 
 export const darkThemeDefault = {
-  backgroundColor: "#414141",
-  terminalColor: "#383737",
-  borderColor: "#CCCCCC",
-  textColor: "#E2E2E2",
-  shadowColor: "#2E2E2D",
+  backgroundColor: "#012B37",
+  terminalColor: "#073542",
+  borderColor: "#7F96A1",
+  textColor: "#7F96A1",
+  shadowColor: "#7F96A1",
 };
 
 export const KobayashiColors = {
   pink: {
-    background: "#F49390",
+    background: "#cd35f9",
     terminal: "#F6F0EF",
   },
   blue: {
-    background: "#05B2DC",
+    background: "#3571f9",
     terminal: "#E6F1F3",
   },
   purple: {
-    background: "#7D5BA6",
+    background: "#9a35f9",
     terminal: "#DCD5E6",
   },
   turquoise: {
-    background: "#519E8A",
+    background: "#35f983",
     terminal: "#D1DFD4",
   },
   peach: {
-    background: "#F55D3E",
+    background: "#f95135",
     terminal: "#ECE5DC",
   },
 };

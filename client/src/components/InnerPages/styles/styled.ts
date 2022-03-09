@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/Theme";
+import { IStyledProps } from "../../../interfaces/types";
 
 export const DesktopContainer = styled.div`
   width: 100vw;
@@ -23,13 +24,13 @@ export const PaleText = styled.p`
 
 export const Text = styled.p`
   flex: 2;
-  color: ${theme.colors.text.primary};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
   line-height: ${theme.font.lineheights.h5};
 `;
 
 export const DescriptionText = styled.p`
   flex: 2;
-  color: ${theme.colors.text.primary};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
   margin-bottom: ${theme.spacing.space.medium};
   line-height: ${theme.font.lineheights.h5};
 `;

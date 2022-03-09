@@ -4,11 +4,11 @@ import { PaleText, Text } from "../styles/styled";
 import { ISubTitleProps } from "./types/types";
 import { TitleContainer } from "./styles/styled";
 
-const SubTitle: FunctionComponent<ISubTitleProps> = ({ leftText, rightText }) => {
+const SubTitle: FunctionComponent<ISubTitleProps> = ({ leftText, rightText, themeState }) => {
   return (
     <TitleContainer>
       <PaleText>{leftText}</PaleText>
-      <Text>{rightText}</Text>
+      <Text themeState={themeState}>{rightText}</Text>
     </TitleContainer>
   );
 };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/Theme";
 import { IYoutubeStyleProps } from "../types/types";
-import { IStyledWithDimensionsProps } from "../../../../interfaces/types";
+import { IStyledProps, IStyledWithDimensionsProps } from "../../../../interfaces/types";
 
 //Main Container for the page
 export const ProjectContainer = styled.div`
@@ -122,7 +122,7 @@ export const MainTitleContainer = styled.div`
 
 export const TitleText = styled.h5`
   font-size: ${theme.font.fontsizes.h5};
-  color: ${theme.colors.text.primary};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
 `;
 
 export const LogoContainer = styled.div`

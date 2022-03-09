@@ -20,7 +20,6 @@ export const BlogPostContainer = styled.div`
   margin: ${theme.spacing.space.medium};
 
   transition: all 0.3s;
-  filter: grayscale(100%);
 
   &:hover {
     transform: scale(101.5%);
@@ -32,7 +31,7 @@ export const BlogPostContainer = styled.div`
 export const BlogPostImage = styled.div`
   width: 100%;
   height: max-content;
-
+  filter: grayscale(100%);
   background-image: url(${(props: IBlogImageProps) => props.image});
   border-radius: 15px 15px 0 0;
   background-size: cover;
@@ -41,17 +40,9 @@ export const BlogPostImage = styled.div`
 export const BlogPostData = styled.div`
   width: 100%;
   height: max-content;
-  border-top: solid 5px black;
+  border-top: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
 
   padding: ${theme.spacing.space.small};
-`;
-
-export const SideBar = styled.div`
-  width: 200px;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
 `;
 
 export const PageContainer = styled.div`
@@ -70,4 +61,5 @@ export const BlogPostsContainer = styled.div`
   flex-wrap: wrap;
 
   border-left: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
 `;

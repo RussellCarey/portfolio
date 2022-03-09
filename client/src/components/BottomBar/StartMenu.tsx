@@ -10,6 +10,7 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
 
   // Little hacky..
   const selectAndChangeRandomColor = () => {
+    setLightTheme();
     const mapToArray: [string, Function][] = Object.entries(themeChangeMap);
     const randomChoice = Math.floor(Math.random() * mapToArray.length);
     mapToArray[randomChoice][1]();
@@ -23,10 +24,13 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
   return (
     <StartMenuContainer themeState={themeState}>
       <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
-        change color
+        feeling colorful?
       </StartMenuButton>
       <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
-        toggle dark mode
+        opposite of light?
+      </StartMenuButton>
+      <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
+        flip flip?
       </StartMenuButton>
     </StartMenuContainer>
   );

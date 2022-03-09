@@ -3,6 +3,7 @@ import { IStyledProps } from "../../../../interfaces/types";
 
 export interface IDescriptionProps {
   data: any;
+  themeState: IThemeStateProps;
 }
 
 export interface IImageSideProps {
@@ -20,6 +21,7 @@ export interface IMediaAreaProps {
 export interface ISubTitleProps {
   leftText: string;
   rightText: string;
+  themeState: IThemeStateProps;
 }
 
 export interface ITextSideProps {
@@ -32,6 +34,7 @@ export interface ITitleProps {
   text: string;
   github: string | null;
   website: string | null;
+  themeState: IThemeStateProps;
 }
 
 export interface IYoutubeEmbed {

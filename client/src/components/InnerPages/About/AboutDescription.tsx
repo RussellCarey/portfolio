@@ -3,13 +3,13 @@ import { PaleText, DescriptionText } from "../styles/styled";
 import { DescriptionContainer } from "../Project/styles/styled";
 import { IDescriptionProps } from "../Project/types/types";
 
-const AboutDescription: FunctionComponent<IDescriptionProps> = ({ data }) => {
+const AboutDescription: FunctionComponent<IDescriptionProps> = ({ data, themeState }) => {
   return (
     <DescriptionContainer>
       <PaleText>a little more</PaleText>
-      <DescriptionText>
+      <DescriptionText themeState={themeState}>
         {data.data.description.map((p: any) => {
-          return <DescriptionText>{p.text}</DescriptionText>;
+          return <DescriptionText themeState={themeState}>{p.text}</DescriptionText>;
         })}
       </DescriptionText>
     </DescriptionContainer>

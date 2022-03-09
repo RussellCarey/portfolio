@@ -16,9 +16,9 @@ import Window from "./components/Window/Index";
 import LoginPage from "./components/Login";
 
 export default function Home() {
+  const viewport = window.visualViewport;
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
-  const viewport = window.visualViewport;
   const { theme } = useContext(ThemeContext);
   const { windowState } = useContext(WindowContext);
 
