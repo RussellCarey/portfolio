@@ -12,6 +12,8 @@ import { MainTitleContainer, TitleText, LogoContainer } from "./styles/styled";
 
 const GithubLogo = styled(GitSVG)`
   width: 30px;
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
+  fill: ${(props: IStyledProps) => props.themeState.borderColor};
 
   &:hover {
     transform: scale(105%);
@@ -22,6 +24,7 @@ const GithubLogo = styled(GitSVG)`
 const GlobeLogo = styled(Globe)`
   width: 25px;
   transform: scale(102%);
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
   fill: ${(props: IStyledProps) => props.themeState.borderColor};
   margin-left: ${theme.spacing.space.small};
 
