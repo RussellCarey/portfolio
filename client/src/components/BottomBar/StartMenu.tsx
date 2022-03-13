@@ -4,8 +4,9 @@ import { IStartMenuProps } from "./types/interfaces";
 
 import ThemeContext from "../../context/theme/themeContext";
 
-const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightClick, setCanRightClick }) => {
+const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState }) => {
   const { themeChangeMap, setLightTheme, setDarkTheme } = useContext(ThemeContext);
+  const [drawingText, setDrawingText] = useState("click the wallpaper?");
   const [isDark, setIsDark] = useState<boolean>(false);
 
   // Little hacky..
@@ -23,14 +24,14 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState, canRightCli
 
   return (
     <StartMenuContainer themeState={themeState}>
+      <StartMenuButton onClick={() => setDrawingText("the wallpaper, not me :|")} themeState={themeState}>
+        {drawingText}
+      </StartMenuButton>
       <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
         feeling colorful?
       </StartMenuButton>
       <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
         opposite of light?
-      </StartMenuButton>
-      <StartMenuButton onClick={toggleDarkMode} themeState={themeState}>
-        flip flip?
       </StartMenuButton>
     </StartMenuContainer>
   );

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, FunctionComponent } from "react";
 import ThemeContext from "../../context/theme/themeContext";
 import { BottomBarContainer } from "./styles/styled";
 import StartButton from "./StartButton";
@@ -7,9 +7,10 @@ import StartMenu from "./StartMenu";
 
 // import useWindowDimensions from "../../hooks/useCheckWindowSize";
 
-export default function BottomBar() {
+interface IPropsBottomBar {}
+
+const BottomBar: FunctionComponent<IPropsBottomBar> = ({}) => {
   const [showStartMenu, setShowStartMenu] = useState<boolean>(false);
-  const [canRightClick, setCanRightClick] = useState<boolean>(false);
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -22,9 +23,9 @@ export default function BottomBar() {
       <StartButton themeState={theme} setShowStartMenu={setShowStartMenu} showStartMenu={showStartMenu} />
       <StartTime themeState={theme} />
 
-      {showStartMenu ? (
-        <StartMenu themeState={theme} canRightClick={canRightClick} setCanRightClick={setCanRightClick} />
-      ) : null}
+      {showStartMenu ? <StartMenu themeState={theme} /> : null}
     </BottomBarContainer>
   );
-}
+};
+
+export default BottomBar;

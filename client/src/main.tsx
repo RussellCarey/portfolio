@@ -1,9 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { AppContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
 
 import ThemeContext from "./context/theme/themeContext";
 import WindowContext from "./context/window/windowContext";
+
+import Canvas from "./components/Canvas/Index";
 
 import { IWindowObject } from "./interfaces/types";
 import { EWindowTypes } from "./interfaces/types";
@@ -17,10 +19,14 @@ import LoginPage from "./components/Login";
 
 export default function Home() {
   const viewport = window.visualViewport;
-  const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
   const { theme } = useContext(ThemeContext);
   const { windowState } = useContext(WindowContext);
+
+  const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
+
+  const canvasRef = useRef<any>();
+  const [canDraw, setCanDraw] = useState<boolean>(false);
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
@@ -29,6 +35,7 @@ export default function Home() {
       ) : (
         <>
           <DesktopContainer>
+            {!isMobile ? <Canvas canvasRef={canvasRef} canDraw={canDraw} setCanDraw={setCanDraw} /> : null}
             <Icon
               pageName={EPageNames.about}
               text={EPageNames.about}
