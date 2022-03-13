@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - run: pm2 delete portfolio_client
+      - run: pm2 delete portfolio_server
+
       - run: npm i
         working-directory: client
 
@@ -32,6 +35,17 @@ jobs:
 
       - run: pm2 start npm --name "portfolio_server" -- run start-prod
         working-directory: server
+
+      - run: |
+          cd server
+          touch .env
+          echo NODE_ENV='${{ production }}' >> .env
+          echo PROD_DB_USERNAME='${{ secrets.PROD_DB_USERNAME }}' >> .env
+          echo PROD_DB_PW='${{ secrets.PROD_DB_PW }}' >> .env
+          echo PROD_DB_PORT='${{ secrets.PROD_DB_PORT }}' >> .env
+          echo PROD_DB_HOST='${{ secrets.PROD_DB_HOST }}' >> .env
+          echo PROD_DB_NAME='${{ secrets.PROD_DB_NAME }}' >> .env
+          echo PORT='${{ secrets.PORT }}' >> .env
 
       - run: |
           pm2 stop portfolio_client
