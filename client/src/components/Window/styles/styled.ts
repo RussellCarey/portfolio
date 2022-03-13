@@ -3,6 +3,7 @@ import { isMobile } from "react-device-detect";
 import { theme } from "../../../theme/Theme";
 import { motion } from "framer-motion";
 import { IStyledProps } from "../../../interfaces/types";
+import { ReactComponent as Resize } from "../../../svg/resize.svg";
 
 // Used element.attrs as when you put it inside style it doesnt computer each instance.
 // Was getting slow on moving too much.
@@ -22,12 +23,13 @@ export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) =>
   top: ${(props: any) => (isMobile ? "5px" : props.position.top + "px")};
   left: ${(props: any) => (isMobile ? "5px" : props.position.left + "px")};
   width: ${(props: any) =>
-    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "calc(100% - 15px)"};
+    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "60vw") : "calc(100% - 15px)"};
   height: ${(props: any) =>
     !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 20px)"};
 `;
 
 export const MainWindow = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
 
@@ -100,4 +102,18 @@ export const TopBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const ResizeSVG = styled(Resize)`
+  color: ${(props: IStyledProps) => props.themeState.borderColor};
+  fill: ${(props: IStyledProps) => props.themeState.borderColor};
+  width: 20px;
+  height: 20px;
+
+  filter: brightness(420%);
+  transform: rotate(90deg);
+
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 `;

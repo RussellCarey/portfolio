@@ -1,7 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme/Theme";
-import ThemeContext from "../../../context/theme/themeContext";
 
 interface IImageProp {
   data: any;
@@ -24,7 +23,6 @@ const Image = styled.img`
 `;
 
 const ImagePage: FunctionComponent<IImageProp> = ({ data }) => {
-  const { theme } = useContext(ThemeContext);
   return (
     <Container>
       <Image src={data.data.image.url} />
