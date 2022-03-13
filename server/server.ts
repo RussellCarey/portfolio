@@ -9,7 +9,7 @@ import { createServer } from "./utils/createServer";
 const app = createServer();
 
 //Rooooutes
-app.use(!isDev() ? "/folio/drawing" : "/api/drawing", Routes);
+app.use(!isDev() ? "/folioapi/drawing" : "/api/drawing", Routes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Connected to server on port ${process.env.PORT}`);
