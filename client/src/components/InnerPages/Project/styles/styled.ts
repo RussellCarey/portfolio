@@ -24,6 +24,10 @@ export const ImageSideContainer = styled.div`
   flex-direction: column;
 
   @media (max-width: 1000px) {
+    height: 400px;
+  }
+
+  @media (max-width: 500px) {
     height: 200px;
   }
 `;
