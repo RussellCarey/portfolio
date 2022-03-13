@@ -11,6 +11,7 @@ import { ReactComponent as About } from "../../../svg/user-regular.svg";
 import { ReactComponent as Projects } from "../../../svg/code-solid.svg";
 import { ReactComponent as Contact } from "../../../svg/envelope-regular.svg";
 import { ReactComponent as Linkedin } from "../../../svg/linkedin.svg";
+import { ReactComponent as ThreeDee } from "../../../svg/3d.svg";
 
 // Container for the whole Icon component.
 export const IconContainer = styled(motion.div)`
@@ -130,6 +131,11 @@ export const ContactSVG = styled(Contact)`
   height: 110%;
 `;
 export const LinkedInSVG = styled(Linkedin)`
+  fill: ${(props: IStyledProps) => props.themeState.borderColor};
+  width: 110%;
+  height: 110%;
+`;
+export const ThreeDeeSVG = styled(ThreeDee)`
   fill: ${(props: IStyledProps) => props.themeState.borderColor};
   width: 110%;
   height: 110%;

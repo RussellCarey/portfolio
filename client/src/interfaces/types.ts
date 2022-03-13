@@ -42,4 +42,6 @@ export enum EPageNames {
   projects = "projects",
   contact = "contact",
   linkedin = "linkedin",
+  threedee = "threedee",
+  image = "image",
 }

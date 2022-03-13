@@ -12,6 +12,8 @@ import BlogPage from "../InnerPages/Blog/Index";
 import ProjectPage from "../InnerPages/Project/Index";
 import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
 import Contact from "../InnerPages/Contact/Contact";
+import ImagesPage from "../InnerPages/3d/Index";
+import ImagePage from "../InnerPages/3dImage/Index";
 
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const { deleteActiveWindow } = useContext(WindowContext);
@@ -139,6 +141,8 @@ export default function Window({ pageName, themeState, id, windowType, data, win
         {pageName === "contact" ? <Contact themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
+        {pageName === "threedee" ? <ImagesPage themeState={themeState} /> : null}
+        {pageName === "image" ? <ImagePage themeState={themeState} data={data} /> : null}
       </MainWindow>
     </WindowContainer>
   );

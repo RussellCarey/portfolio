@@ -61,6 +61,18 @@ export default function Home() {
             />
 
             <Icon
+              pageName={EPageNames.threedee}
+              text={"3D"}
+              windowType={EWindowTypes.noSidebar}
+              aniDelay={1.3}
+              isProject={false}
+              isWeb={null}
+              selectedIcon={selectedIcon}
+              setSelectedIcon={setSelectedIcon}
+              data={null}
+            />
+
+            <Icon
               pageName={EPageNames.blog}
               text={EPageNames.blog}
               windowType={EWindowTypes.noSidebar}

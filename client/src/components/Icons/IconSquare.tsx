@@ -11,6 +11,7 @@ import {
   ProjectsSVG,
   ContactSVG,
   LinkedInSVG,
+  ThreeDeeSVG,
 } from "./styles/styled";
 
 const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, themeState, isProject }) => {
@@ -23,6 +24,7 @@ const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, them
       {label === EPageNames.projects ? <ProjectsSVG themeState={themeState} /> : null}
       {label === EPageNames.contact ? <ContactSVG themeState={themeState} /> : null}
       {label === EPageNames.linkedin ? <LinkedInSVG themeState={themeState} /> : null}
+      {label === EPageNames.threedee ? <ThreeDeeSVG themeState={themeState} /> : null}
     </IconSquare>
   ) : (
     <IconSquare themeState={themeState}>

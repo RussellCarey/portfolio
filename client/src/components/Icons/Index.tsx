@@ -24,15 +24,15 @@ const IconMain: FunctionComponent<IIconProps> = ({
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   useEffect(() => {
-    if (selectedIcon === pageName) setIsSelected(true);
-    if (selectedIcon !== pageName) setIsSelected(false);
-  }, [selectedIcon, pageName]);
+    if (selectedIcon === text) setIsSelected(true);
+    if (selectedIcon !== text) setIsSelected(false);
+  }, [selectedIcon, text]);
 
   // ON one click - change the color of the text background
   const onClickHandler = (e: React.MouseEvent) => {
     // On Click highlight the text to show its been clicked once.
     if (e.button === 0) {
-      setSelectedIcon(pageName);
+      setSelectedIcon(text);
     }
 
     // Mobile icons usually open on one click no double.
