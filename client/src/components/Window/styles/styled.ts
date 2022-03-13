@@ -24,7 +24,7 @@ export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) =>
   width: ${(props: any) =>
     !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "85vw") : "calc(100% - 15px)"};
   height: ${(props: any) =>
-    !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 15px)"};
+    !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 20px)"};
 `;
 
 export const MainWindow = styled.div`
