@@ -5,7 +5,7 @@ import { IStyledProps } from "../../../interfaces/types";
 import { theme } from "../../../theme/Theme";
 
 import { ReactComponent as Globe } from "../../../svg/globe.svg";
-import { GitSVG } from "../../Icons/styles/styled";
+import { ReactComponent as GitSVG } from "../../../svg/github.svg";
 
 import { ITitleProps } from "./types/types";
 import { MainTitleContainer, TitleText, LogoContainer } from "./styles/styled";
