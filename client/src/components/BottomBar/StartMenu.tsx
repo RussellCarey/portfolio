@@ -1,7 +1,7 @@
 import { FunctionComponent, useContext, useState } from "react";
 import { StartMenuButton, StartMenuContainer } from "./styles/styled";
 import { IStartMenuProps } from "./types/interfaces";
-
+import { isMobile } from "react-device-detect";
 import ThemeContext from "../../context/theme/themeContext";
 
 const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState }) => {
@@ -24,9 +24,12 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState }) => {
 
   return (
     <StartMenuContainer themeState={themeState}>
-      <StartMenuButton onClick={() => setDrawingText("the wallpaper, not me :|")} themeState={themeState}>
-        {drawingText}
-      </StartMenuButton>
+      {!isMobile ? (
+        <StartMenuButton onClick={() => setDrawingText("the wallpaper, not me :|")} themeState={themeState}>
+          {drawingText}
+        </StartMenuButton>
+      ) : null}
+
       <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
         feeling colorful?
       </StartMenuButton>
