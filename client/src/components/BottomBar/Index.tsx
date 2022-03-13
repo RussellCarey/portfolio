@@ -16,7 +16,7 @@ const BottomBar: FunctionComponent<IPropsBottomBar> = ({}) => {
   return (
     <BottomBarContainer
       initial={{ y: 100 }}
-      transition={{ delay: 1, duration: 1 }}
+      transition={{ delay: 1.9, duration: 1 }}
       animate={{ y: 0 }}
       themeState={theme}
     >
