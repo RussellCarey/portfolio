@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: pm2 stop portfolio-client
       - run: pm2 delete portfolio-client
 
       - run: npm i
@@ -30,9 +29,17 @@ jobs:
       - run: pm2 start npm --name "portfolio-client" -- run serve --spa
         working-directory: client
 
+      - run: npm i
+        working-directory: server
+
+      - run: pm2 start npm --name "portfolio_server" -- run start-prod
+        working-directory: server
+
       - run: |
           pm2 stop portfolio-client
           pm2 start portfolio-client
+          pm2 stop portfolio-server
+          pm2 start portfolio-server
           pm2 save
           pm2 resurrect
           sudo service nginx restart
