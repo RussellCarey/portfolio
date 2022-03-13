@@ -58,7 +58,7 @@ export const IconSquare = styled.div`
 export const IconText = styled.p`
   padding: ${theme.spacing.space.small};
   margin-top: ${theme.spacing.space.small};
-
+  text-align: center;
   font-size: ${theme.font.fontsizes.h5};
   color: ${(props: IStyledProps) => props.themeState.textColor};
   border-radius: 5px;
