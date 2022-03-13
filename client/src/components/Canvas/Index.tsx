@@ -30,6 +30,7 @@ const Index: FunctionComponent<ICanvasProps> = ({ canvasRef, canDraw, setCanDraw
     " ",
     `Anyone can add the the canvas and create a community drawing.`,
     `The erase button will erase the whole drawing, save will upload and overwrite the image and close will close this mode!`,
+    `If possible, please add to the image. Erase and then save is a no no.`,
     `Have fun.`,
   ]);
 
