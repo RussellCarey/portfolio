@@ -30,12 +30,6 @@ jobs:
       - run: pm2 start npm --name "portfolio_client" -- run serve --spa
         working-directory: client
 
-      - run: npm i
-        working-directory: server
-
-      - run: pm2 start npm --name "portfolio_server" -- run start-prod
-        working-directory: server
-
       - run: |
           cd server
           touch .env
@@ -46,6 +40,12 @@ jobs:
           echo PROD_DB_HOST='${{ secrets.PROD_DB_HOST }}' >> .env
           echo PROD_DB_NAME='${{ secrets.PROD_DB_NAME }}' >> .env
           echo PORT='${{ secrets.PORT }}' >> .env
+
+      - run: npm i
+        working-directory: server
+
+      - run: pm2 start npm --name "portfolio_server" -- run start-prod
+        working-directory: server
 
       - run: |
           pm2 stop portfolio_client
