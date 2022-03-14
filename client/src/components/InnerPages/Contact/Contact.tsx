@@ -9,6 +9,7 @@ import {
   ButtonContainer,
 } from "./styles/styled";
 import { IContactPageProps } from "./types/types";
+import { sendEmailToMe } from "./services/emailServices";
 
 const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensions }) => {
   const [userMessage, setUserMessage] = useState({
@@ -22,6 +23,12 @@ const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensi
     const element = e.target as HTMLInputElement;
     const targetID = e.target.id;
     setUserMessage({ ...userMessage, [targetID]: element.value });
+  };
+
+  const sendEmailClick = async () => {
+    console.log("SEnding message");
+    await sendEmailToMe(userMessage.from, userMessage.subject, userMessage.message);
+    console.log("seent message");
   };
 
   return (
@@ -44,11 +51,13 @@ const ContactPage: FunctionComponent<IContactPageProps> = ({ themeState, dimensi
         <EmailTextBox
           id="message"
           value={userMessage.message}
-          placeholder={"Type your message here.."}
+          placeholder={"Type your name / message here.."}
           onChange={onChangeText}
         />
         <ButtonContainer>
-          <EmailButton themeState={themeState}>send</EmailButton>
+          <EmailButton onClick={sendEmailClick} themeState={themeState}>
+            send
+          </EmailButton>
         </ButtonContainer>
       </EmailContainer>
     </Container>
