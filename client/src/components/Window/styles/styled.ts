@@ -23,7 +23,7 @@ export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) =>
   top: ${(props: any) => (isMobile ? "5px" : props.position.top + "px")};
   left: ${(props: any) => (isMobile ? "5px" : props.position.left + "px")};
   width: ${(props: any) =>
-    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "60vw") : "calc(100% - 15px)"};
+    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "calc(100% - 15px)"};
   height: ${(props: any) =>
     !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 20px)"};
 `;

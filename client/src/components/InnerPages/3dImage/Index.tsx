@@ -18,8 +18,13 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  height: 100%;
   border-radius: 15px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    height: none;
+  }
 `;
 
 const ImagePage: FunctionComponent<IImageProp> = ({ data }) => {
