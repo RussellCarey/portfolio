@@ -11,7 +11,6 @@ import AboutPage from "../InnerPages/About/Index";
 import BlogPage from "../InnerPages/Blog/Index";
 import ProjectPage from "../InnerPages/Project/Index";
 import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
-import Contact from "../InnerPages/Contact/Contact";
 import ImagesPage from "../InnerPages/3d/Index";
 import ImagePage from "../InnerPages/3dImage/Index";
 
@@ -138,7 +137,6 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       <MainWindow themeState={themeState}>
         {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "blog" ? <BlogPage themeState={themeState} dimensions={dimensions} /> : null}
-        {pageName === "contact" ? <Contact themeState={themeState} dimensions={dimensions} /> : null}
         {pageName === "project" ? <ProjectPage themeState={themeState} data={data} dimensions={dimensions} /> : null}
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
         {pageName === "threedee" ? <ImagesPage themeState={themeState} /> : null}
