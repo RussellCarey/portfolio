@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme/Theme";
 
@@ -23,7 +23,7 @@ const Image = styled.img`
 
   @media (max-width: 700px) {
     width: 100%;
-    height: none;
+    height: auto;
   }
 `;
 
