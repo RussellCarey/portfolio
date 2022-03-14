@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext } from "react";
-import { PopupContainer, Popup, PopupClose } from "./styled/styled";
+import { PopupContainer, Popup, XButton } from "./styled/styled";
 import { Text } from "../InnerPages/styles/styled";
 import ThemeContext from "../../context/theme/themeContext";
 
@@ -17,7 +17,7 @@ const PopupComp: FunctionComponent<IPropsPopup> = ({ message, setShowPopup }) =>
         {message.map((mess) => {
           return <Text themeState={theme}>{mess}</Text>;
         })}
-        <PopupClose onClick={() => setShowPopup(false)}>close</PopupClose>
+        <XButton onClick={() => setShowPopup(false)}>X</XButton>
       </Popup>
     </PopupContainer>
   );

@@ -46,11 +46,23 @@ const CanvasControls: FunctionComponent<IPropsCanvasController> = ({
     setPopupMessage(["Sorry, error uploading the image to the server", "Try again?"]);
   };
 
+  const closeCanvas = () => {
+    setPopupMessage([
+      `Activated the drawing mode!`,
+      `Anyone can add the the canvas and create a community drawing.`,
+      `The erase button will erase the whole drawing, save will upload and overwrite the image and close will close this mode!`,
+      `If possible, please add to the image. Erase and then save is a no no.`,
+      `Have fun.`,
+    ]);
+
+    setCanDraw(false);
+  };
+
   return (
     <ControlContainer>
       <Button onClick={eraseDrawing}>erase</Button>
       <Button onClick={saveDrawingToDB}>save</Button>
-      <Button onClick={() => setCanDraw(false)}>close</Button>
+      <Button onClick={closeCanvas}>close</Button>
     </ControlContainer>
   );
 };

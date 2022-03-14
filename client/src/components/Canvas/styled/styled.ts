@@ -3,7 +3,7 @@ import { theme } from "../../../theme/Theme";
 import { IStyledProps } from "../../../interfaces/types";
 
 export const ControlContainer = styled.div`
-  width: 190px;
+  width: 210px;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -16,8 +16,9 @@ export const ControlContainer = styled.div`
 
 export const Button = styled.button`
   padding: ${theme.spacing.space.small};
-  border: 2px solid black;
-  border-radius: 15px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: ${theme.font.fontsizes.text};
 
   &:hover {
     cursor: pointer;
@@ -59,6 +60,15 @@ export const Popup = styled.div`
   border-radius: 15px;
 `;
 
-export const PopupClose = styled(Button)`
-  margin-top: ${theme.spacing.space.medium};
+export const XButton = styled.h5`
+  font-size: ${theme.font.fontsizes.h5};
+
+  position: absolute;
+  top: ${theme.spacing.space.small};
+  right: ${theme.spacing.space.small};
+
+  &:hover {
+    transform: scale(105%);
+    cursor: pointer;
+  }
 `;
