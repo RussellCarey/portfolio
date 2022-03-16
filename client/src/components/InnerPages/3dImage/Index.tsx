@@ -14,12 +14,11 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  padding: ${theme.spacing.space.medium};
+  padding: ${theme.spacing.space.large};
 `;
 
 const Image = styled.img`
   height: 100%;
-  border-radius: 15px;
 
   @media (max-width: 700px) {
     width: 100%;

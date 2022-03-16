@@ -14,6 +14,7 @@ import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
 import ImagesPage from "../InnerPages/3d/Index";
 import ImagePage from "../InnerPages/3dImage/Index";
 
+// Component only refreshes on mouse goes to topbar or resize / or on resize / ovement
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
   const { deleteActiveWindow } = useContext(WindowContext);
 
@@ -119,6 +120,7 @@ export default function Window({ pageName, themeState, id, windowType, data, win
 
   return (
     <WindowContainer
+      pageName={pageName}
       onMouseMove={changeWindowSizeOrPos}
       onMouseDown={setStartingPoint}
       onMouseUp={onReset}

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
 import ThemeContext from "../../context/theme/themeContext";
+import { isMobile } from "react-device-detect";
 import {
   PageContainer,
   UserIconContainer,
@@ -53,28 +54,31 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
 
   return (
     <PageContainer>
-      <>
-        <UserIconContainer themeState={theme}>
-          <UserIcon />
-        </UserIconContainer>
+      <UserIconContainer themeState={theme}>
+        <UserIcon />
+      </UserIconContainer>
 
-        <FakeInputField themeState={theme}>
-          <InputField themeState={theme} type="text" value={nameState} />
-        </FakeInputField>
+      <FakeInputField themeState={theme}>
+        <InputField themeState={theme} type="text" value={nameState} />
+      </FakeInputField>
 
-        <FakeInputField themeState={theme}>
-          <InputField themeState={theme} type="text" value={passwordState} />
-          <HelpBox themeState={theme}>?</HelpBox>
-        </FakeInputField>
+      <FakeInputField themeState={theme}>
+        <InputField themeState={theme} type="text" value={passwordState} />
+      </FakeInputField>
 
-        {isLoading ? (
-          <LoginButton themeState={theme}>loading</LoginButton>
-        ) : (
-          <AnimatedLogin themeState={theme} onClick={() => setIsLoggedIn(true)}>
-            login
-          </AnimatedLogin>
-        )}
-      </>
+      {isLoading ? (
+        <LoginButton themeState={theme}>loading</LoginButton>
+      ) : (
+        <AnimatedLogin themeState={theme} onClick={() => setIsLoggedIn(true)}>
+          login
+        </AnimatedLogin>
+      )}
+
+      {!isMobile ? (
+        <HelpBox themeState={theme}>
+          Note: Windows can be moved from the top bar and resized from the bottom right.
+        </HelpBox>
+      ) : null}
     </PageContainer>
   );
 };

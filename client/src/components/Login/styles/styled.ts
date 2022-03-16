@@ -15,9 +15,9 @@ export const PageContainer = styled.main`
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 `;
 
 export const UserIconContainer = styled(MainDivStyle)`
@@ -61,18 +61,23 @@ export const InputField = styled.input`
 `;
 
 export const HelpBox = styled(MainDivStyle)`
+  margin-top: 50px;
   position: absolute;
-  right: 5px;
+  bottom: 10px;
+  opacity: 90%;
 
-  width: 35px;
-  height: 35px;
+  width: 50%;
+  height: max-content;
   border-radius: 15px;
+  padding: ${theme.spacing.space.small};
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: solid 3px ${(props: IStyledProps) => props.themeState.borderColor};
+  font-size: ${theme.font.fontsizes.xSmall}
+
+  border: solid 5px ${(props: IStyledProps) => props.themeState.borderColor};
 
   box-shadow: none;
 `;

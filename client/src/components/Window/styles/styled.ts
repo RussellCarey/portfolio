@@ -5,6 +5,23 @@ import { motion } from "framer-motion";
 import { IStyledProps } from "../../../interfaces/types";
 import { ReactComponent as Resize } from "../../../svg/resize.svg";
 
+const windowWidth = (props: any) => {
+  if (!isMobile) {
+    return props.pageName === "image" ? "max-content" : props.dimensions.width ? props.dimensions.width + "px" : "80vw";
+  } else {
+    return "calc(100% - 15px)";
+  }
+};
+
+const windowHeight = (props: any) => {
+  if (!isMobile) {
+    return props.dimensions.height ? props.dimensions.height + "px" : "83vh";
+  } else {
+    // If it is the 3D image page, use the content height?
+    return props.pageName === "image" ? "60%" : "calc(100% - 15px)";
+  }
+};
+
 // Used element.attrs as when you put it inside style it doesnt computer each instance.
 // Was getting slow on moving too much.
 export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) => ({
@@ -22,10 +39,8 @@ export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) =>
   z-index: ${(props: any) => (props.windowList.length > 0 ? props.windowList.length * 10 + 100 : 100)};
   top: ${(props: any) => (isMobile ? "5px" : props.position.top + "px")};
   left: ${(props: any) => (isMobile ? "5px" : props.position.left + "px")};
-  width: ${(props: any) =>
-    !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "calc(100% - 15px)"};
-  height: ${(props: any) =>
-    !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 20px)"};
+  width: ${(props: any) => windowWidth(props)};
+  height: ${(props: any) => windowHeight(props)};
 `;
 
 export const MainWindow = styled.div`
