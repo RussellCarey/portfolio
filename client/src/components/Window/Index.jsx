@@ -16,7 +16,7 @@ import ImagePage from "../InnerPages/3dImage/Index";
 
 // Component only refreshes on mouse goes to topbar or resize / or on resize / ovement
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
-  const { deleteActiveWindow } = useContext(WindowContext);
+  const { deleteActiveWindow, windowState, setActiveWindow } = useContext(WindowContext);
 
   const [dimensions, setDimensions] = useState({});
   const defaultTop = !isMobile ? 10 * windowList.length : 10;
@@ -106,6 +106,10 @@ export default function Window({ pageName, themeState, id, windowType, data, win
 
     if (isMoving) movingProcess(e);
     if (isResizing) resizingProcess(e);
+  };
+
+  const setSelectedWindow = () => {
+    setActiveWindow(id);
   };
 
   //? MOUSEUP reset

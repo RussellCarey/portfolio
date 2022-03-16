@@ -31,7 +31,7 @@ const WindowState = (props: IWindowPropsState) => {
     dispatch({ type: CREATE_NEW_WINDOW, payload: newWindow });
   };
 
-  // Set Active Window
+  // Set Active Window -- Not used
   const setActiveWindow = (id: string) => {
     dispatch({ type: SET_ACTIVE_WINDOW, payload: id });
   };

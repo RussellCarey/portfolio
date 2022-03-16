@@ -36,6 +36,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
         ? projects.map((image: any, ind: number) => {
             return (
               <Icon
+                key={image.data.name[0].text}
                 isProject={true}
                 data={image}
                 text={image.data.name[0].text}

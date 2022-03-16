@@ -33,6 +33,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
         ? projects.map((project: any, ind: number) => {
             return (
               <Icon
+                key={project.data.project_name[0].text}
                 isProject={true}
                 data={project}
                 text={project.data.project_name[0].text}
