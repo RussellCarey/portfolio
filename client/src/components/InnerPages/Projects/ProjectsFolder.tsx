@@ -30,7 +30,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
     <Container>
       {isLoading ? <Loading /> : null}
       {projects
-        ? projects.map((project: any) => {
+        ? projects.map((project: any, ind: number) => {
             return (
               <Icon
                 isProject={true}
@@ -38,7 +38,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
                 text={project.data.project_name[0].text}
                 pageName={EPageNames.project}
                 windowType={EWindowTypes.noSidebar}
-                aniDelay={0}
+                aniDelay={0.2 * ind}
                 isWeb={null}
                 selectedIcon={selectedIcon}
                 setSelectedIcon={setSelectedIcon}

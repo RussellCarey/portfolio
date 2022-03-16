@@ -50,7 +50,7 @@ export const PageContainer = styled.div`
   height: 100%;
 
   display: flex;
-  justify-content: ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 800 ? "center" : "none")};
+  justify-content: ${(props: IStyledWithDimensionsProps) => (props.dimensions.width < 500 ? "center" : "none")};
 `;
 
 export const BlogPostsContainer = styled.div`

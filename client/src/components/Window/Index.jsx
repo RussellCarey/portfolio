@@ -5,7 +5,7 @@ import WindowContext from "../../context/window/windowContext";
 // Util functions
 import { getMousePositionInDiv, isInsideTopBar, isInsideResize } from "./utils/utilFunctions";
 
-import { TopBar, MainWindow, CornerButton, WindowContainer, ResizeSVG } from "./styles/styled";
+import { TopBar, MainWindow, CornerButton, WindowContainer } from "./styles/styled";
 
 import AboutPage from "../InnerPages/About/Index";
 import BlogPage from "../InnerPages/Blog/Index";
@@ -143,7 +143,6 @@ export default function Window({ pageName, themeState, id, windowType, data, win
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
         {pageName === "threedee" ? <ImagesPage themeState={themeState} /> : null}
         {pageName === "image" ? <ImagePage themeState={themeState} data={data} /> : null}
-        {!isMobile ? <ResizeSVG themeState={themeState} /> : null}
       </MainWindow>
     </WindowContainer>
   );

@@ -33,7 +33,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
     <Container>
       {isLoading ? <Loading /> : null}
       {projects
-        ? projects.map((image: any) => {
+        ? projects.map((image: any, ind: number) => {
             return (
               <Icon
                 isProject={true}
@@ -41,7 +41,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
                 text={image.data.name[0].text}
                 pageName={EPageNames.image}
                 windowType={EWindowTypes.noSidebar}
-                aniDelay={0}
+                aniDelay={0.2 * ind}
                 isWeb={null}
                 selectedIcon={selectedIcon}
                 setSelectedIcon={setSelectedIcon}

@@ -62,7 +62,7 @@ export default function Home() {
 
             <Icon
               pageName={EPageNames.threedee}
-              text={"3D"}
+              text={"blender"}
               windowType={EWindowTypes.noSidebar}
               aniDelay={0.7}
               isProject={false}

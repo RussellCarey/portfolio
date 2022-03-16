@@ -4,8 +4,8 @@ import { theme } from "../../theme/Theme";
 
 const SpinnerBGContainer = styled.div`
   position: absolute;
-  right: ${theme.spacing.space.large};
-  bottom: ${theme.spacing.space.large};
+  right: ${theme.spacing.space.medium};
+  bottom: ${theme.spacing.space.medium};
 
   display: flex;
   justify-content: center;
