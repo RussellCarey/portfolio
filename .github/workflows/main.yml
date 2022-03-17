@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: pm2 delete portfolio_client
-      - run: pm2 delete portfolio_server
+      # - run: pm2 delete portfolio_client
+      # - run: pm2 delete portfolio_server
 
       - run: npm i
         working-directory: client
