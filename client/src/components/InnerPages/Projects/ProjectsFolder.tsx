@@ -47,6 +47,18 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
             );
           })
         : null}
+      <Icon
+        key={"github"}
+        isProject={true}
+        data={null}
+        text={"github"}
+        pageName={EPageNames.github}
+        windowType={EWindowTypes.noSidebar}
+        aniDelay={1.5}
+        isWeb={"https://github.com/RussellCarey"}
+        selectedIcon={selectedIcon}
+        setSelectedIcon={setSelectedIcon}
+      />
     </Container>
   );
 };
