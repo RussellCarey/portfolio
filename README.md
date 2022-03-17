@@ -2,7 +2,7 @@
 
 My portfolio.
 
-![alt text](https://github.com/RussellCarey/Tasky/raw/master/Design/gif1.gif)
+![alt text](https://github.com/RussellCarey/portfolio/blob/master/design/folio.gif?raw=true)
 
 ## Table of contents
 
