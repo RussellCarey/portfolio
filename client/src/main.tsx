@@ -1,6 +1,7 @@
 import { useContext, useState, useRef } from "react";
 import { AppContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
+import ReactGA from "react-ga";
 
 import ThemeContext from "./context/theme/themeContext";
 import WindowContext from "./context/window/windowContext";
@@ -16,6 +17,9 @@ import Icon from "./components/Icons/Index";
 import BottomBar from "./components/BottomBar/Index";
 import Window from "./components/Window/Index";
 import LoginPage from "./components/Login";
+
+const TRACKING_ID = "UA-175968470-1";
+ReactGA.initialize(TRACKING_ID);
 
 export default function Home() {
   const viewport = window.visualViewport;
