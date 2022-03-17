@@ -61,9 +61,8 @@ export const InputField = styled.input`
 `;
 
 export const HelpBox = styled(MainDivStyle)`
-  margin-top: 50px;
   position: absolute;
-  bottom: 10px;
+  bottom: ${theme.spacing.space.medium};
   opacity: 90%;
 
   width: max-content;
