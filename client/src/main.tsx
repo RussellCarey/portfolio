@@ -20,6 +20,7 @@ import LoginPage from "./components/Login";
 
 const TRACKING_ID = "UA-175968470-1";
 ReactGA.initialize(TRACKING_ID);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default function Home() {
   const viewport = window.visualViewport;
