@@ -66,10 +66,11 @@ export const HelpBox = styled(MainDivStyle)`
   bottom: 10px;
   opacity: 90%;
 
-  width: 50%;
+  width: max-content;
+  max-width: 50%;
   height: max-content;
   border-radius: 15px;
-  padding: ${theme.spacing.space.small};
+  padding: ${theme.spacing.space.small} ${theme.spacing.space.medium};
 
   display: flex;
   align-items: center;

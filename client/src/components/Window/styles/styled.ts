@@ -22,11 +22,6 @@ const windowHeight = (props: any) => {
   }
 };
 
-// width: ${(props: any) =>
-//   !isMobile ? (props.dimensions.width ? props.dimensions.width + "px" : "80vw") : "calc(100% - 15px)"};
-// height: ${(props: any) =>
-//   !isMobile ? (props.dimensions.height ? props.dimensions.height + "px" : "83vh") : "calc(100% - 20px)"};
-
 // Used element.attrs as when you put it inside style it doesnt computer each instance.
 // Was getting slow on moving too much.
 export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) => ({
@@ -34,7 +29,7 @@ export const WindowContainer = styled(motion.div).attrs((props: IStyledProps) =>
     display: "flex",
     flexDirection: "column",
     position: "absolute",
-
+    minWidth: `${isMobile ? "200px" : "500px"}`,
     borderRadius: theme.iconSize.borderRadius,
     backgroundColor: props.themeState.terminalColor,
     border: `${theme.sizing.borderThickness} solid ${props.themeState.borderColor}`,
