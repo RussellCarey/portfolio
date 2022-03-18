@@ -2,6 +2,8 @@ import prismicClient from "../../../utils/prismic";
 import { useContext, useState, useEffect } from "react";
 import ThemeContext from "../../../context/theme/themeContext";
 
+import { onPageView } from "../../../utils/googleAna";
+
 import { FunctionComponent } from "react";
 import { IAboutPageProps } from "./types/types";
 import { ProjectContainer } from "../Project/styles/styled";
@@ -26,6 +28,7 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ dimensions }) => {
   };
 
   useEffect(() => {
+    onPageView("about");
     loadAboutData();
   }, []);
 

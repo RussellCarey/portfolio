@@ -1,7 +1,9 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { AppContainer } from "./styles/styled";
 import { isMobile } from "react-device-detect";
-import ReactGA from "react-ga";
+
+// Google analytics
+import * as googleAna from "./utils/googleAna";
 
 import ThemeContext from "./context/theme/themeContext";
 import WindowContext from "./context/window/windowContext";
@@ -18,10 +20,6 @@ import BottomBar from "./components/BottomBar/Index";
 import Window from "./components/Window/Index";
 import LoginPage from "./components/Login";
 
-const TRACKING_ID = "UA-175968470-1";
-ReactGA.initialize(TRACKING_ID);
-ReactGA.pageview(window.location.pathname + window.location.search);
-
 export default function Home() {
   const viewport = window.visualViewport;
   const { theme } = useContext(ThemeContext);
@@ -32,6 +30,11 @@ export default function Home() {
 
   const canvasRef = useRef<any>();
   const [canDraw, setCanDraw] = useState<boolean>(false);
+
+  // Record page view to analytics
+  useEffect(() => {
+    googleAna.onHomePageView();
+  }, []);
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>
