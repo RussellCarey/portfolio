@@ -7,5 +7,5 @@ export const onHomePageView = () => {
 };
 
 export const onPageView = (pagename: string) => {
-  ReactGA.modalview(`/${pagename}`);
+  ReactGA.pageview(`/${pagename}`);
 };
