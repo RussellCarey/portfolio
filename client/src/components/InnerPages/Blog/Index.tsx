@@ -2,6 +2,8 @@ import { FunctionComponent, useContext, useEffect, useState } from "react";
 import ThemeContext from "../../../context/theme/themeContext";
 import { PageContainer } from "./styles/styled";
 
+import { onPageView } from "../../../utils/googleAna";
+
 import BlogPost from "./BlogPost";
 
 import { fetchBlogPosts } from "./services/fetchServices";
@@ -27,6 +29,7 @@ const BlogPage: FunctionComponent<IBlogPageProps> = ({ dimensions }) => {
   };
 
   useEffect(() => {
+    onPageView("blog");
     fetchLast30BlogPosts();
   }, []);
 

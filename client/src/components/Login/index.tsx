@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState, FunctionComponent, useRef } from "react";
+import { onPageView } from "../../utils/googleAna";
 import ThemeContext from "../../context/theme/themeContext";
 import { isMobile } from "react-device-detect";
 import {
@@ -47,6 +48,11 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     if (startDelay > 1000) setIsLoading(false);
   };
 
+  const onLoginClick = () => {
+    onPageView("login");
+    setIsLoggedIn(true);
+  };
+
   useEffect(() => {
     populateFieldTyping(nameRef, setNameState, "Russell Carey", 1000);
     populateFieldTyping(passwordRef, setPasswordState, "**********", 3000);
@@ -69,7 +75,7 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
       {isLoading ? (
         <LoginButton themeState={theme}>loading</LoginButton>
       ) : (
-        <AnimatedLogin themeState={theme} onClick={() => setIsLoggedIn(true)}>
+        <AnimatedLogin themeState={theme} onClick={onLoginClick}>
           login
         </AnimatedLogin>
       )}

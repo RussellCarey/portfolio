@@ -3,6 +3,8 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { Container } from "./styles/styled";
 import { IProjectsPageProps } from "./types/types";
 
+import { onPageView } from "../../../utils/googleAna";
+
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
 import Loading from "../../Spinners/Spinner";
@@ -23,6 +25,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
   };
 
   useEffect(() => {
+    onPageView("projects");
     getAndSetProjects();
   }, []);
 

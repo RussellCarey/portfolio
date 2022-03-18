@@ -1,7 +1,7 @@
 import prismicClient from "../../../utils/prismic";
 import { FunctionComponent, useEffect, useState } from "react";
 import { Container } from "../Projects/styles/styled";
-
+import { onPageView } from "../../../utils/googleAna";
 import { EPageNames, EWindowTypes } from "../../../interfaces/types";
 import Icon from "../../Icons/Index";
 import Loading from "../../Spinners/Spinner";
@@ -26,6 +26,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
   };
 
   useEffect(() => {
+    onPageView("3D");
     getAndSetProjects();
   }, []);
 
