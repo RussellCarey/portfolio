@@ -9,6 +9,7 @@ exports.getCurrentDrawing = async (req: Request, res: Response, next: NextFuncti
   });
 };
 
+//
 exports.uploadCurrentDrawing = async (req: Request, res: Response, next: NextFunction) => {
   const drawingString = req.body.drawing;
   const newDrawing = await pgPool.query("UPDATE drawings SET data=($1) WHERE id = 0", [drawingString]);
