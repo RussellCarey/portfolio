@@ -30,6 +30,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
     getAndSetProjects();
   }, []);
 
+  //
   return (
     <Container>
       {isLoading ? <Loading /> : null}
