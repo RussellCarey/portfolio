@@ -29,7 +29,6 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
     getAndSetProjects();
   }, []);
 
-  ////
   return (
     <Container>
       {isLoading ? <Loading /> : null}
