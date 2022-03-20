@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FunctionComponent, useContext } from "react";
 import { isMobile } from "react-device-detect";
-
+import { onPageView } from "../../utils/googleAna";
 import { IconContainer, IconText } from "./styles/styled";
 import IconSquare from "./IconSquare";
 import { IIconProps } from "./types/interfaces";
@@ -43,7 +43,14 @@ const IconMain: FunctionComponent<IIconProps> = ({
 
   // When double clicking on the icon
   const openNewWindowOrSite = () => {
+    if (isWeb) {
+      if (isWeb.includes("twitter")) onPageView("twitter");
+      if (isWeb.includes("linkedin")) onPageView("linkedin");
+      if (isWeb.includes("github")) onPageView("github");
+    }
+
     if (isWeb) return window.open(isWeb, "_blank");
+
     //pageName: string,// id: number,// windowType: string, // data: any,// isProject: boolean
     createNewWindow(pageName, windowType, data, false);
   };

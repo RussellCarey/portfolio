@@ -2,7 +2,7 @@ import { FunctionComponent, useContext, useState, useEffect } from "react";
 import ThemeContext from "../../context/theme/themeContext";
 import styled from "styled-components";
 import { ReactSketchCanvas } from "react-sketch-canvas";
-
+import { onPageView } from "../../utils/googleAna";
 import CanvasControls from "./CanvasControls";
 import { getDrawingData } from "./services/dbService";
 import PopupComp from "./Popup";
@@ -42,6 +42,7 @@ const Index: FunctionComponent<ICanvasProps> = ({ canvasRef, canDraw, setCanDraw
   };
 
   useEffect(() => {
+    onPageView("canvas");
     getInitialDrawing();
   }, []);
 
