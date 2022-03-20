@@ -14,6 +14,7 @@ import {
   ThreeDeeSVG,
 } from "./styles/styled";
 
+//
 const IconSquareMain: FunctionComponent<IIconSquareProps> = ({ name, label, themeState, isProject }) => {
   return !isProject ? (
     <IconSquare themeState={themeState}>
