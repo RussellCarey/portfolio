@@ -72,6 +72,7 @@ export const CornerButton = styled.div`
 
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
+  color: ${(props: IStyledProps) => props.themeState.textColor};
 
   box-shadow: 2px 2px 0 ${(props) => props.themeState.borderColor};
 
