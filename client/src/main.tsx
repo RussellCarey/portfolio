@@ -23,13 +23,19 @@ import LoginPage from "./components/Login";
 export default function Home() {
   const viewport = window.visualViewport;
   const { theme } = useContext(ThemeContext);
-  const { windowState } = useContext(WindowContext);
+  const { windowState, popLastWindow } = useContext(WindowContext);
 
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
 
   const canvasRef = useRef<any>();
   const [canDraw, setCanDraw] = useState<boolean>(false);
+
+  // Change back button functionality..
+  // const changeBackButton = () => {
+  //   if (windowState.windows.length > 0) return popLastWindow();
+  //   if (windowState.windows.length === 0) return window.history.back();
+  // };
 
   // Record page view to analytics
   useEffect(() => {

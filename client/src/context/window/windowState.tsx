@@ -1,4 +1,4 @@
-import { SET_ACTIVE_WINDOW, CREATE_NEW_WINDOW, DESTROY_ACTIVE_WINDOW, MINIMIZE_ACTIVE_WINDOW } from "./types";
+import { SET_ACTIVE_WINDOW, CREATE_NEW_WINDOW, DESTROY_ACTIVE_WINDOW, POP_WINDOW } from "./types";
 import { v4 as uuidv4 } from "uuid";
 
 import { useReducer } from "react";
@@ -42,6 +42,10 @@ const WindowState = (props: IWindowPropsState) => {
     dispatch({ type: DESTROY_ACTIVE_WINDOW, payload: filteredList });
   };
 
+  const popLastWindow = () => {
+    dispatch({ type: POP_WINDOW });
+  };
+
   return (
     <WindowContext.Provider
       value={{
@@ -49,6 +53,7 @@ const WindowState = (props: IWindowPropsState) => {
         createNewWindow,
         setActiveWindow,
         deleteActiveWindow,
+        popLastWindow,
       }}
     >
       {props.children}

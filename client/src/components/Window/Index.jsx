@@ -134,7 +134,10 @@ export default function Window({ pageName, themeState, id, windowType, data, win
       animate={{ scale: [1, 1.01, 1.01, 1.01, 1] }}
       transition={{ duration: 0.2, delay: 0.1 }}
     >
-      <CornerButton themeState={themeState} onClick={() => deleteActiveWindow(id)} />
+      <CornerButton themeState={themeState} onClick={() => deleteActiveWindow(id)}>
+        X
+      </CornerButton>
+
       <TopBar themeState={themeState} />
       <MainWindow themeState={themeState}>
         {pageName === "about" ? <AboutPage themeState={themeState} dimensions={dimensions} /> : null}

@@ -66,6 +66,10 @@ export const CornerButton = styled.div`
   left: 10px;
   border-radius: 50%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: ${(props: IStyledProps) => props.themeState.terminalColor};
   border: ${theme.sizing.borderThickness} solid ${(props) => props.themeState.borderColor};
 
