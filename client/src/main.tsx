@@ -43,7 +43,7 @@ export default function Home() {
       ) : (
         <>
           <DesktopContainer>
-            {!isMobile ? <Canvas canvasRef={canvasRef} canDraw={canDraw} setCanDraw={setCanDraw} /> : null}
+            {/* {!isMobile ? <Canvas canvasRef={canvasRef} canDraw={canDraw} setCanDraw={setCanDraw} /> : null} */}
             <Icon
               pageName={EPageNames.about}
               text={EPageNames.about}

@@ -29,11 +29,11 @@ const StartMenu: FunctionComponent<IStartMenuProps> = ({ themeState }) => {
 
   return (
     <StartMenuContainer themeState={themeState}>
-      {!isMobile ? (
+      {/* {!isMobile ? (
         <StartMenuButton onClick={() => setDrawingText("the wallpaper, not me :|")} themeState={themeState}>
           {drawingText}
         </StartMenuButton>
-      ) : null}
+      ) : null} */}
 
       <StartMenuButton onClick={selectAndChangeRandomColor} themeState={themeState}>
         feeling colorful?
