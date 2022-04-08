@@ -45,7 +45,7 @@ const FirstPage: FunctionComponent<IFirstProps> = ({ dimensions }) => {
       <SubTitle>{aboutData.data.project_name[0].text}</SubTitle>
 
       {aboutData.data.description.map((p: any) => {
-        return <Text>{p.text}</Text>;
+        return <Text key={p.text}>{p.text}</Text>;
       })}
     </MessageContainer>
   ) : null;

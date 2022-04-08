@@ -10,7 +10,11 @@ const Description: FunctionComponent<IDescriptionProps> = ({ data, themeState })
       <PaleText>description</PaleText>
       <DescriptionText themeState={themeState}>
         {data.data.description.map((p: any) => {
-          return <DescriptionText themeState={themeState}>{p.text}</DescriptionText>;
+          return (
+            <DescriptionText key={p.text} themeState={themeState}>
+              {p.text}
+            </DescriptionText>
+          );
         })}
       </DescriptionText>
     </DescriptionContainer>
