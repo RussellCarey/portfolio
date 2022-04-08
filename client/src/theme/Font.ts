@@ -15,7 +15,7 @@ export const font = {
     h3: "1.953rem",
     h4: "1.563rem",
     h5: "1.25rem",
-    text: "1rem",
+    text: "1.3rem",
     xSmall: "0.8rem",
   },
   letterspacing: {
@@ -24,7 +24,7 @@ export const font = {
     h3: "",
     h4: "",
     h5: "",
-    text: "",
+    text: "1.2rem",
     xSmall: "",
   },
 };
