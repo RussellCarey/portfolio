@@ -13,6 +13,7 @@ import ProjectPage from "../InnerPages/Project/Index";
 import ProjectsPage from "../InnerPages/Projects/ProjectsFolder";
 import ImagesPage from "../InnerPages/3d/Index";
 import ImagePage from "../InnerPages/3dImage/Index";
+import FirstPage from "../InnerPages/FirstWindow/index";
 
 // Component only refreshes on mouse goes to topbar or resize / or on resize / ovement
 export default function Window({ pageName, themeState, id, windowType, data, windowList }) {
@@ -33,7 +34,11 @@ export default function Window({ pageName, themeState, id, windowType, data, win
 
   useEffect(() => {
     // Get window size on startup - this is for resizing
-    setDimensions({ width: container.current.clientWidth, height: container.current.clientHeight });
+    if (pageName === "first") {
+      setDimensions({ width: container.current.clientWidth / 1.2, height: "600px" });
+    } else {
+      setDimensions({ width: container.current.clientWidth, height: container.current.clientHeight });
+    }
   }, [container]);
 
   // Check if mouse is in the movement zone
@@ -146,6 +151,7 @@ export default function Window({ pageName, themeState, id, windowType, data, win
         {pageName === "projects" ? <ProjectsPage themeState={themeState} /> : null}
         {pageName === "threedee" ? <ImagesPage themeState={themeState} /> : null}
         {pageName === "image" ? <ImagePage themeState={themeState} data={data} /> : null}
+        {pageName === "first" ? <FirstPage themeState={themeState} dimensions={dimensions} /> : null}
       </MainWindow>
     </WindowContainer>
   );

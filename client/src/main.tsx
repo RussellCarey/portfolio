@@ -23,7 +23,7 @@ import LoginPage from "./components/Login";
 export default function Home() {
   const viewport = window.visualViewport;
   const { theme } = useContext(ThemeContext);
-  const { windowState, popLastWindow } = useContext(WindowContext);
+  const { windowState, createNewWindow } = useContext(WindowContext);
 
   const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
@@ -41,6 +41,16 @@ export default function Home() {
   useEffect(() => {
     googleAna.onHomePageView();
   }, []);
+
+  // So many bad practices up in here!
+  useEffect(() => {
+    if (loggedIn) {
+      setTimeout(() => {
+        // (pageName: string, windowType: string, data: any, isProject: boolean)
+        createNewWindow("first", "", null, false);
+      }, 3000);
+    }
+  }, [loggedIn]);
 
   return (
     <AppContainer themeState={theme} mobileHeight={viewport.height} isMobile={isMobile}>

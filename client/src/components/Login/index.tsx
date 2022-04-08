@@ -37,7 +37,7 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     const textArray = text.split("");
 
     for (const letter of textArray) {
-      const typingDelayTime = Math.random() * 200;
+      const typingDelayTime = Math.random() * 100;
 
       await delayTime(typingDelayTime, () => {
         ref.current = ref.current + letter;
@@ -45,7 +45,13 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
       });
     }
 
-    if (startDelay > 1000) setIsLoading(false);
+    if (startDelay > 800) {
+      setIsLoading(false);
+      setTimeout(() => {
+        onPageView("login");
+        setIsLoggedIn(true);
+      }, 3000);
+    }
   };
 
   const onLoginClick = () => {
@@ -54,8 +60,8 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
   };
 
   useEffect(() => {
-    populateFieldTyping(nameRef, setNameState, "Russell Carey", 1000);
-    populateFieldTyping(passwordRef, setPasswordState, "**********", 3000);
+    populateFieldTyping(nameRef, setNameState, "Russell Carey", 300);
+    populateFieldTyping(passwordRef, setPasswordState, "**********", 1000);
   }, []);
 
   return (
@@ -79,12 +85,6 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
           login
         </AnimatedLogin>
       )}
-
-      {!isMobile ? (
-        <HelpBox themeState={theme}>
-          Note: Windows can be moved from the top bar and resized from the bottom right.
-        </HelpBox>
-      ) : null}
     </PageContainer>
   );
 };
