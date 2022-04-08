@@ -24,6 +24,7 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ dimensions }) => {
       setIsLoading(false);
     } catch (error: any) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
