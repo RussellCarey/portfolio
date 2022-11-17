@@ -39,7 +39,7 @@ export default function Home() {
 
   // Record page view to analytics
   useEffect(() => {
-    googleAna.onHomePageView();
+    // googleAna.onHomePageView();
   }, []);
 
   // So many bad practices up in here!

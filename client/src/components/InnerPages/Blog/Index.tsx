@@ -29,7 +29,7 @@ const BlogPage: FunctionComponent<IBlogPageProps> = ({ dimensions }) => {
   };
 
   useEffect(() => {
-    onPageView("blog");
+    // onPageView("blog");
     fetchLast30BlogPosts();
   }, []);
 

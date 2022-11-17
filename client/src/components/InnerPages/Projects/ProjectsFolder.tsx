@@ -25,7 +25,7 @@ const ProjectsPage: FunctionComponent<IProjectsPageProps> = ({ data }) => {
   };
 
   useEffect(() => {
-    onPageView("projects");
+    // onPageView("projects");
     getAndSetProjects();
   }, []);
 

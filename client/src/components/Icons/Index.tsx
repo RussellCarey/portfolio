@@ -31,9 +31,9 @@ const IconMain: FunctionComponent<IIconProps> = ({
   // ON one click - change the color of the text background
   const onClickHandler = (e: React.MouseEvent) => {
     if (isWeb) {
-      if (isWeb.includes("twitter")) onPageView("twitter");
-      if (isWeb.includes("linkedin")) onPageView("linkedin");
-      if (isWeb.includes("github")) onPageView("github");
+      // if (isWeb.includes("twitter")) onPageView("twitter");
+      // if (isWeb.includes("linkedin")) onPageView("linkedin");
+      // if (isWeb.includes("github")) onPageView("github");
     }
 
     if (isWeb) return window.open(isWeb, "_blank");

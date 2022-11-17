@@ -42,7 +42,7 @@ const Index: FunctionComponent<ICanvasProps> = ({ canvasRef, canDraw, setCanDraw
   };
 
   useEffect(() => {
-    onPageView("canvas");
+    // onPageView("canvas");
     getInitialDrawing();
   }, []);
 

@@ -26,7 +26,7 @@ const ImagesPage: FunctionComponent<IPropsImagePage> = ({ data }) => {
   };
 
   useEffect(() => {
-    onPageView("3D");
+    // onPageView("3D");
     getAndSetProjects();
   }, []);
 

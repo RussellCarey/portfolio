@@ -29,7 +29,7 @@ const ProjectPage: FunctionComponent<IAboutPageProps> = ({ dimensions }) => {
   };
 
   useEffect(() => {
-    onPageView("about");
+    // onPageView("about");
     loadAboutData();
   }, []);
 

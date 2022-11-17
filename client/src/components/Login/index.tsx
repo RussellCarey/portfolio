@@ -48,7 +48,7 @@ const LoginPage: FunctionComponent<ILoginPage> = ({ setIsLoggedIn }) => {
     if (startDelay > 800) {
       setIsLoading(false);
       setTimeout(() => {
-        onPageView("login");
+        // onPageView("login");
         setIsLoggedIn(true);
       }, 3000);
     }

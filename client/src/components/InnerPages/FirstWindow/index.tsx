@@ -36,7 +36,7 @@ const FirstPage: FunctionComponent<IFirstProps> = ({ dimensions }) => {
   };
 
   useEffect(() => {
-    onPageView("about");
+    // onPageView("about");
     loadAboutData();
   }, []);
 
