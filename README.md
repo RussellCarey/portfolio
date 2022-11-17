@@ -1,6 +1,6 @@
-# Portfolio - https://russell-carey.com
+# Old Portfolio website - https://folio.russell-carey.com
 
-My portfolio.
+The design for my old portfolio. It was updated to a simpler, easy to nativate website. 
 
 ![alt text](https://github.com/RussellCarey/portfolio/blob/master/design/folio.gif?raw=true)
 
@@ -35,10 +35,6 @@ Users can:
 - View my projects and information.
 - Experience a computer themed portfolio.
 - Add a doodle to the hidden drawing feature.
-
-## Status
-
-Project is: FINISHED.
 
 ## Features for future development
 
