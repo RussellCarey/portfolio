@@ -113,7 +113,7 @@ export default function Home() {
               text={EPageNames.contact}
               windowType={EWindowTypes.sidebar}
               aniDelay={1.3}
-              isWeb={"mailto: russell_carey@hotmail.co.uk"}
+              isWeb={"mailto: rw_carey@hotmail.com"}
               isProject={false}
               selectedIcon={selectedIcon}
               setSelectedIcon={setSelectedIcon}
